@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+
+{% block title %}Multimedia Showcase - Lyceum{% endblock %}
+
+{% block body_class %}multimedia-demo-page{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="section-container">
+        <h1>Multimedia Experience</h1>
+        <p class="subtitle">Experience Lyceum through interactive visualizations, audio narrations, and knowledge graphs</p>
+    </div>
+</div>
+
+<div class="section-container">
+    <section class="content-section">
+        <h2>Interactive Audio Experience</h2>
+        <p class="lead-paragraph">
+            Lyceum's philosophy comes to life through our unique voice narrations. Select different voices to experience our content in the way that resonates most with you.
+        </p>
+
+        <div class="audio-players-showcase">
+            <div class="audio-player">
+                <div class="audio-player-header">
+                    <button class="play-button">
+                        <span class="play-icon">▶</span>
+                        <span class="play-text">Play Introduction</span>
+                    </button>
+                    <select class="voice-selector">
+                        <option value="alloy">Alloy (Balanced)</option>
+                        <option value="echo">Echo (Crisp)</option>
+                        <option value="fable">Fable (Warm)</option>
+                    </select>
+                </div>
+                <div class="audio-visualization">
+                    <!-- Visualization will be dynamically generated -->
+                </div>
+                <div class="audio-playback-info">
+                    <span class="current-voice">Voice: Alloy</span>
+                    <span class="playback-time">00:00 / 02:45</span>
+                </div>
+                <audio id="intro-audio" src="/static/audio/lyceum_introduction_alloy_latest.mp3"></audio>
+            </div>
+
+            <div class="audio-player">
+                <div class="audio-player-header">
+                    <button class="play-button">
+                        <span class="play-icon">▶</span>
+                        <span class="play-text">Play Vision</span>
+                    </button>
+                    <select class="voice-selector">
+                        <option value="nova">Nova (Authoritative)</option>
+                    </select>
+                </div>
+                <div class="audio-visualization">
+                    <!-- Visualization will be dynamically generated -->
+                </div>
+                <div class="audio-playback-info">
+                    <span class="current-voice">Voice: Nova</span>
+                    <span class="playback-time">00:00 / 03:15</span>
+                </div>
+                <audio id="vision-audio" src="/static/audio/lyceum_vision_nova_latest.mp3"></audio>
+            </div>
+        </div>
+
+        <div class="audio-players-showcase">
+            <div class="audio-player">
+                <div class="audio-player-header">
+                    <button class="play-button">
+                        <span class="play-icon">▶</span>
+                        <span class="play-text">Play Technical</span>
+                    </button>
+                    <select class="voice-selector">
+                        <option value="echo">Echo (Crisp)</option>
+                        <option value="fable">Fable (Warm)</option>
+                    </select>
+                </div>
+                <div class="audio-visualization">
+                    <!-- Visualization will be dynamically generated -->
+                </div>
+                <div class="audio-playback-info">
+                    <span class="current-voice">Voice: Echo</span>
+                    <span class="playback-time">00:00 / 02:30</span>
+                </div>
+                <audio id="technical-audio" src="/static/audio/lyceum_technical_echo_latest.mp3"></audio>
+            </div>
+
+            <div class="audio-player">
+                <div class="audio-player-header">
+                    <button class="play-button">
+                        <span class="play-icon">▶</span>
+                        <span class="play-text">Play Contact</span>
+                    </button>
+                    <select class="voice-selector">
+                        <option value="shimmer">Shimmer (Friendly)</option>
+                    </select>
+                </div>
+                <div class="audio-visualization">
+                    <!-- Visualization will be dynamically generated -->
+                </div>
+                <div class="audio-playback-info">
+                    <span class="current-voice">Voice: Shimmer</span>
+                    <span class="playback-time">00:00 / 01:45</span>
+                </div>
+                <audio id="contact-audio" src="/static/audio/lyceum_contact_shimmer_latest.mp3"></audio>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Knowledge Visualization</h2>
+        <p class="lead-paragraph">
+            Lyceum represents complex knowledge structures through interactive visualizations. Explore the connections between concepts and see how knowledge builds upon itself.
+        </p>
+
+        <div class="technical-visualization" id="knowledge-graph">
+            <h3>Interactive Knowledge Graph</h3>
+            <p>Explore how concepts interconnect in our knowledge base. Click and drag nodes to interact with the visualization.</p>
+            <!-- Knowledge graph will be dynamically loaded here -->
+            <div class="visualization-container" style="height: 500px; background-color: rgba(10, 25, 48, 0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                <img src="/static/images/lyceum_vision_latest.png" alt="Knowledge Graph" style="max-height: 90%; max-width: 90%; border-radius: 8px;">
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Image Showcase</h2>
+        <p class="lead-paragraph">
+            Visual learning is enhanced through our carefully crafted imagery. Each image is designed to complement textual information and provide additional context.
+        </p>
+
+        <div class="image-showcase">
+            <div class="showcase-item">
+                <img src="/static/images/lyceum_vision_latest.png" alt="Lyceum Vision" class="page-image">
+                <p class="image-caption">Lyceum's vision for the future of education</p>
+            </div>
+            <div class="showcase-item">
+                <img src="/static/images/lyceum_logo_20250305214107_0.png" alt="Lyceum Logo" class="page-image">
+                <p class="image-caption">The Lyceum logo represents our commitment to knowledge and wisdom</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Architecture Diagrams</h2>
+        <p class="lead-paragraph">
+            Understanding complex systems requires clear visualization. Our architecture diagrams provide insights into Lyceum's technical underpinnings.
+        </p>
+
+        <div class="highlight-box">
+            <h3>Technical Infrastructure</h3>
+            <p>The Lyceum platform consists of several interconnected components working together to create a seamless educational experience.</p>
+        </div>
+
+        <div class="mermaid-diagram">
+            <pre class="mermaid">
+graph TB
+    Client(User Interface) --> API(API Gateway)
+    API --> Auth(Authentication)
+    API --> Content(Content Engine)
+    API --> Knowledge(Knowledge Graph)
+    Content --> Templates(Template System)
+    Content --> Generator(Content Generator)
+    Knowledge --> Neo4j(Neo4j Database)
+    Knowledge --> Qdrant(Qdrant Vector Store)
+    Generator --> LLM(Language Models)
+    LLM --> Audio(Audio Generation)
+    LLM --> Images(Image Generation)
+            </pre>
+        </div>
+    </section>
+</div>
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Mermaid diagrams
+    mermaid.initialize({ startOnLoad: true });
+    
+    // Setup audio players
+    const players = document.querySelectorAll('.audio-player');
+    
+    players.forEach(player => {
+        const playButton = player.querySelector('.play-button');
+        const audio = player.querySelector('audio');
+        const visualization = player.querySelector('.audio-visualization');
+        const voiceSelector = player.querySelector('.voice-selector');
+        const currentVoiceSpan = player.querySelector('.current-voice');
+        const playbackTimeSpan = player.querySelector('.playback-time');
+        
+        if (playButton && audio) {
+            // Create visualization bars
+            for (let i = 0; i < 30; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'wave-bar';
+                bar.style.height = Math.floor(Math.random() * 30 + 5) + 'px';
+                visualization.appendChild(bar);
+            }
+            
+            // Play/pause functionality
+            playButton.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                    playButton.querySelector('.play-icon').textContent = '⏸';
+                    playButton.querySelector('.play-text').textContent = 'Pause';
+                    visualization.classList.add('active');
+                    
+                    // Animate wave bars
+                    animateWaveBars(visualization);
+                } else {
+                    audio.pause();
+                    playButton.querySelector('.play-icon').textContent = '▶';
+                    playButton.querySelector('.play-text').textContent = 'Play';
+                    visualization.classList.remove('active');
+                }
+            });
+            
+            // Update playback time
+            audio.addEventListener('timeupdate', function() {
+                const currentTime = formatTime(audio.currentTime);
+                const duration = formatTime(audio.duration || 0);
+                playbackTimeSpan.textContent = `${currentTime} / ${duration}`;
+            });
+            
+            // Voice selector functionality
+            if (voiceSelector) {
+                voiceSelector.addEventListener('change', function() {
+                    const selectedVoice = this.value;
+                    const audioId = audio.id;
+                    const baseAudioId = audioId.split('-')[0]; // Get 'intro', 'vision', etc.
+                    
+                    // Update audio source based on selected voice
+                    audio.src = `/static/audio/lyceum_${baseAudioId}_${selectedVoice}_latest.mp3`;
+                    
+                    // Update displayed voice
+                    currentVoiceSpan.textContent = `Voice: ${selectedVoice.charAt(0).toUpperCase() + selectedVoice.slice(1)}`;
+                    
+                    // Reset playback
+                    playButton.querySelector('.play-icon').textContent = '▶';
+                    playButton.querySelector('.play-text').textContent = 'Play';
+                    visualization.classList.remove('active');
+                    
+                    // Load the new audio
+                    audio.load();
+                });
+            }
+        }
+    });
+    
+    // Format time for audio player
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+    
+    // Animate wave bars
+    function animateWaveBars(visualization) {
+        if (!visualization.classList.contains('active')) return;
+        
+        const bars = visualization.querySelectorAll('.wave-bar');
+        bars.forEach(bar => {
+            const height = Math.floor(Math.random() * 40 + 5);
+            bar.style.height = height + 'px';
+        });
+        
+        setTimeout(() => animateWaveBars(visualization), 100);
+    }
+});
+</script>
+{% endblock %}
+
+{% endblock %}

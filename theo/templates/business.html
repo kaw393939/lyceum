@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}Business Strategy - Lyceum's Market Approach{% endblock %}
+
+{% block body_class %}business-page{% endblock %}
+
+{% block content %}
+<section class="business-section">
+    <div class="section-container">
+        <div class="page-header">
+            <h1>Business Strategy</h1>
+            <p class="subtitle">Transforming the Educational Technology Landscape</p>
+        </div>
+        
+        <div class="multimedia-content">
+            <img src="/static/images/lyceum_vision_latest.png" alt="Lyceum Business Strategy" class="page-image" id="business-hero-image">
+            <div class="image-caption">Market positioning and growth strategy visualization</div>
+        </div>
+        
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="business-intro">
+                    <p class="lead-paragraph">Lyceum represents a transformative approach to educational technology, targeting institutions and organizations seeking to modernize their learning systems with philosophical depth and technological sophistication.</p>
+                    
+                    <div class="audio-player" id="business-player" data-section="business">
+                        <div class="audio-player-header">
+                            <button class="play-button">
+                                <span class="play-icon">▶</span>
+                                <span class="button-text">Listen to Business Overview</span>
+                            </button>
+                            <select class="voice-selector">
+                                <option value="nova">Nova (Default)</option>
+                                <option value="alloy">Alloy</option>
+                                <option value="echo">Echo</option>
+                                <option value="fable">Fable</option>
+                            </select>
+                        </div>
+                        <div class="audio-visualization"></div>
+                        <audio preload="none" style="display:none;">
+                            <source src="/static/audio/lyceum_business_nova_latest.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-playback-info">
+                            <span class="current-voice">Nova voice</span>
+                            <span class="playback-time"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="business-main">
+                    <h2>Market Opportunity</h2>
+                    
+                    <div class="highlight-box">
+                        <h3>Growth Potential</h3>
+                        <p>The educational technology market is projected to reach $404 billion by 2025, with AI-powered solutions leading growth. Lyceum is positioned to capture significant market share through its differentiated approach combining philosophical depth with technological innovation.</p>
+                    </div>
+                    
+                    <div class="business-grid">
+                        <div class="business-card">
+                            <div class="business-card-header">
+                                <div class="business-icon">🎯</div>
+                                <h3>Target Markets</h3>
+                            </div>
+                            <p>Primary focus on higher education institutions, corporate training departments, and online learning platforms.</p>
+                        </div>
+                        
+                        <div class="business-card">
+                            <div class="business-card-header">
+                                <div class="business-icon">💰</div>
+                                <h3>Revenue Model</h3>
+                            </div>
+                            <p>SaaS subscription with tiered access levels based on user count, content volume, and customization needs.</p>
+                        </div>
+                    </div>
+                    
+                    <h2>Competitive Advantages</h2>
+                    
+                    <div class="two-column">
+                        <div>
+                            <h3>Philosophical Foundation</h3>
+                            <p>While most edtech focuses solely on content delivery or basic adaptive learning, Lyceum's grounding in philosophical educational models creates deeper, more transformative learning experiences.</p>
+                        </div>
+                        
+                        <div>
+                            <h3>Knowledge Graph Intelligence</h3>
+                            <p>Our proprietary knowledge mapping capabilities create richer conceptual connections than traditional learning systems, enabling more flexible and personalized learning journeys.</p>
+                        </div>
+                    </div>
+                    
+                    <h2>Growth Strategy</h2>
+                    <p>Our approach to market expansion follows a three-phase strategy:</p>
+                    
+                    <div class="strategy-timeline">
+                        <div class="strategy-phase">
+                            <h3>Phase 1: Foundation</h3>
+                            <p>Target partnerships with innovative universities and corporate training departments to refine our product and establish case studies.</p>
+                            <ul class="strategy-points">
+                                <li>Establish 5-10 flagship implementations</li>
+                                <li>Gather comprehensive user feedback</li>
+                                <li>Refine core technology and UX</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="strategy-phase">
+                            <h3>Phase 2: Expansion</h3>
+                            <p>Broaden our customer base while developing specialized modules for different educational contexts.</p>
+                            <ul class="strategy-points">
+                                <li>Expand sales and marketing efforts</li>
+                                <li>Develop domain-specific knowledge graphs</li>
+                                <li>Add enterprise integration capabilities</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="strategy-phase">
+                            <h3>Phase 3: Ecosystem</h3>
+                            <p>Create an open platform where third-party developers can extend Lyceum with specialized modules and integrations.</p>
+                            <ul class="strategy-points">
+                                <li>Launch developer API program</li>
+                                <li>Establish marketplace for extensions</li>
+                                <li>Foster educational technology community</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="sidebar-section market-sizing">
+                    <h3>Market Size</h3>
+                    <div class="market-stat">
+                        <span class="market-value">$404B</span>
+                        <span class="market-label">Global EdTech by 2025</span>
+                    </div>
+                    <div class="market-stat">
+                        <span class="market-value">22.7%</span>
+                        <span class="market-label">CAGR for AI in Education</span>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Pricing Model</h3>
+                    <p>Tiered subscription model with premium features for enterprise clients and volume discounts for educational institutions.</p>
+                    
+                    <div class="pricing-tiers">
+                        <div class="pricing-tier">
+                            <h4>Starter</h4>
+                            <p>For smaller departments and pilot programs</p>
+                            <div class="tier-price">$5K <span class="price-period">/ month</span></div>
+                        </div>
+                        
+                        <div class="pricing-tier">
+                            <h4>Professional</h4>
+                            <p>For mid-sized organizations</p>
+                            <div class="tier-price">$15K <span class="price-period">/ month</span></div>
+                        </div>
+                        
+                        <div class="pricing-tier">
+                            <h4>Enterprise</h4>
+                            <p>For large institutions with custom needs</p>
+                            <div class="tier-price">Custom</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("Business page initialized");
+});
+</script>
+{% endblock %}
