@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}Lyceum - Educational Platform Inspired by Ancient Learning{% endblock %}
+
+{% block body_class %}home-page{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-heading">
+                    <img src="/static/images/lyceum_logo_20250305214107_0.png" alt="Lyceum" class="logo" style="width: 50px; height: 50px; margin-right: 15px;">
+                    <h1 class="hero-title">Lyceum</h1>
+                </div>
+                <p class="hero-subtitle">Where ancient wisdom meets modern intelligence</p>
+                <p class="hero-description">
+                    Lyceum reimagines education for the digital age by blending the philosophical depth 
+                    of ancient learning centers with cutting-edge AI technology. Our adaptive platform 
+                    creates personalized learning journeys that evolve with each student.
+                </p>
+                
+                <div class="audio-player" id="introduction-player" data-section="introduction">
+                    <div class="audio-player-header">
+                        <button class="play-button">
+                            <span class="play-icon">▶</span>
+                            <span class="button-text">Listen to Introduction</span>
+                        </button>
+                        <select class="voice-selector">
+                            <option value="alloy">Alloy</option>
+                            <option value="nova">Nova</option>
+                            <option value="echo">Echo</option>
+                            <option value="fable">Fable</option>
+                        </select>
+                    </div>
+                    <div class="audio-visualization"></div>
+                    <audio>
+                        <source src="/static/audio/lyceum_introduction_alloy_20250306051146.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="audio-playback-info">
+                        <span class="current-voice">Alloy voice</span>
+                        <span class="playback-time">0:00 / 0:00</span>
+                    </div>
+                </div>
+                
+                <div class="hero-cta" style="margin-top: 30px;">
+                    <a href="/vision" class="primary-button">Explore Our Vision</a>
+                    <a href="/multimedia" class="secondary-button">Experience Multimedia</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-container">
+                <div class="concept-visualization" id="hero-visualization">
+                    <!-- D3 visualization will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="section-container">
+        <h2 class="section-title">Core Components</h2>
+        <p class="lead-paragraph text-center">
+            Lyceum combines several sophisticated systems that work together to create
+            a unique educational experience centered around the learner.
+        </p>
+        
+        <div class="component-grid">
+            <div class="component-card" data-aos="fade-up">
+                <div class="component-icon">🧠</div>
+                <h3>Knowledge Graph</h3>
+                <p>Maps concepts and their relationships in a comprehensive network that adapts to each learner's progress and interests.</p>
+            </div>
+            
+            <div class="component-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="component-icon">💬</div>
+                <h3>Dialogue System</h3>
+                <p>Facilitates Socratic discussions that challenge assumptions and build critical thinking through natural conversation.</p>
+            </div>
+            
+            <div class="component-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="component-icon">📚</div>
+                <h3>Content Engine</h3>
+                <p>Generates and curates educational materials that adapt to different learning styles and knowledge levels.</p>
+            </div>
+            
+            <div class="component-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="component-icon">👤</div>
+                <h3>Mentor Service</h3>
+                <p>Provides personalized guidance and support throughout the learning journey with AI-powered mentorship.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="methods">
+    <div class="section-container">
+        <h2 class="section-title">Educational Methodology</h2>
+        <p class="lead-paragraph text-center">
+            Our approach draws from time-tested educational philosophies while leveraging 
+            modern artificial intelligence to enhance and personalize the learning experience.
+        </p>
+        
+        <div class="method-grid">
+            <div class="method-card" data-aos="fade-up">
+                <div class="method-icon">🔄</div>
+                <h3>Dialectic Learning</h3>
+                <p>Following Socrates' method, we facilitate knowledge discovery through structured dialogue that builds critical thinking skills.</p>
+            </div>
+            
+            <div class="method-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="method-icon">🧩</div>
+                <h3>Connected Knowledge</h3>
+                <p>Rather than isolated facts, we present knowledge as an interconnected web, helping learners understand relationships between concepts.</p>
+            </div>
+            
+            <div class="method-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="method-icon">🧭</div>
+                <h3>Guided Discovery</h3>
+                <p>We balance freedom to explore with guidance from mentors, providing just enough structure to ensure deep understanding.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="call-to-action">
+    <div class="section-container">
+        <div class="cta-content" data-aos="fade-up">
+            <h2>Join the Educational Revolution</h2>
+            <p>Experience a new paradigm in learning that combines ancient wisdom with modern AI technology.</p>
+            <div class="cta-buttons">
+                <a href="/contact" class="primary-button">Contact Us</a>
+                <a href="/team" class="ghost-button">Meet Our Team</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("Home page initialized");
+    
+    // Initialize visualizations if available
+    if (typeof visualizer !== 'undefined') {
+        visualizer.renderHomeVisualization();
+        
+        // Re-render visualization when window is resized
+        window.addEventListener('resize', debounce(function() {
+            visualizer.renderHomeVisualization();
+        }, 250));
+    }
+    
+    // Debounce function to limit function calls
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+});
+</script>
+{% endblock %}

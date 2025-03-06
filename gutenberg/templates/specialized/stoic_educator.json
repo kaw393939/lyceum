@@ -1,0 +1,563 @@
+{
+  "template_id": "stoic_educator",
+  "name": "Stoic Educator Template",
+  "description": "Template for creating educational content with strong Stoic philosophical principles for practicing educators",
+  "template_type": "lesson",
+  "version": "1.0",
+  "target": "educator",
+  "sections": [
+    {
+      "id": "educator_guidance",
+      "title": "Educator Guidance",
+      "section_type": "guidance",
+      "order": 1,
+      "prompts": [
+        {
+          "id": "teaching_philosophy",
+          "prompt_text": "Create guidance for educators teaching [concept_name] to [age_range] students at [difficulty] level. Explain how Stoic principles can be incorporated into teaching this concept. Address the educator directly, providing practical advice on classroom application.",
+          "system_message": "You are an expert in both educational theory and Stoic philosophy, advising educators on how to effectively teach while incorporating Stoic principles.",
+          "temperature": 0.7,
+          "max_tokens": 1500,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "teachingPhilosophy": "string",
+            "stoicPrinciples": [
+              {
+                "principle": "string",
+                "application": "string"
+              }
+            ],
+            "classroomImplementation": "string",
+            "potentialChallenges": "string",
+            "adaptationNotes": "string"
+          }
+        }
+      ],
+      "stoic_elements": ["virtue", "wisdom", "dichotomy_of_control"]
+    },
+    {
+      "id": "learning_objectives",
+      "title": "Learning Objectives",
+      "section_type": "guidance",
+      "order": 2,
+      "prompts": [
+        {
+          "id": "objectives_with_stoic_elements",
+          "prompt_text": "Create 5-7 learning objectives for teaching [concept_name] to [age_range] students at [difficulty] level that incorporate Stoic principles. For each, explain how it connects to Stoic philosophy and why it matters. Structure these as 'By the end of this lesson, students will be able to...'",
+          "system_message": "You are an instructional designer with expertise in both educational objective design and Stoic philosophy.",
+          "temperature": 0.5,
+          "max_tokens": 1200,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "objectives": [
+              {
+                "objective": "string",
+                "stoicConnection": "string",
+                "importance": "string"
+              }
+            ]
+          }
+        }
+      ],
+      "stoic_elements": ["wisdom", "reflection"]
+    },
+    {
+      "id": "lesson_plan",
+      "title": "Lesson Plan",
+      "section_type": "sequence",
+      "order": 3,
+      "prompts": [
+        {
+          "id": "lesson_structure",
+          "prompt_text": "Create a comprehensive lesson plan for teaching [concept_name] to [age_range] students at [difficulty] level. Structure it with engagement, explanation, exploration, elaboration, and evaluation phases. Include time estimates for each activity. Throughout, highlight how Stoic principles are incorporated.",
+          "system_message": "You are an experienced curriculum designer specializing in creating lesson plans that balance effective teaching with philosophical development.",
+          "temperature": 0.6,
+          "max_tokens": 2000,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "lessonOverview": "string",
+            "requiredMaterials": ["string"],
+            "lessonPhases": [
+              {
+                "phase": "string",
+                "timeEstimate": "string",
+                "activities": ["string"],
+                "stoicElements": ["string"],
+                "teacherNotes": "string"
+              }
+            ],
+            "differentiationStrategies": "string",
+            "assessmentApproach": "string"
+          }
+        }
+      ],
+      "stoic_elements": ["justice", "temperance", "courage"]
+    },
+    {
+      "id": "key_content",
+      "title": "Key Content",
+      "section_type": "explanation",
+      "order": 4,
+      "prompts": [
+        {
+          "id": "concept_explanation_for_educators",
+          "prompt_text": "Provide a comprehensive explanation of [concept_name] as a resource for educators teaching [age_range] students at [difficulty] level. Include common misconceptions, technical details, historical context, and current understanding. This should be more detailed than what would be presented to students directly.",
+          "system_message": "You are an expert in educational content who specializes in creating thorough explanations for educators to enhance their subject knowledge.",
+          "temperature": 0.4,
+          "max_tokens": 2500,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "coreConcepts": ["string"],
+            "detailedExplanation": "string",
+            "commonMisconceptions": ["string"],
+            "historicalContext": "string",
+            "currentUnderstanding": "string",
+            "keyTerminology": [
+              {
+                "term": "string",
+                "definition": "string",
+                "importance": "string"
+              }
+            ]
+          }
+        }
+      ],
+      "media_specs": [
+        {
+          "id": "key_diagram",
+          "media_type": "diagram",
+          "prompt": "Create a comprehensive diagram of [concept_name] suitable for educators teaching [age_range] students. The diagram should be more detailed than what would be presented to students directly, showing relationships between components and processes.",
+          "style": "Educational, detailed diagram with clear labels",
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            }
+          ]
+        }
+      ],
+      "stoic_elements": ["wisdom"]
+    },
+    {
+      "id": "discussion_prompts",
+      "title": "Discussion Prompts",
+      "section_type": "engagement",
+      "order": 5,
+      "prompts": [
+        {
+          "id": "socratic_questions",
+          "prompt_text": "Create 8-10 thought-provoking, Socratic discussion questions about [concept_name] for [age_range] students at [difficulty] level. For each question, provide the Stoic principle it connects to and guidance for facilitating discussion. Include questions that explore ethics, values, and real-world implications.",
+          "system_message": "You are an expert in Socratic questioning and Stoic philosophy, creating discussion prompts that develop critical thinking and philosophical understanding.",
+          "temperature": 0.7,
+          "max_tokens": 1800,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "discussionPrompts": [
+              {
+                "question": "string",
+                "stoicPrinciple": "string",
+                "facilitationGuidance": "string",
+                "possibleResponses": ["string"]
+              }
+            ],
+            "discussionGoals": "string",
+            "discussionStructure": "string"
+          }
+        }
+      ],
+      "stoic_elements": ["wisdom", "justice", "dialogue"]
+    },
+    {
+      "id": "activities",
+      "title": "Activities and Exercises",
+      "section_type": "practice",
+      "order": 6,
+      "prompts": [
+        {
+          "id": "classroom_activities",
+          "prompt_text": "Design 3-5 classroom activities for [age_range] students learning about [concept_name] at [difficulty] level. Each activity should reinforce subject knowledge while incorporating a Stoic principle. Include group activities, individual reflection, and application exercises.",
+          "system_message": "You are an innovative educational designer creating engaging activities that balance academic learning with philosophical development.",
+          "temperature": 0.7,
+          "max_tokens": 2000,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "activities": [
+              {
+                "title": "string",
+                "type": "string",
+                "duration": "string",
+                "materials": ["string"],
+                "stoicPrinciple": "string",
+                "instructions": "string",
+                "assessmentStrategy": "string"
+              }
+            ]
+          }
+        }
+      ],
+      "stoic_elements": ["practice", "reflection", "community"]
+    },
+    {
+      "id": "assessment_tools",
+      "title": "Assessment Tools",
+      "section_type": "assessment",
+      "order": 7,
+      "prompts": [
+        {
+          "id": "assessments",
+          "prompt_text": "Create a variety of assessment tools for evaluating [age_range] students' understanding of [concept_name] at [difficulty] level. Include formative and summative assessments, and incorporate Stoic reflection components where appropriate.",
+          "system_message": "You are an assessment specialist who creates effective evaluation tools that measure both content knowledge and philosophical development.",
+          "temperature": 0.6,
+          "max_tokens": 2000,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "formativeAssessments": [
+              {
+                "type": "string",
+                "description": "string",
+                "questions": ["string"],
+                "scoringGuidance": "string"
+              }
+            ],
+            "summativeAssessment": {
+              "format": "string",
+              "sections": [
+                {
+                  "section": "string",
+                  "questions": ["string"],
+                  "points": "number"
+                }
+              ],
+              "rubric": "string"
+            },
+            "stoicReflectionAssessment": {
+              "promptQuestions": ["string"],
+              "evaluationGuidance": "string"
+            }
+          }
+        }
+      ],
+      "stoic_elements": ["wisdom", "reflection", "justice"]
+    },
+    {
+      "id": "educator_reflection",
+      "title": "Educator Reflection",
+      "section_type": "reflection",
+      "order": 8,
+      "prompts": [
+        {
+          "id": "teaching_reflection",
+          "prompt_text": "Create reflection prompts for educators after teaching [concept_name] to [age_range] students. Include questions about the educational effectiveness, student engagement, philosophical components, and how the educator might improve in future iterations.",
+          "system_message": "You are an expert in reflective teaching practice and Stoic philosophy, guiding educators to thoughtfully evaluate and improve their teaching.",
+          "temperature": 0.7,
+          "max_tokens": 1500,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            }
+          ],
+          "output_format": {
+            "preparationReflection": ["string"],
+            "implementationReflection": ["string"],
+            "studentResponseReflection": ["string"],
+            "stoicPrincipleReflection": ["string"],
+            "improvementReflection": ["string"],
+            "personalGrowthReflection": ["string"]
+          }
+        }
+      ],
+      "stoic_elements": ["wisdom", "reflection", "self-improvement"]
+    },
+    {
+      "id": "additional_resources",
+      "title": "Additional Resources",
+      "section_type": "resources",
+      "order": 9,
+      "prompts": [
+        {
+          "id": "resource_list",
+          "prompt_text": "Compile a list of high-quality resources for educators teaching [concept_name] to [age_range] students. Include academic sources, teaching materials, Stoic philosophy connections, and recommended readings for both teachers and students.",
+          "system_message": "You are an educational librarian specializing in curating resources that blend subject-matter expertise with philosophical development.",
+          "temperature": 0.6,
+          "max_tokens": 1500,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            }
+          ],
+          "output_format": {
+            "academicResources": [
+              {
+                "title": "string",
+                "type": "string",
+                "description": "string",
+                "accessInfo": "string"
+              }
+            ],
+            "teachingMaterials": [
+              {
+                "title": "string",
+                "type": "string",
+                "description": "string",
+                "accessInfo": "string"
+              }
+            ],
+            "stoicConnections": [
+              {
+                "title": "string",
+                "type": "string",
+                "description": "string",
+                "accessInfo": "string"
+              }
+            ],
+            "studentResources": [
+              {
+                "title": "string",
+                "type": "string",
+                "description": "string",
+                "accessInfo": "string"
+              }
+            ]
+          }
+        }
+      ],
+      "stoic_elements": ["wisdom", "community"]
+    }
+  ],
+  "global_placeholders": [
+    {
+      "name": "concept_name",
+      "description": "Name of the concept being taught",
+      "required": true,
+      "default_value": null,
+      "example": "Photosynthesis"
+    },
+    {
+      "name": "age_range",
+      "description": "Target age range for the content",
+      "required": true,
+      "default_value": "14-18",
+      "example": "11-13"
+    },
+    {
+      "name": "difficulty",
+      "description": "Difficulty level of the content",
+      "required": true,
+      "default_value": "intermediate",
+      "example": "beginner"
+    }
+  ],
+  "stoic_elements": [
+    "wisdom", 
+    "justice", 
+    "courage", 
+    "temperance", 
+    "virtue", 
+    "dichotomy_of_control",
+    "reflection",
+    "dialogue",
+    "practice",
+    "community",
+    "self-improvement"
+  ],
+  "metadata": {
+    "created_by": "Gutenberg System",
+    "last_modified": "2024-03-05T08:30:00Z",
+    "purpose": "For professional educators integrating Stoic principles into subject teaching",
+    "recommended_subjects": [
+      "science", 
+      "mathematics", 
+      "history", 
+      "literature", 
+      "social studies", 
+      "arts", 
+      "physical education"
+    ]
+  }
+}

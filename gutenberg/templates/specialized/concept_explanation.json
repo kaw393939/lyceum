@@ -1,0 +1,67 @@
+{
+  "template_id": "default_concept",
+  "name": "Default Concept Explanation Template",
+  "description": "Template for generating concept explanations with Stoic principles",
+  "template_type": "concept_explanation",
+  "version": "1.0",
+  "sections": [
+    {
+      "id": "definition",
+      "name": "Definition",
+      "content": "# {{concept.name}}\n\n{{concept.description}}\n\nThis explanation is tailored for {{age_range}} learners at a {{difficulty}} level.",
+      "is_required": true
+    },
+    {
+      "id": "key_components",
+      "name": "Key Components",
+      "content": "## Key Components\n\nThe concept of {{concept.name}} consists of several important components:\n\n{{#if concept.metadata.components}}\n{{#each concept.metadata.components}}\n- **{{this.name}}**: {{this.description}}\n{{/each}}\n{{else}}\n- Component 1\n- Component 2\n- Component 3\n{{/if}}",
+      "is_required": true
+    },
+    {
+      "id": "relationships",
+      "name": "Relationships to Other Concepts",
+      "content": "## Relationships to Other Concepts\n\n{{#if related_concepts.length}}\n{{concept.name}} is connected to several other important concepts:\n\n{{#each related_concepts}}\n- **{{name}}**: {{relationship.description}}\n{{/each}}\n{{else}}\n{{concept.name}} relates to several other concepts in this knowledge domain, forming a network of interrelated ideas.\n{{/if}}",
+      "is_required": false
+    },
+    {
+      "id": "examples",
+      "name": "Examples",
+      "content": "## Examples\n\nTo illustrate {{concept.name}}, consider these examples:\n\n{{#if concept.metadata.examples}}\n{{#each concept.metadata.examples}}\n### Example {{@index}}\n{{this}}\n{{/each}}\n{{else}}\n### Example 1\nA clear example that demonstrates {{concept.name}} in action.\n\n### Example 2\nAn alternative example showing {{concept.name}} in a different context.\n{{/if}}",
+      "is_required": true
+    },
+    {
+      "id": "stoic_reflection",
+      "name": "Stoic Reflection",
+      "content": "## Stoic Reflection\n\nFrom a Stoic perspective, understanding {{concept.name}} offers an opportunity for reflection on:\n\n- How this knowledge contributes to our wisdom and understanding of the world\n- The things within our control and outside our control related to this concept\n- How this understanding might guide virtuous action",
+      "is_required": true
+    },
+    {
+      "id": "summary",
+      "name": "Summary",
+      "content": "## Summary\n\n{{concept.name}} is a {{concept.difficulty}} level concept that encompasses {{concept.description}}. Understanding this concept provides valuable insights and capabilities in this domain.",
+      "is_required": true
+    }
+  ],
+  "variables": [
+    {
+      "name": "concept",
+      "description": "The concept being explained",
+      "required": true
+    },
+    {
+      "name": "difficulty",
+      "description": "Difficulty level of the explanation",
+      "required": true
+    },
+    {
+      "name": "age_range",
+      "description": "Target age range for the explanation",
+      "required": true
+    },
+    {
+      "name": "related_concepts",
+      "description": "List of related concepts",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,407 @@
+{
+  "timestamp": "2025-03-04T01:14:50.421058",
+  "test_duration_seconds": 16.127384,
+  "summary": {
+    "total_tests": 25,
+    "pass": 18,
+    "fail": 4,
+    "warnings": 0,
+    "info": 3,
+    "success_rate": 81.81818181818183
+  },
+  "issues": [
+    {
+      "test": "Vector Storage",
+      "message": "Failed to store vector embedding"
+    },
+    {
+      "test": "Vector Store Operations",
+      "message": "Error during vector store operations: VectorStore.search() got an unexpected keyword argument 'limit'"
+    },
+    {
+      "test": "Template Engine Operations",
+      "message": "Error during template engine operations: 'dict' object has no attribute 'name'"
+    },
+    {
+      "test": "Content Generator Operations",
+      "message": "Error during content generation: Default template not found for ContentType.LESSON"
+    }
+  ],
+  "warnings": [],
+  "recommendations": [
+    "Check vector store write permissions",
+    "Check vector store configuration and API access",
+    "Check template engine implementation and template format",
+    "Check content generator implementation and dependencies",
+    "Address the most common error: 'Error storing embedding: <_InactiveRpcError of ...' (occurred 1 times)",
+    "Review 4 potential security issues in the logs",
+    "Consider adding more detailed contextual information to error logs",
+    "Implement structured logging for better analysis capabilities",
+    "Add logging for key business metrics to track system health",
+    "Create dashboards for real-time monitoring of critical operations"
+  ],
+  "test_results": [
+    {
+      "section": "System Connection Tests",
+      "timestamp": "2025-03-04T01:14:34.299476"
+    },
+    {
+      "test": "MongoDB Connection",
+      "result": "\u2705 PASS",
+      "message": "Connected to MongoDB",
+      "timestamp": "2025-03-04T01:14:34.299729",
+      "recommendation": "Check MongoDB configuration and ensure the service is running"
+    },
+    {
+      "test": "Vector Store Connection",
+      "result": "\u2705 PASS",
+      "message": "Connected to vector store",
+      "timestamp": "2025-03-04T01:14:34.970567",
+      "recommendation": "Check vector store configuration and ensure the service is running"
+    },
+    {
+      "test": "LLM Service Connection",
+      "result": "\u2705 PASS",
+      "message": "Connected to LLM service",
+      "timestamp": "2025-03-04T01:14:36.763006",
+      "recommendation": "Check LLM service API keys and configuration"
+    },
+    {
+      "section": "Ptolemy Client Tests",
+      "timestamp": "2025-03-04T01:14:36.764273"
+    },
+    {
+      "test": "Get Concept",
+      "result": "\u2705 PASS",
+      "message": "Retrieved concept: stoicism",
+      "timestamp": "2025-03-04T01:14:36.864845",
+      "recommendation": "Check Ptolemy connection and ensure concept exists"
+    },
+    {
+      "test": "Concept Data Structure",
+      "result": "\u2705 PASS",
+      "message": "Concept has valid structure",
+      "timestamp": "2025-03-04T01:14:36.864900",
+      "recommendation": "Review Ptolemy concept schema"
+    },
+    {
+      "test": "Get Concept Relationships",
+      "result": "\u2705 PASS",
+      "message": "Retrieved 5 relationships",
+      "timestamp": "2025-03-04T01:14:36.965366",
+      "recommendation": "Check Ptolemy relationship data"
+    },
+    {
+      "test": "Get Concept Graph",
+      "result": "\u2705 PASS",
+      "message": "Retrieved graph with 6 nodes and 5 edges",
+      "timestamp": "2025-03-04T01:14:37.266123",
+      "recommendation": "Check Ptolemy graph functionality"
+    },
+    {
+      "test": "Get Learning Path",
+      "result": "\u2705 PASS",
+      "message": "Retrieved learning path: stoicism_intro",
+      "timestamp": "2025-03-04T01:14:37.366433",
+      "recommendation": "Check Ptolemy learning path data"
+    },
+    {
+      "section": "MongoDB Service Tests",
+      "timestamp": "2025-03-04T01:14:37.366498"
+    },
+    {
+      "test": "Create Content",
+      "result": "\u2705 PASS",
+      "message": "Created content with ID: test_dcae0696-833d-4c48-a051-1fc29266d0b1",
+      "timestamp": "2025-03-04T01:14:37.366873",
+      "recommendation": "Check MongoDB write permissions"
+    },
+    {
+      "test": "Retrieve Content",
+      "result": "\u2705 PASS",
+      "message": "Retrieved content matches original",
+      "timestamp": "2025-03-04T01:14:37.366917",
+      "recommendation": "Check MongoDB read consistency"
+    },
+    {
+      "test": "Update Content",
+      "result": "\u2705 PASS",
+      "message": "Updated content successfully",
+      "timestamp": "2025-03-04T01:14:37.366982",
+      "recommendation": "Check MongoDB update functionality"
+    },
+    {
+      "test": "Delete Content",
+      "result": "\u2139\ufe0f INFO",
+      "message": "Deleted content successfully",
+      "timestamp": "2025-03-04T01:14:37.367022",
+      "recommendation": null
+    },
+    {
+      "test": "Create Template",
+      "result": "\u2705 PASS",
+      "message": "Created template with ID: test_template_72f0cff1-d243-4bb8-bad3-1a673a1ae68b",
+      "timestamp": "2025-03-04T01:14:37.367098",
+      "recommendation": "Check MongoDB template collection configuration"
+    },
+    {
+      "test": "Retrieve Template",
+      "result": "\u2705 PASS",
+      "message": "Retrieved template matches original",
+      "timestamp": "2025-03-04T01:14:37.367144",
+      "recommendation": "Check MongoDB template retrieval functionality"
+    },
+    {
+      "test": "List Templates",
+      "result": "\u2139\ufe0f INFO",
+      "message": "Listed 2 templates",
+      "timestamp": "2025-03-04T01:14:37.367190",
+      "recommendation": null
+    },
+    {
+      "section": "LLM Service Tests",
+      "timestamp": "2025-03-04T01:14:37.367296"
+    },
+    {
+      "test": "LLM Text Generation",
+      "result": "\u2705 PASS",
+      "message": "Generated content of length 724",
+      "timestamp": "2025-03-04T01:14:39.385768",
+      "recommendation": "Check LLM service API key and rate limits"
+    },
+    {
+      "test": "LLM Content Relevance",
+      "result": "\u2705 PASS",
+      "message": "Generated content is relevant to the prompt",
+      "timestamp": "2025-03-04T01:14:39.385821",
+      "recommendation": null
+    },
+    {
+      "section": "Vector Store Tests",
+      "timestamp": "2025-03-04T01:14:39.385856"
+    },
+    {
+      "test": "Vector Embedding Generation",
+      "result": "\u2705 PASS",
+      "message": "Generated embedding of dimension 1536",
+      "timestamp": "2025-03-04T01:14:44.089563",
+      "recommendation": "Check vector store and embedding model configuration"
+    },
+    {
+      "test": "Vector Storage",
+      "result": "\u274c FAIL",
+      "message": "Failed to store vector embedding",
+      "timestamp": "2025-03-04T01:14:44.094204",
+      "recommendation": "Check vector store write permissions"
+    },
+    {
+      "test": "Vector Store Operations",
+      "result": "\u274c FAIL",
+      "message": "Error during vector store operations: VectorStore.search() got an unexpected keyword argument 'limit'",
+      "timestamp": "2025-03-04T01:14:44.094240",
+      "recommendation": "Check vector store configuration and API access"
+    },
+    {
+      "section": "Template Engine Tests",
+      "timestamp": "2025-03-04T01:14:44.094266"
+    },
+    {
+      "test": "Template Engine Operations",
+      "result": "\u274c FAIL",
+      "message": "Error during template engine operations: 'dict' object has no attribute 'name'",
+      "timestamp": "2025-03-04T01:14:44.094571",
+      "recommendation": "Check template engine implementation and template format"
+    },
+    {
+      "section": "RAG Processor Tests",
+      "timestamp": "2025-03-04T01:14:44.094611"
+    },
+    {
+      "test": "RAG Query Processing",
+      "result": "\u2705 PASS",
+      "message": "Processed RAG query with 1361 characters of response",
+      "timestamp": "2025-03-04T01:14:50.309773",
+      "recommendation": "Check RAG processor, LLM service, and vector store configuration"
+    },
+    {
+      "test": "RAG Retrieval",
+      "result": "\u2705 PASS",
+      "message": "RAG retrieved 1 results",
+      "timestamp": "2025-03-04T01:14:50.309802",
+      "recommendation": null
+    },
+    {
+      "test": "RAG Citations",
+      "result": "\u2139\ufe0f INFO",
+      "message": "RAG generated 1 citations",
+      "timestamp": "2025-03-04T01:14:50.309823",
+      "recommendation": null
+    },
+    {
+      "section": "Content Generator Tests",
+      "timestamp": "2025-03-04T01:14:50.310951"
+    },
+    {
+      "test": "Content Generator Operations",
+      "result": "\u274c FAIL",
+      "message": "Error during content generation: Default template not found for ContentType.LESSON",
+      "timestamp": "2025-03-04T01:14:50.420342",
+      "recommendation": "Check content generator implementation and dependencies"
+    }
+  ],
+  "test_data": {
+    "generated_content_ids": [
+      "test_dcae0696-833d-4c48-a051-1fc29266d0b1"
+    ],
+    "template_ids": [
+      "test_template_72f0cff1-d243-4bb8-bad3-1a673a1ae68b"
+    ],
+    "request_ids": []
+  },
+  "log_analysis": {
+    "analysis_time": "2025-03-04T01:14:50.426235",
+    "log_file": "gutenberg_tests.log",
+    "period_start": "2025-03-04T01:14:34.293678",
+    "error_summary": {
+      "total_errors": 7,
+      "unique_error_types": 7,
+      "most_common_errors": [
+        {
+          "type": "Error storing embedding: <_InactiveRpcError of ...",
+          "count": 1,
+          "examples": [
+            {
+              "timestamp": "2025-03-04 01:14:44.094000",
+              "message": "Error storing embedding: <_InactiveRpcError of RPC that terminated with:",
+              "request_id": "444b76fb-dca0-485a-bb9e-c282829b91d4"
+            }
+          ]
+        },
+        {
+          "type": "Vector Storage: Failed to store vector embedding",
+          "count": 1,
+          "examples": [
+            {
+              "timestamp": "2025-03-04 01:14:44.094000",
+              "message": "Vector Storage: Failed to store vector embedding",
+              "request_id": "07a4b242-4abb-4fd5-8460-9255557ae2a8"
+            }
+          ]
+        },
+        {
+          "type": "Vector Store Operations: Error during vector st...",
+          "count": 1,
+          "examples": [
+            {
+              "timestamp": "2025-03-04 01:14:44.094000",
+              "message": "Vector Store Operations: Error during vector store operations: VectorStore.search() got an unexpected keyword argument 'limit'",
+              "request_id": "07a4b242-4abb-4fd5-8460-9255557ae2a8"
+            }
+          ]
+        },
+        {
+          "type": "Template Engine Operations: Error during templa...",
+          "count": 1,
+          "examples": [
+            {
+              "timestamp": "2025-03-04 01:14:44.094000",
+              "message": "Template Engine Operations: Error during template engine operations: 'dict' object has no attribute 'name'",
+              "request_id": "07a4b242-4abb-4fd5-8460-9255557ae2a8"
+            }
+          ]
+        },
+        {
+          "type": "Error retrieving from vector store: VectorStore",
+          "count": 1,
+          "examples": [
+            {
+              "timestamp": "2025-03-04 01:14:44.156000",
+              "message": "Error retrieving from vector store: VectorStore.search() got an unexpected keyword argument 'limit'",
+              "request_id": "abc906cf-5a2c-475c-9153-3527a6935970"
+            }
+          ]
+        },
+        {
+          "type": "Error generating content: Default template not ...",
+          "count": 1,
+          "examples": [
+            {
+              "timestamp": "2025-03-04 01:14:50.419000",
+              "message": "Error generating content: Default template not found for ContentType.LESSON",
+              "request_id": "aeb5441a-d065-42c9-9d92-13bf0548c5cf"
+            }
+          ]
+        },
+        {
+          "type": "Content Generator Operations: Error during cont...",
+          "count": 1,
+          "examples": [
+            {
+              "timestamp": "2025-03-04 01:14:50.420000",
+              "message": "Content Generator Operations: Error during content generation: Default template not found for ContentType.LESSON",
+              "request_id": "07a4b242-4abb-4fd5-8460-9255557ae2a8"
+            }
+          ]
+        }
+      ],
+      "error_rate": {
+        "errors_per_hour": 5485415.759686547,
+        "errors_per_minute": 91423.5959947758
+      }
+    },
+    "performance_summary": {
+      "slow_operations_count": 0,
+      "slowest_operations": [],
+      "slow_operation_details": []
+    },
+    "api_summary": {
+      "total_api_calls": 0,
+      "unique_endpoints": 0,
+      "most_used_endpoints": [],
+      "highest_error_rates": []
+    },
+    "security_summary": {
+      "total_security_issues": 4,
+      "issues_by_type": [
+        {
+          "type": "Possible token in logs",
+          "count": 4
+        }
+      ],
+      "recent_issues": [
+        {
+          "timestamp": "2025-03-04 01:14:50.302000",
+          "type": "Possible token in logs",
+          "message": "receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 04 Mar 2025 06:14:50 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-oyeuf4kxkyfwyovtf3qf4qyd'), (b'openai-processing-ms', b'5595'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'10000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'9998866'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'6ms'), (b'x-request-id', b'req_05e394df42733da333953426b7042dcd'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=2Xufn0st6oXzmuytuqA.DI_Bnz29qYZ2yhWZvF0dY9E-1741068890-1.0.1.1-cwxAYTddUFoTtVN7DVNCxhnfZwHeyeNfpjIPd5kiOLxeN246hQhA_mIteZ9pP3u3f7JxmM8MKln6GEcTs9H0ZLKBF86wEESCER89qiq32_4; path=/; expires=Tue, 04-Mar-25 06:44:50 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=UBdZaqVGlY2HsIOvMOWvILAl8zWtG0hlWZb0r39W4kY-1741068890306-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'91af3c310ef9124c-ORD'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=\":443\"; ma=86400')])",
+          "request_id": "4c6ee4b3-4574-47a2-b3f9-cc750a7a9d95"
+        },
+        {
+          "timestamp": "2025-03-04 01:14:44.087000",
+          "type": "Possible token in logs",
+          "message": "receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 04 Mar 2025 06:14:44 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-model', b'text-embedding-3-small'), (b'openai-organization', b'user-oyeuf4kxkyfwyovtf3qf4qyd'), (b'openai-processing-ms', b'4140'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'via', b'envoy-router-7d9948c8c9-sl98w'), (b'x-envoy-upstream-service-time', b'4105'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'5000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'4999962'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_5414f92f629748ee4223974ef4ab8531'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=mp9Nb2tCStKgsLz8FiS5gJ2zsZjQaD59AA51tFOrfzQ-1741068884-1.0.1.1-kj.M5Eyj7KUvayWd4oyAkdFh9UwKUoDELQBT0XOA_H2J571rdrOAACLCILDQWfF1w4ONU.rA4QHjctLup0OVSN9gaWm4glf2Q4uxq6JdcN8; path=/; expires=Tue, 04-Mar-25 06:44:44 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=DqyBVHEhHmBCkeMmE2VgxryBb2gL9XjWwFQ13LCLarA-1741068884082-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'91af3c1168d1eb03-ORD'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=\":443\"; ma=86400')])",
+          "request_id": "4c6ee4b3-4574-47a2-b3f9-cc750a7a9d95"
+        },
+        {
+          "timestamp": "2025-03-04 01:14:39.378000",
+          "type": "Possible token in logs",
+          "message": "receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 04 Mar 2025 06:14:39 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-oyeuf4kxkyfwyovtf3qf4qyd'), (b'openai-processing-ms', b'1542'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'10000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'9998970'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'6ms'), (b'x-request-id', b'req_52d93aabe2c0da676bf4d84e52a6345b'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=dgj4KRxnN_kQx3YVlbLd8TQ.TqTDXpJt0iRjZEAoi6I-1741068879-1.0.1.1-LuiXZUSMPh3_rAgvgnZR6iTmSw99bru4yucNqlvJ_gamhba1AEm8bn.O03XtbE3fJKHmytWgQy63qtMZqh9stl0yByhCUh5BALO.tYQMQI4; path=/; expires=Tue, 04-Mar-25 06:44:39 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=sfzj3kGwhJWY5_x1SL4uy8U._sXrd5ME4.vAa9RHNo8-1741068879372-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'91af3c048b6722c8-ORD'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=\":443\"; ma=86400')])",
+          "request_id": "4c6ee4b3-4574-47a2-b3f9-cc750a7a9d95"
+        },
+        {
+          "timestamp": "2025-03-04 01:14:37.367000",
+          "type": "Possible token in logs",
+          "message": "Generating content: Explain the concept of Stoicism in one paragraph.... (temp=0.7, max_tokens=1000)",
+          "request_id": "3d56b628-d3b1-439e-8089-c6c45e153c7f"
+        }
+      ]
+    },
+    "recommendations": [
+      "Address the most common error: 'Error storing embedding: <_InactiveRpcError of ...' (occurred 1 times)",
+      "Review 4 potential security issues in the logs",
+      "Consider adding more detailed contextual information to error logs",
+      "Implement structured logging for better analysis capabilities",
+      "Add logging for key business metrics to track system health",
+      "Create dashboards for real-time monitoring of critical operations"
+    ]
+  }
+}

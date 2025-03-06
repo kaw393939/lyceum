@@ -1,0 +1,60 @@
+{
+  "timestamp": "2025-03-04T05:38:58.824284",
+  "test_duration_seconds": 21.039641,
+  "summary": {
+    "total_tests": 3,
+    "pass": 2,
+    "fail": 1,
+    "warnings": 0,
+    "info": 0,
+    "success_rate": 66.66666666666666
+  },
+  "issues": [
+    {
+      "test": "Vector Store Connection",
+      "message": "Failed to connect to vector store"
+    }
+  ],
+  "warnings": [],
+  "recommendations": [
+    "Check vector store configuration and ensure the service is running"
+  ],
+  "test_results": [
+    {
+      "section": "System Connection Tests",
+      "timestamp": "2025-03-04T05:38:37.790525"
+    },
+    {
+      "test": "MongoDB Connection",
+      "result": "\u2705 PASS",
+      "message": "Connected to MongoDB",
+      "timestamp": "2025-03-04T05:38:37.790734",
+      "recommendation": "Check MongoDB configuration and ensure the service is running"
+    },
+    {
+      "test": "Vector Store Connection",
+      "result": "\u274c FAIL",
+      "message": "Failed to connect to vector store",
+      "timestamp": "2025-03-04T05:38:58.057635",
+      "recommendation": "Check vector store configuration and ensure the service is running"
+    },
+    {
+      "test": "LLM Service Connection",
+      "result": "\u2705 PASS",
+      "message": "Connected to LLM service",
+      "timestamp": "2025-03-04T05:38:58.721575",
+      "recommendation": "Check LLM service API keys and configuration"
+    },
+    {
+      "section": "Ptolemy Client Tests",
+      "timestamp": "2025-03-04T05:38:58.722571"
+    }
+  ],
+  "test_data": {
+    "generated_content_ids": [],
+    "template_ids": [],
+    "request_ids": []
+  },
+  "error": "name 'time' is not defined",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/kwilliams/projects/goliath/gutenberg/gutenberg.py\", line 103, in run_all_tests\n    await self.test_ptolemy_client()\n  File \"/home/kwilliams/projects/goliath/gutenberg/gutenberg.py\", line 200, in test_ptolemy_client\n    concept = await ptolemy.get_concept(concept_id)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/kwilliams/projects/goliath/gutenberg/integrations/ptolemy_client.py\", line 594, in get_concept\n    self._add_to_cache(cache_key, result)\n  File \"/home/kwilliams/projects/goliath/gutenberg/integrations/ptolemy_client.py\", line 546, in _add_to_cache\n    'timestamp': time.time(),\n                 ^^^^\nNameError: name 'time' is not defined. Did you forget to import 'time'\n"
+}

@@ -1,0 +1,34 @@
+# Integration Test Database Configuration
+
+mongodb:
+  uri: "mongodb://admin:password@localhost:27017"
+  databases:
+    - name: "ptolemy"
+      collections:
+        - "concepts"
+        - "relationships"
+    - name: "gutenberg"
+      collections:
+        - "templates"
+        - "content"
+
+neo4j:
+  uri: "bolt://localhost:7687"
+  user: "neo4j"
+  password: "password"
+  labels:
+    - "Concept"
+    - "Topic"
+    - "Skill"
+  relationships:
+    - "PREREQUISITE"
+    - "RELATED"
+    - "PART_OF"
+
+qdrant:
+  url: "http://localhost:6333"
+  collections:
+    - name: "goliath_vectors"
+      vector_size: 1536
+    - name: "test_vectors"
+      vector_size: 768

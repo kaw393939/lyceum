@@ -1,0 +1,51 @@
+# Test Scenarios Configuration
+
+scenarios:
+  basic_concept_retrieval:
+    description: "Tests basic concept retrieval from Ptolemy to Gutenberg"
+    steps:
+      - name: "Generate test concepts"
+        action: "generate_concepts"
+        params:
+          count: 10
+          populate: true
+      - name: "Request concept from Gutenberg"
+        action: "request"
+        params:
+          service: "gutenberg"
+          endpoint: "/api/content/generate"
+          method: "POST"
+          body: {"concept_id": "concept_1", "format": "lesson"}
+      - name: "Verify database state"
+        action: "verify_db"
+        params:
+          verifications:
+            - type: "mongodb"
+              database: "gutenberg"
+              collection: "content"
+              query: {"concept_id": "concept_1"}
+              expected_count: 1
+  
+  error_resilience:
+    description: "Tests Gutenberg resilience to Ptolemy service failures"
+    steps:
+      - name: "Start Ptolemy simulator with high error rate"
+        action: "start_simulator"
+        params:
+          service: "ptolemy"
+          port: 8001
+          error_rate: 0.7
+          delay_ms: 200
+      - name: "Request content generation from Gutenberg"
+        action: "request"
+        params:
+          service: "gutenberg"
+          endpoint: "/api/content/generate"
+          method: "POST"
+          body: {"concept_id": "resilience_test", "format": "lesson"}
+          expect_success: false
+      - name: "Verify error logging"
+        action: "verify_logs"
+        params:
+          service: "gutenberg"
+          should_contain: ["Connection error", "Ptolemy service"]

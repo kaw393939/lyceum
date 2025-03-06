@@ -1,0 +1,73 @@
+{
+  "test_results": {
+    "start_time": "2025-03-04T00:25:37.018350",
+    "end_time": "2025-03-04T00:25:37.018356",
+    "duration_seconds": 0,
+    "requests_made": 0,
+    "success_count": 0,
+    "error_count": 0,
+    "success_rate": 0,
+    "endpoints_tested": [],
+    "log_analysis": {
+      "analysis_available": false
+    }
+  },
+  "analysis_results": {
+    "success": true,
+    "key_findings": {
+      "error_count": 0,
+      "unique_error_types": 0,
+      "most_common_errors": [],
+      "slow_operations": 0,
+      "slowest_operations": [],
+      "api_calls": 0,
+      "most_used_endpoints": [],
+      "recommendations": [
+        "Consider adding more detailed contextual information to error logs",
+        "Implement structured logging for better analysis capabilities",
+        "Add logging for key business metrics to track system health",
+        "Create dashboards for real-time monitoring of critical operations"
+      ]
+    },
+    "full_analysis": {
+      "analysis_time": "2025-03-04T00:25:37.018474",
+      "log_file": "gutenberg.log",
+      "period_start": "2025-03-03T23:25:37.018360",
+      "error_summary": {
+        "total_errors": 0,
+        "unique_error_types": 0,
+        "most_common_errors": [],
+        "error_rate": {
+          "errors_per_hour": 0.0,
+          "errors_per_minute": 0.0
+        }
+      },
+      "performance_summary": {
+        "slow_operations_count": 0,
+        "slowest_operations": [],
+        "slow_operation_details": []
+      },
+      "api_summary": {
+        "total_api_calls": 0,
+        "unique_endpoints": 0,
+        "most_used_endpoints": [],
+        "highest_error_rates": []
+      },
+      "security_summary": {
+        "total_security_issues": 0,
+        "issues_by_type": [],
+        "recent_issues": []
+      },
+      "recommendations": [
+        "Consider adding more detailed contextual information to error logs",
+        "Implement structured logging for better analysis capabilities",
+        "Add logging for key business metrics to track system health",
+        "Create dashboards for real-time monitoring of critical operations"
+      ]
+    },
+    "analysis_time": "2025-03-04T00:25:37.018474"
+  },
+  "timestamp": "2025-03-04T00:25:37.018546",
+  "target_api": "http://localhost:8001/api/v1",
+  "log_file": "gutenberg.log"
+}

@@ -1,0 +1,181 @@
+# Gutenberg Content Generation System Configuration
+
+# General settings
+environment: development
+version: "1.0.0"
+data_dir: "./data"
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8001
+  cors_origins: ["*"]
+  api_prefix: "/api/v1"
+  docs_url: "/docs"
+  redoc_url: "/redoc"
+  debug: false
+  workers: 4
+  request_timeout: 60
+  enable_profiling: false
+  enable_metrics: true
+  content_generation_timeout: 120
+
+# LLM Configuration
+llm:
+  provider: "openai"
+  default_model: "gpt-4o-mini"
+  fallback_model: "gpt-3.5-turbo"
+  model: "gpt-4o-mini"
+  temperature_content: 0.7
+  temperature_rich_content: 0.8
+  temperature_summaries: 0.5
+  max_tokens_content: 4000
+  max_tokens_rich_content: 8000
+  max_tokens_summaries: 1000
+  timeout: 60
+  retry_count: 3
+  retry_delay: 2
+  use_azure: false
+  stream_responses: false
+  rate_limit_minute: 100
+  max_concurrent_requests: 10
+  context_window_size: 16000
+  embedding_model: "text-embedding-3-small"
+  embedding_dimensions: 1536
+
+# Ptolemy Configuration
+ptolemy:
+  api_url: "http://ptolemy:8000"  # Default Docker service name and port
+  api_key: ""  # Will be set via environment variable
+  use_mock: true  # Use mock mode for local development to avoid needing Ptolemy running
+  timeout: 30.0
+  retry_count: 3
+  retry_delay: 1.0
+  cache_ttl: 300  # Time to live for cached Ptolemy data in seconds
+  max_cache_size: 1000  # Maximum number of cached items
+  max_batch_size: 20  # Maximum number of concepts to fetch in a batch
+  parallel_requests: 5  # Maximum parallel requests to Ptolemy
+
+# MongoDB Configuration
+mongodb:
+  uri: "mongodb://gutenberg_user:gutenberg_password@mongodb:27017/gutenberg"
+  database: "gutenberg"
+  use_mock: true  # Use mock mode for local development to avoid needing MongoDB
+  connection_pool_size: 20
+  timeout: 5000
+  max_idle_time_ms: 30000
+  retry_writes: true
+  retry_reads: true
+  templates_collection: "templates"
+  content_collection: "content"
+  media_collection: "media"
+  feedback_collection: "feedback"
+  feedback_responses_collection: "feedback_responses"
+  media_files_collection: "media_files"
+  sessions_collection: "session_data"
+  cached_collection: "cached_data"
+
+# Vector Store Configuration
+vector_store:
+  url: "http://qdrant:6333"
+  port: 6333
+  use_mock: true  # Force mock mode to avoid Qdrant connection issues
+  mock_mode: true   # Enable comprehensive mock mode
+  collection_name: "goliath_vectors"
+  service_prefix: "gutenberg_"
+  shared_collections_enabled: true
+  namespacing_field: "service"
+  namespacing_value: "gutenberg"
+  embedding_dim: 1536
+  embedding_model: "text-embedding-3-small"
+  cache_ttl: 3600
+  connection_timeout: 10.0
+  reconnect_attempts: 3
+  poll_interval: 0.1
+  indexing_threshold: 20000
+
+# Template Configuration
+templates:
+  templates_dir: "./templates"
+  default_template: "default.json"
+  template_version_control: true
+  max_template_versions: 5
+  custom_template_prefix: "custom_"
+  enable_dynamic_templates: true
+  template_validation: true
+  max_template_size_kb: 500
+  allow_external_templates: false
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  file: "gutenberg.log"
+  console: true
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_api_requests: true
+  log_errors_only: false
+  enable_request_id: true
+  enable_structured_logging: false
+  max_file_size: 10485760
+  backup_count: 5
+  
+  # Log analyzer settings
+  enable_log_analyzer: true
+  log_analysis_interval: 3600
+  log_analysis_save_reports: true
+  log_analysis_reports_dir: "reports"
+  auto_implement_recommendations: false
+  log_analysis_retention_days: 30
+
+# General system-wide configuration
+general:
+  use_threading: true
+  max_workers: 10
+  debug_mode: false
+  enable_telemetry: true
+  default_language: "en"
+  storage_path: "./storage"
+  tmp_path: "./tmp"
+  cleanup_tmp_interval: 3600
+  max_tmp_age: 86400
+
+# Media Configuration
+media:
+  audio_enabled: true
+  video_enabled: true
+  image_enabled: true
+  diagram_enabled: true
+  chart_enabled: true
+  infographic_enabled: true
+  audio_format: "mp3"
+  video_format: "mp4"
+  image_format: "png"
+  max_audio_length_seconds: 600
+  max_video_length_seconds: 300
+  max_image_resolution: "1024x1024"
+  audio_bitrate: "128k"
+  video_bitrate: "1000k"
+  image_quality: 90
+  storage_path: "./media"
+  use_gridfs: true
+  image_api_enabled: true
+  image_api_url: "https://api.openai.com/v1/images/generations"
+  audio_api_enabled: true
+  use_openai_tts: true
+  tts_voices: ["nova", "echo", "alloy", "fable", "onyx", "shimmer"]
+  default_voice: "nova"
+  enable_mermaid_diagrams: true
+  enable_chartjs: true
+
+# Feedback Configuration
+feedback:
+  enabled: true
+  anonymous_feedback: true
+  store_feedback_metadata: true
+  enable_detailed_ratings: true
+  feedback_categories: ["clarity", "accuracy", "engagement", "relevance", "depth"]
+  feedback_aggregation_interval: 86400
+  minimum_feedback_for_analysis: 5
+  forward_to_socrates: true
+  forward_to_galileo: true
+  feedback_threshold_for_regeneration: 0.3

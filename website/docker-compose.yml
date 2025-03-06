@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  lyceum:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: lyceum_web
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+      - WATCHDOG_TIMEOUT=5
+    tty: true
+    stdin_open: true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+volumes:
+  node_modules:

@@ -1,0 +1,589 @@
+{
+  "template_id": "default",
+  "name": "Default Content Template",
+  "description": "Standard template for educational content generation with Stoic principles",
+  "template_type": "lesson",
+  "version": "1.0",
+  "target": "student",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "section_type": "introduction",
+      "order": 1,
+      "prompts": [
+        {
+          "id": "intro_hook",
+          "prompt_text": "Write an engaging introduction for a lesson on [concept_name] aimed at [age_range] learners. The introduction should capture attention, activate prior knowledge, and set up the importance of the concept. Use concrete examples and relatable scenarios.",
+          "system_message": "You are an educational content creator specializing in creating engaging introductions for students that activate curiosity and prior knowledge.",
+          "temperature": 0.7,
+          "max_tokens": 1000,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            }
+          ],
+          "output_format": {
+            "hook": "string",
+            "connectionToPriorKnowledge": "string", 
+            "overviewOfConcept": "string",
+            "whyItMatters": "string"
+          }
+        }
+      ],
+      "media_specs": [
+        {
+          "id": "intro_image",
+          "media_type": "image",
+          "prompt": "Create an illustration that visually represents [concept_name] for [age_range] students. The image should be engaging and educational.",
+          "style": "Colorful, educational illustration style",
+          "aspect_ratio": "16:9",
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            }
+          ]
+        }
+      ],
+      "interactive_specs": [],
+      "subsections": [],
+      "stoic_elements": []
+    },
+    {
+      "id": "overview",
+      "title": "Concept Overview",
+      "section_type": "explanation",
+      "order": 2,
+      "prompts": [
+        {
+          "id": "overview_main",
+          "prompt_text": "Write a comprehensive explanation of [concept_name] for [age_range] audience with [difficulty] difficulty level. Include key principles, components, and processes. Make the explanation clear, accurate, and appropriate for the target age range.",
+          "system_message": "You are an expert educator specializing in clear, accurate explanations of complex concepts for students.",
+          "temperature": 0.5,
+          "max_tokens": 1500,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "explanation": "string",
+            "keyPrinciples": ["string"],
+            "components": ["string"]
+          }
+        }
+      ],
+      "media_specs": [
+        {
+          "id": "overview_diagram",
+          "media_type": "diagram",
+          "prompt": "Create a diagram that illustrates the key components and processes of [concept_name]. The diagram should be appropriate for [age_range] students at [difficulty] level.",
+          "style": "Clear, educational diagram with labels",
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ]
+        }
+      ],
+      "interactive_specs": [],
+      "subsections": [],
+      "stoic_elements": []
+    },
+    {
+      "id": "learning_objectives",
+      "title": "Learning Objectives",
+      "section_type": "summary",
+      "order": 3,
+      "prompts": [
+        {
+          "id": "objectives",
+          "prompt_text": "Create 5 clear, measurable learning objectives for teaching the concept of [concept_name] to [age_range] audience at a [difficulty] level. Structure these as 'By the end of this module, learners will be able to...'",
+          "system_message": "You are an instructional designer specializing in creating effective learning objectives that are specific, measurable, achievable, relevant, and time-bound (SMART).",
+          "temperature": 0.3,
+          "max_tokens": 800,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "objectives": ["string"]
+          }
+        }
+      ],
+      "media_specs": [],
+      "interactive_specs": [],
+      "subsections": [],
+      "stoic_elements": []
+    },
+    {
+      "id": "key_vocabulary",
+      "title": "Key Vocabulary",
+      "section_type": "summary",
+      "order": 4,
+      "prompts": [
+        {
+          "id": "vocabulary",
+          "prompt_text": "Identify key terms and vocabulary that learners need to understand the concept of [concept_name] at a [difficulty] level. For each term, provide a clear, concise definition appropriate for [age_range] audience.",
+          "system_message": "You are a language educator specializing in teaching technical vocabulary with clear, age-appropriate definitions.",
+          "temperature": 0.4,
+          "max_tokens": 1000,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "vocabulary": [
+              {
+                "term": "string",
+                "definition": "string"
+              }
+            ]
+          }
+        }
+      ],
+      "media_specs": [],
+      "interactive_specs": [],
+      "subsections": [],
+      "stoic_elements": []
+    },
+    {
+      "id": "stoic_connection",
+      "title": "Stoic Connection",
+      "section_type": "explanation",
+      "order": 5,
+      "prompts": [
+        {
+          "id": "virtue_connection",
+          "prompt_text": "Explain how learning the concept of [concept_name] relates to Stoic virtues (Wisdom, Courage, Justice, and Temperance). How can mastering this concept help develop these virtues? How might approaching this concept with these virtues in mind improve understanding?",
+          "system_message": "You are an expert in Stoic philosophy and educational content creation. Focus on making authentic connections between the concept and Stoic principles.",
+          "temperature": 0.6,
+          "max_tokens": 1200,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            }
+          ],
+          "output_format": {
+            "virtueConnections": [
+              {
+                "virtue": "string",
+                "connection": "string",
+                "practicalApplication": "string"
+              }
+            ],
+            "overallStoicRelevance": "string"
+          }
+        },
+        {
+          "id": "dichotomy_of_control",
+          "prompt_text": "Apply the Stoic principle of the 'dichotomy of control' to learning [concept_name]. What aspects of mastering this concept are within the learner's control? What aspects must they accept as beyond their control? How might this distinction help learners approach this subject more effectively?",
+          "system_message": "You are an expert in Stoic philosophy and educational content creation. Focus on practical applications of the dichotomy of control to learning.",
+          "temperature": 0.6,
+          "max_tokens": 1000,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            }
+          ],
+          "output_format": {
+            "withinControl": ["string"],
+            "beyondControl": ["string"],
+            "applicationToLearning": "string"
+          }
+        }
+      ],
+      "media_specs": [],
+      "interactive_specs": [],
+      "subsections": [],
+      "stoic_elements": ["virtue", "dichotomy_of_control", "reflection"]
+    },
+    {
+      "id": "main_content",
+      "title": "Main Content",
+      "section_type": "explanation",
+      "order": 6,
+      "prompts": [
+        {
+          "id": "content_sections",
+          "prompt_text": "Create 3 clear, well-structured content sections to teach [concept_name] to [age_range] learners at a [difficulty] level. Each section should build logically on previous sections and include explanations, examples, and where appropriate, brief activities or questions for reflection.",
+          "system_message": "You are an educational content creator specializing in creating clear, engaging, and well-structured explanations for students.",
+          "temperature": 0.6,
+          "max_tokens": 2000,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "sections": [
+              {
+                "title": "string",
+                "content": "string",
+                "examples": ["string"],
+                "activities": ["string"]
+              }
+            ]
+          }
+        }
+      ],
+      "media_specs": [],
+      "interactive_specs": [
+        {
+          "id": "interactive_diagram",
+          "element_type": "interactive_diagram",
+          "prompt": "Design an interactive element that helps [age_range] students understand [concept_name]. Describe how students would interact with it and what they would learn.",
+          "parameters": {
+            "complexity": "medium",
+            "interactive_type": "exploration"
+          },
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            }
+          ]
+        }
+      ],
+      "subsections": [],
+      "stoic_elements": []
+    },
+    {
+      "id": "assessment",
+      "title": "Assessment",
+      "section_type": "assessment",
+      "order": 7,
+      "prompts": [
+        {
+          "id": "multiple_choice",
+          "prompt_text": "Create 5 multiple-choice questions to assess understanding of [concept_name] for [age_range] learners at a [difficulty] level. Each question should have 4 options with one correct answer, and include a brief explanation of why the correct answer is right.",
+          "system_message": "You are an assessment designer specializing in creating effective multiple-choice questions that test understanding rather than mere recall.",
+          "temperature": 0.5,
+          "max_tokens": 1500,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "questions": [
+              {
+                "question": "string",
+                "options": ["string"],
+                "correctAnswerIndex": "number",
+                "explanation": "string"
+              }
+            ]
+          }
+        },
+        {
+          "id": "open_ended",
+          "prompt_text": "Create 3 open-ended questions that promote deeper thinking about [concept_name] for [age_range] learners at a [difficulty] level. Include possible response points or a rubric for evaluating answers.",
+          "system_message": "You are an assessment designer specializing in creating thought-provoking open-ended questions that promote critical thinking and deeper understanding.",
+          "temperature": 0.6,
+          "max_tokens": 1200,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            },
+            {
+              "name": "difficulty",
+              "description": "Difficulty level of the content",
+              "required": true,
+              "default_value": "intermediate",
+              "example": "beginner"
+            }
+          ],
+          "output_format": {
+            "questions": [
+              {
+                "question": "string",
+                "keyPoints": ["string"],
+                "evaluationCriteria": "string"
+              }
+            ]
+          }
+        }
+      ],
+      "media_specs": [],
+      "interactive_specs": [],
+      "subsections": [],
+      "stoic_elements": []
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "section_type": "summary",
+      "order": 8,
+      "prompts": [
+        {
+          "id": "conclusion_content",
+          "prompt_text": "Write a conclusion for a lesson on [concept_name] aimed at [age_range] learners. Summarize key points, reinforce the importance of the concept, and set up possibilities for further exploration or application.",
+          "system_message": "You are an educational content creator specializing in writing effective conclusions that reinforce learning and inspire further exploration.",
+          "temperature": 0.6,
+          "max_tokens": 800,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            }
+          ],
+          "output_format": {
+            "summary": "string",
+            "finalThought": "string",
+            "furtherDirections": "string"
+          }
+        }
+      ],
+      "media_specs": [],
+      "interactive_specs": [],
+      "subsections": [],
+      "stoic_elements": ["reflection"]
+    },
+    {
+      "id": "further_learning",
+      "title": "Further Learning",
+      "section_type": "summary",
+      "order": 9,
+      "prompts": [
+        {
+          "id": "further_resources",
+          "prompt_text": "Suggest resources, activities, and next steps for [age_range] learners who want to deepen their understanding of [concept_name] beyond this initial learning module.",
+          "system_message": "You are an educational resource specialist who excels at curating and suggesting high-quality, age-appropriate resources for extended learning.",
+          "temperature": 0.7,
+          "max_tokens": 1000,
+          "placeholders": [
+            {
+              "name": "concept_name",
+              "description": "Name of the concept being taught",
+              "required": true,
+              "default_value": null,
+              "example": "Photosynthesis"
+            },
+            {
+              "name": "age_range",
+              "description": "Target age range for the content",
+              "required": true,
+              "default_value": "14-18",
+              "example": "11-13"
+            }
+          ],
+          "output_format": {
+            "relatedConcepts": ["string"],
+            "resources": [
+              {
+                "title": "string",
+                "type": "string",
+                "description": "string"
+              }
+            ],
+            "extendedActivities": ["string"]
+          }
+        }
+      ],
+      "media_specs": [],
+      "interactive_specs": [],
+      "subsections": [],
+      "stoic_elements": []
+    }
+  ],
+  "global_placeholders": [
+    {
+      "name": "concept_name",
+      "description": "Name of the concept being taught",
+      "required": true,
+      "default_value": null,
+      "example": "Photosynthesis"
+    },
+    {
+      "name": "age_range",
+      "description": "Target age range for the content",
+      "required": true,
+      "default_value": "14-18",
+      "example": "11-13"
+    },
+    {
+      "name": "difficulty",
+      "description": "Difficulty level of the content",
+      "required": true,
+      "default_value": "intermediate",
+      "example": "beginner"
+    }
+  ],
+  "stoic_elements": ["virtue", "dichotomy_of_control", "reflection", "journaling", "meditation"],
+  "metadata": {
+    "created_by": "Gutenberg System",
+    "last_modified": "2024-03-01T12:00:00Z"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "template_id": "default_lesson",
+  "name": "Default Lesson Template",
+  "description": "Template for generating educational lessons with Stoic principles",
+  "template_type": "lesson",
+  "version": "1.0",
+  "sections": [
+    {
+      "id": "intro",
+      "name": "Introduction",
+      "content": "# {{concept.name}}\n\n{{concept.description}}\n\nThis lesson is designed for {{age_range}} learners at a {{difficulty}} level.",
+      "is_required": true
+    },
+    {
+      "id": "background",
+      "name": "Background",
+      "content": "## Background\n\nTo understand {{concept.name}}, it's helpful to consider its context and significance in the broader field of knowledge.",
+      "is_required": true
+    },
+    {
+      "id": "main_content",
+      "name": "Main Content",
+      "content": "## Key Aspects of {{concept.name}}\n\n{{#if concept.metadata.key_points}}\n{{#each concept.metadata.key_points}}\n- {{this}}\n{{/each}}\n{{else}}\nThe concept of {{concept.name}} encompasses several important aspects that are essential to understand fully.\n{{/if}}\n\n### Core Principles\n\n{{#if related_concepts.length}}\nThis concept relates to:\n\n{{#each related_concepts}}\n- **{{name}}**: {{relationship.description}}\n{{/each}}\n{{/if}}",
+      "is_required": true
+    },
+    {
+      "id": "examples",
+      "name": "Examples",
+      "content": "## Examples\n\nHere are some illustrative examples of {{concept.name}} in action:",
+      "is_required": true
+    },
+    {
+      "id": "stoic_connection",
+      "name": "Stoic Connection",
+      "content": "## Stoic Perspective\n\nFrom a Stoic perspective, studying {{concept.name}} offers valuable insights:\n\n- **Wisdom (Sophia)**: Understanding {{concept.name}} contributes to our overall knowledge and decision-making abilities.\n- **Courage (Andreia)**: Tackling challenging concepts like this requires perseverance.\n- **Justice (Dikaiosyne)**: Recognizing how this knowledge can be used for the greater good.\n- **Temperance (Sophrosyne)**: Applying this knowledge with moderation and appropriate restraint.",
+      "is_required": true
+    },
+    {
+      "id": "assessment",
+      "name": "Assessment",
+      "content": "## Check Your Understanding\n\n1. How would you define {{concept.name}} in your own words?\n2. What are the key principles of {{concept.name}}?\n3. How does {{concept.name}} relate to other concepts in this field?\n4. Can you provide an example of {{concept.name}} in a real-world context?",
+      "is_required": true
+    },
+    {
+      "id": "conclusion",
+      "name": "Conclusion",
+      "content": "## Summary\n\nIn this lesson, we've explored {{concept.name}}, including its key principles, applications, and significance. Understanding this concept provides a foundation for further learning and application in this field.",
+      "is_required": true
+    }
+  ],
+  "variables": [
+    {
+      "name": "concept",
+      "description": "The primary concept being taught",
+      "required": true
+    },
+    {
+      "name": "difficulty",
+      "description": "Difficulty level of the content",
+      "required": true
+    },
+    {
+      "name": "age_range",
+      "description": "Target age range for the content",
+      "required": true
+    },
+    {
+      "name": "related_concepts",
+      "description": "List of related concepts",
+      "required": false
+    }
+  ]
+}

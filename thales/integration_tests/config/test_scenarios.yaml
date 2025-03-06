@@ -1,0 +1,121 @@
+# Integration Test Scenarios
+
+scenarios:
+  basic_concept_retrieval:
+    description: "Tests basic concept retrieval from Ptolemy to Gutenberg"
+    steps:
+      - name: "Generate test concepts"
+        action: "generate_concepts"
+        params:
+          count: 5
+          populate_mongodb: true
+          populate_neo4j: true
+          
+      - name: "Request concept from Gutenberg"
+        action: "request"
+        params:
+          service: "gutenberg"
+          endpoint: "/api/content/generate"
+          method: "POST"
+          body: {"concept_id": "concept_1", "format": "lesson"}
+          
+      - name: "Verify database state"
+        action: "verify_db"
+        params:
+          verifications:
+            - type: "mongodb"
+              database: "gutenberg"
+              collection: "content"
+              query: {"concept_id": "concept_1"}
+              expected_count: 1
+              
+  error_resilience:
+    description: "Tests Gutenberg resilience to Ptolemy service failures"
+    steps:
+      - name: "Start Ptolemy simulator with high error rate"
+        action: "start_simulator"
+        params:
+          service: "ptolemy"
+          port: 8000
+          error_rate: 0.7
+          delay_ms: 200
+          
+      - name: "Request content generation from Gutenberg"
+        action: "request"
+        params:
+          service: "gutenberg"
+          endpoint: "/api/content/generate"
+          method: "POST"
+          body: {"concept_id": "resilience_test", "format": "lesson"}
+          expect_success: false
+          
+      - name: "Verify error logging"
+        action: "verify_logs"
+        params:
+          service: "gutenberg"
+          should_contain: ["Connection error", "Ptolemy service"]
+          
+  concept_relationship_verification:
+    description: "Tests that relationships are consistently stored across databases"
+    steps:
+      - name: "Generate test concepts with relationships"
+        action: "generate_concepts"
+        params:
+          count: 10
+          relationships_per_concept: 3
+          relationship_types: ["PREREQUISITE", "RELATED", "PART_OF"]
+          populate_mongodb: true
+          populate_neo4j: true
+          
+      - name: "Verify consistency between MongoDB and Neo4j"
+        action: "verify_consistency"
+        params:
+          source: "mongodb"
+          target: "neo4j"
+          entity_type: "relationships"
+          
+      - name: "Request related concepts from Ptolemy"
+        action: "request"
+        params:
+          service: "ptolemy"
+          endpoint: "/api/concepts/concept_1/related"
+          method: "GET"
+          
+      - name: "Verify response matches database state"
+        action: "verify_response"
+        params:
+          source: "neo4j"
+          query: "MATCH (c:Concept {id: 'concept_1'})-[r]->(related) RETURN type(r) as relationship_type, related.id as related_id"
+          response_field: "related_concepts"
+          
+  vector_embedding_consistency:
+    description: "Tests that vector embeddings are consistently stored"
+    steps:
+      - name: "Generate test concepts with embeddings"
+        action: "generate_concepts"
+        params:
+          count: 5
+          with_embeddings: true
+          populate_mongodb: true
+          populate_qdrant: true
+          
+      - name: "Verify embedding consistency"
+        action: "verify_consistency"
+        params:
+          source: "mongodb"
+          target: "qdrant"
+          entity_type: "embeddings"
+          
+      - name: "Request semantic search from Ptolemy"
+        action: "request"
+        params:
+          service: "ptolemy"
+          endpoint: "/api/concepts/search"
+          method: "POST"
+          body: {"query": "test query", "limit": 3}
+          
+      - name: "Verify search results reflect embeddings"
+        action: "verify_response"
+        params:
+          expected_count: 3
+          expected_fields: ["id", "name", "relevance"]

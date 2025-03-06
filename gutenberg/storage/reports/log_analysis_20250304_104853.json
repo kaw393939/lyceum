@@ -1,0 +1,109 @@
+{
+  "analysis_time": "2025-03-04T10:48:53.230332",
+  "log_file": "gutenberg.log",
+  "summary": {
+    "total_requests": 0,
+    "requests_with_errors": 0,
+    "requests_with_slow_ops": 0,
+    "error_rate": 0.0,
+    "slow_operation_rate": 0.0
+  },
+  "error_summary": {
+    "total_errors": 53,
+    "unique_error_types": 20,
+    "most_common_errors": [
+      {
+        "type": "Template section not found:",
+        "count": 34
+      },
+      {
+        "type": "Failed to generate metadata: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate overview_summary: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate overview_learningObjectives: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate overview_keyVocabulary: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate overview_bigIdeas: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate stoicFramework_virtueConnection: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate stoicFramework_dichotomyOfControl: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate content_introduction: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate content_sections: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate content_conclusion: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate assessment_multipleChoice: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate assessment_openEnded: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate assessment_project: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate interactiveElements: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate socraticQuestions: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate furtherLearning: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Failed to generate parentGuide: No template found for section:",
+        "count": 1
+      },
+      {
+        "type": "Error generating HTML preview: 'list' object has no attribute 'get'",
+        "count": 1
+      },
+      {
+        "type": "Error notifying Aristotle: All connection attempts failed",
+        "count": 1
+      }
+    ]
+  },
+  "performance_summary": {
+    "slow_operations_count": 0,
+    "slowest_operations": []
+  },
+  "api_summary": {
+    "total_api_calls": 0,
+    "unique_endpoints": 0,
+    "most_used_endpoints": []
+  },
+  "recommendations": [
+    "Frequent error 'Template section not found:' occurred 34 times."
+  ]
+}

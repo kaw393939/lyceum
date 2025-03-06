@@ -1,0 +1,907 @@
+{
+  "test_results": {
+    "start_time": "2025-03-04T00:54:45.884775",
+    "end_time": "2025-03-04T00:54:45.884779",
+    "duration_seconds": 0,
+    "requests_made": 0,
+    "success_count": 0,
+    "error_count": 0,
+    "success_rate": 0,
+    "endpoints_tested": [],
+    "log_analysis": {
+      "analysis_available": false
+    }
+  },
+  "analysis_results": {
+    "success": true,
+    "key_findings": {
+      "error_count": 119,
+      "unique_error_types": 21,
+      "most_common_errors": [
+        {
+          "type": "Authentication Errors",
+          "count": 18,
+          "examples": [
+            {
+              "timestamp": "2025-03-04 00:48:04.852000",
+              "message": "AuthenticationError: Invalid API key (ID: 1fc56683)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:05.513000",
+              "message": "AuthenticationError: Invalid API key (ID: 16488745)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:05.550000",
+              "message": "AuthenticationError: Invalid API key (ID: af265be4)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:07.450000",
+              "message": "AuthenticationError: Invalid API key (ID: 4e5e3948)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:07.607000",
+              "message": "AuthenticationError: Invalid API key (ID: 93adc130)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:07.752000",
+              "message": "AuthenticationError: Invalid API key (ID: da02c0fa)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:08.372000",
+              "message": "AuthenticationError: Invalid API key (ID: 87ab24cc)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:08.830000",
+              "message": "AuthenticationError: Invalid API key (ID: 1200a2e2)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:09.298000",
+              "message": "AuthenticationError: Invalid API key (ID: 7fa07dcb)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:09.378000",
+              "message": "AuthenticationError: Invalid API key (ID: ca334e4f)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            }
+          ]
+        },
+        {
+          "type": "Server Errors",
+          "count": 15,
+          "examples": [
+            {
+              "timestamp": "2025-03-04 00:48:05.063000",
+              "message": "ServerError: Internal server error (ID: 363eddc5)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:05.351000",
+              "message": "ServerError: Internal server error (ID: 0072ad97)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:05.885000",
+              "message": "ServerError: Internal server error (ID: d44f8f48)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:06.022000",
+              "message": "ServerError: Internal server error (ID: 37f29813)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:06.609000",
+              "message": "ServerError: Internal server error (ID: e1a9f411)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:06.826000",
+              "message": "ServerError: Internal server error (ID: b79b9226)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:08.249000",
+              "message": "ServerError: Internal server error (ID: 1a836237)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:08.275000",
+              "message": "ServerError: Internal server error (ID: 33c77a7c)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:09.897000",
+              "message": "ServerError: Internal server error (ID: 23a75365)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:10.394000",
+              "message": "ServerError: Internal server error (ID: 4921fabc)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            }
+          ]
+        },
+        {
+          "type": "ConfigurationError: Missing required configurat...",
+          "count": 11,
+          "examples": [
+            {
+              "timestamp": "2025-03-04 00:48:05.353000",
+              "message": "ConfigurationError: Missing required configuration (ID: 698d7690)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:05.452000",
+              "message": "ConfigurationError: Missing required configuration (ID: 30af2a30)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:06.060000",
+              "message": "ConfigurationError: Missing required configuration (ID: 467a1892)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:07.621000",
+              "message": "ConfigurationError: Missing required configuration (ID: 76713edf)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:07.686000",
+              "message": "ConfigurationError: Missing required configuration (ID: a3194d74)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:08.560000",
+              "message": "ConfigurationError: Missing required configuration (ID: ce5d6521)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:08.613000",
+              "message": "ConfigurationError: Missing required configuration (ID: 1e5a90ab)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:08.622000",
+              "message": "ConfigurationError: Missing required configuration (ID: bbaf4bb0)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:09.019000",
+              "message": "ConfigurationError: Missing required configuration (ID: fe22702e)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            },
+            {
+              "timestamp": "2025-03-04 00:48:09.153000",
+              "message": "ConfigurationError: Missing required configuration (ID: 8194d27e)",
+              "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+            }
+          ]
+        }
+      ],
+      "slow_operations": 4,
+      "slowest_operations": [
+        {
+          "operation": "O",
+          "avg_time": 1.1144969274494267
+        },
+        {
+          "operation": "Authentication",
+          "avg_time": 0.7167908705964674
+        },
+        {
+          "operation": "Vector embedding",
+          "avg_time": 0.6834566133172745
+        }
+      ],
+      "api_calls": 699,
+      "most_used_endpoints": [
+        {
+          "endpoint": "PUT /api/v1/content/:id",
+          "count": 69,
+          "avg_response_time": 0.37016968737220485,
+          "error_rate": 0.22510822510822512
+        },
+        {
+          "endpoint": "GET /api/v1/logs/analysis",
+          "count": 68,
+          "avg_response_time": 0.3694607826157289,
+          "error_rate": 0.22557471264367815
+        },
+        {
+          "endpoint": "DELETE /api/v1/content/:id",
+          "count": 68,
+          "avg_response_time": 0.3719518828191321,
+          "error_rate": 0.2236842105263158
+        }
+      ],
+      "recommendations": [
+        "Address the most common error: 'Authentication Errors' (occurred 18 times)",
+        "Optimize the slow operation 'O' (took 8.86s)",
+        "Investigate API endpoint 'GET /api/v1/templates/nonexistent' with high error rate (22.9%)",
+        "Consider adding more detailed contextual information to error logs",
+        "Implement structured logging for better analysis capabilities"
+      ]
+    },
+    "full_analysis": {
+      "analysis_time": "2025-03-04T00:54:45.910318",
+      "log_file": "gutenberg_test.log",
+      "period_start": "2025-03-03T23:54:45.884783",
+      "error_summary": {
+        "total_errors": 119,
+        "unique_error_types": 21,
+        "most_common_errors": [
+          {
+            "type": "Authentication Errors",
+            "count": 18,
+            "examples": [
+              {
+                "timestamp": "2025-03-04 00:48:04.852000",
+                "message": "AuthenticationError: Invalid API key (ID: 1fc56683)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:05.513000",
+                "message": "AuthenticationError: Invalid API key (ID: 16488745)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:05.550000",
+                "message": "AuthenticationError: Invalid API key (ID: af265be4)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:07.450000",
+                "message": "AuthenticationError: Invalid API key (ID: 4e5e3948)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:07.607000",
+                "message": "AuthenticationError: Invalid API key (ID: 93adc130)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:07.752000",
+                "message": "AuthenticationError: Invalid API key (ID: da02c0fa)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:08.372000",
+                "message": "AuthenticationError: Invalid API key (ID: 87ab24cc)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:08.830000",
+                "message": "AuthenticationError: Invalid API key (ID: 1200a2e2)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:09.298000",
+                "message": "AuthenticationError: Invalid API key (ID: 7fa07dcb)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:09.378000",
+                "message": "AuthenticationError: Invalid API key (ID: ca334e4f)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              }
+            ]
+          },
+          {
+            "type": "Server Errors",
+            "count": 15,
+            "examples": [
+              {
+                "timestamp": "2025-03-04 00:48:05.063000",
+                "message": "ServerError: Internal server error (ID: 363eddc5)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:05.351000",
+                "message": "ServerError: Internal server error (ID: 0072ad97)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:05.885000",
+                "message": "ServerError: Internal server error (ID: d44f8f48)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:06.022000",
+                "message": "ServerError: Internal server error (ID: 37f29813)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:06.609000",
+                "message": "ServerError: Internal server error (ID: e1a9f411)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:06.826000",
+                "message": "ServerError: Internal server error (ID: b79b9226)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:08.249000",
+                "message": "ServerError: Internal server error (ID: 1a836237)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:08.275000",
+                "message": "ServerError: Internal server error (ID: 33c77a7c)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:09.897000",
+                "message": "ServerError: Internal server error (ID: 23a75365)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:10.394000",
+                "message": "ServerError: Internal server error (ID: 4921fabc)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              }
+            ]
+          },
+          {
+            "type": "ConfigurationError: Missing required configurat...",
+            "count": 11,
+            "examples": [
+              {
+                "timestamp": "2025-03-04 00:48:05.353000",
+                "message": "ConfigurationError: Missing required configuration (ID: 698d7690)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:05.452000",
+                "message": "ConfigurationError: Missing required configuration (ID: 30af2a30)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:06.060000",
+                "message": "ConfigurationError: Missing required configuration (ID: 467a1892)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:07.621000",
+                "message": "ConfigurationError: Missing required configuration (ID: 76713edf)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:07.686000",
+                "message": "ConfigurationError: Missing required configuration (ID: a3194d74)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:08.560000",
+                "message": "ConfigurationError: Missing required configuration (ID: ce5d6521)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:08.613000",
+                "message": "ConfigurationError: Missing required configuration (ID: 1e5a90ab)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:08.622000",
+                "message": "ConfigurationError: Missing required configuration (ID: bbaf4bb0)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:09.019000",
+                "message": "ConfigurationError: Missing required configuration (ID: fe22702e)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:09.153000",
+                "message": "ConfigurationError: Missing required configuration (ID: 8194d27e)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              }
+            ]
+          },
+          {
+            "type": "Rate Limit Errors",
+            "count": 10,
+            "examples": [
+              {
+                "timestamp": "2025-03-04 00:48:05.438000",
+                "message": "RateLimitExceeded: Too many requests (ID: 99fbd1b3)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:06.607000",
+                "message": "RateLimitExceeded: Too many requests (ID: bdbe7b4e)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:06.851000",
+                "message": "RateLimitExceeded: Too many requests (ID: d4e687b1)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:07.259000",
+                "message": "RateLimitExceeded: Too many requests (ID: 86401238)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:07.298000",
+                "message": "RateLimitExceeded: Too many requests (ID: 57e8acf5)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:10.247000",
+                "message": "RateLimitExceeded: Too many requests (ID: c3ac377f)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:11.357000",
+                "message": "RateLimitExceeded: Too many requests (ID: eb6aedf2)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:12.285000",
+                "message": "RateLimitExceeded: Too many requests (ID: be7d26f7)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:12.343000",
+                "message": "RateLimitExceeded: Too many requests (ID: 1696d503)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:13.133000",
+                "message": "RateLimitExceeded: Too many requests (ID: 4a4ccf0f)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              }
+            ]
+          },
+          {
+            "type": "Validation Errors",
+            "count": 9,
+            "examples": [
+              {
+                "timestamp": "2025-03-04 00:48:04.804000",
+                "message": "ValidationError: Invalid content parameters (ID: 5e05edb1)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:05.745000",
+                "message": "ValidationError: Invalid content parameters (ID: 1a77b8c5)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:07.145000",
+                "message": "ValidationError: Invalid content parameters (ID: 99e6c52f)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:08.091000",
+                "message": "ValidationError: Invalid content parameters (ID: 26a899b8)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:09.224000",
+                "message": "ValidationError: Invalid content parameters (ID: b309df42)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:10.259000",
+                "message": "ValidationError: Invalid content parameters (ID: f9638902)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:10.944000",
+                "message": "ValidationError: Invalid content parameters (ID: e7561c8c)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:11.195000",
+                "message": "ValidationError: Invalid content parameters (ID: 3d4f386e)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:12.311000",
+                "message": "ValidationError: Invalid content parameters (ID: fd7538df)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              }
+            ]
+          },
+          {
+            "type": "DatabaseError: Failed to connect to database (I...",
+            "count": 9,
+            "examples": [
+              {
+                "timestamp": "2025-03-04 00:48:06.570000",
+                "message": "DatabaseError: Failed to connect to database (ID: b486db62)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:06.657000",
+                "message": "DatabaseError: Failed to connect to database (ID: 3af17b24)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:07.132000",
+                "message": "DatabaseError: Failed to connect to database (ID: d7b37300)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:09.322000",
+                "message": "DatabaseError: Failed to connect to database (ID: f3b33734)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:09.763000",
+                "message": "DatabaseError: Failed to connect to database (ID: 46db6bdb)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:09.836000",
+                "message": "DatabaseError: Failed to connect to database (ID: e5504e04)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:10.368000",
+                "message": "DatabaseError: Failed to connect to database (ID: 26f2e9f0)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:12.246000",
+                "message": "DatabaseError: Failed to connect to database (ID: 4be72c06)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:12.416000",
+                "message": "DatabaseError: Failed to connect to database (ID: 92dcea15)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              }
+            ]
+          },
+          {
+            "type": "Timeout Errors",
+            "count": 8,
+            "examples": [
+              {
+                "timestamp": "2025-03-04 00:48:06.346000",
+                "message": "TimeoutError: Operation timed out after 30 seconds (ID: a5858c11)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:07.369000",
+                "message": "TimeoutError: Operation timed out after 30 seconds (ID: 85fcdf89)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:08.760000",
+                "message": "TimeoutError: Operation timed out after 30 seconds (ID: 5036067e)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:09.824000",
+                "message": "TimeoutError: Operation timed out after 30 seconds (ID: 5c8262a8)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:10.665000",
+                "message": "TimeoutError: Operation timed out after 30 seconds (ID: ab2ce730)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:11.271000",
+                "message": "TimeoutError: Operation timed out after 30 seconds (ID: 518ae1a7)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:12.871000",
+                "message": "TimeoutError: Operation timed out after 30 seconds (ID: 93de8898)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:12.886000",
+                "message": "TimeoutError: Operation timed out after 30 seconds (ID: e4cd63b2)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              }
+            ]
+          },
+          {
+            "type": "Not Found Errors",
+            "count": 7,
+            "examples": [
+              {
+                "timestamp": "2025-03-04 00:48:06.003000",
+                "message": "NotFoundError: Template not found (ID: dad863c9)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:06.705000",
+                "message": "NotFoundError: Template not found (ID: 548c399f)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:08.992000",
+                "message": "NotFoundError: Template not found (ID: 2d83d421)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:09.654000",
+                "message": "NotFoundError: Template not found (ID: 4691d184)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:10.284000",
+                "message": "NotFoundError: Template not found (ID: 5a8d0d77)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:11.397000",
+                "message": "NotFoundError: Template not found (ID: b8ddd12b)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:11.801000",
+                "message": "NotFoundError: Template not found (ID: caf544f2)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              }
+            ]
+          },
+          {
+            "type": "Permission Errors",
+            "count": 6,
+            "examples": [
+              {
+                "timestamp": "2025-03-04 00:48:05.379000",
+                "message": "PermissionError: User does not have permission to access this resource (ID: 6c1c0d98)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:05.671000",
+                "message": "PermissionError: User does not have permission to access this resource (ID: 6b9268c2)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:06.709000",
+                "message": "PermissionError: User does not have permission to access this resource (ID: 4bec2ac6)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:08.174000",
+                "message": "PermissionError: User does not have permission to access this resource (ID: 85fc6711)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:12.029000",
+                "message": "PermissionError: User does not have permission to access this resource (ID: cd47c10f)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:12.784000",
+                "message": "PermissionError: User does not have permission to access this resource (ID: 3eae4034)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              }
+            ]
+          },
+          {
+            "type": "Connection Errors",
+            "count": 5,
+            "examples": [
+              {
+                "timestamp": "2025-03-04 00:48:05.393000",
+                "message": "ConnectionError: Failed to connect to external service (ID: 09813d7b)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:05.886000",
+                "message": "ConnectionError: Failed to connect to external service (ID: 93c52a56)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:06.023000",
+                "message": "ConnectionError: Failed to connect to external service (ID: decf6a82)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:06.321000",
+                "message": "ConnectionError: Failed to connect to external service (ID: ee638ac8)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              },
+              {
+                "timestamp": "2025-03-04 00:48:09.475000",
+                "message": "ConnectionError: Failed to connect to external service (ID: e0dbf73c)",
+                "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+              }
+            ]
+          }
+        ],
+        "error_rate": {
+          "errors_per_hour": 16771718.278980542,
+          "errors_per_minute": 279528.63798300904
+        }
+      },
+      "performance_summary": {
+        "slow_operations_count": 4,
+        "slowest_operations": [
+          {
+            "operation": "O",
+            "avg_time": 1.1144969274494267
+          },
+          {
+            "operation": "Authentication",
+            "avg_time": 0.7167908705964674
+          },
+          {
+            "operation": "Vector embedding",
+            "avg_time": 0.6834566133172745
+          },
+          {
+            "operation": "RAG processing",
+            "avg_time": 0.5869490031839002
+          },
+          {
+            "operation": "API request to external service",
+            "avg_time": 0.471349700520638
+          },
+          {
+            "operation": "Image generation",
+            "avg_time": 0.41585622866559324
+          },
+          {
+            "operation": "Database query",
+            "avg_time": 0.37908132236598363
+          },
+          {
+            "operation": "Template rendering",
+            "avg_time": 0.3582995278736483
+          },
+          {
+            "operation": "Content generation",
+            "avg_time": 0.3565718550442303
+          },
+          {
+            "operation": "Log analysis",
+            "avg_time": 0.34891481061220303
+          }
+        ],
+        "slow_operation_details": [
+          {
+            "timestamp": "2025-03-04 00:48:05.048000",
+            "operation": "O",
+            "duration": 8.864546236293185,
+            "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+          },
+          {
+            "timestamp": "2025-03-04 00:48:12.197000",
+            "operation": "Vector embedding",
+            "duration": 7.4978553292821335,
+            "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+          },
+          {
+            "timestamp": "2025-03-04 00:48:11.447000",
+            "operation": "Authentication",
+            "duration": 5.349274957433488,
+            "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+          },
+          {
+            "timestamp": "2025-03-04 00:48:12.199000",
+            "operation": "Vector embedding",
+            "duration": 3.0230409799753697,
+            "request_id": "78a62bb0-1500-485e-8fcc-bb71b7b532be"
+          }
+        ]
+      },
+      "api_summary": {
+        "total_api_calls": 699,
+        "unique_endpoints": 12,
+        "most_used_endpoints": [
+          {
+            "endpoint": "PUT /api/v1/content/:id",
+            "count": 69,
+            "avg_response_time": 0.37016968737220485,
+            "error_rate": 0.22510822510822512
+          },
+          {
+            "endpoint": "GET /api/v1/logs/analysis",
+            "count": 68,
+            "avg_response_time": 0.3694607826157289,
+            "error_rate": 0.22557471264367815
+          },
+          {
+            "endpoint": "DELETE /api/v1/content/:id",
+            "count": 68,
+            "avg_response_time": 0.3719518828191321,
+            "error_rate": 0.2236842105263158
+          },
+          {
+            "endpoint": "POST /api/v1/logs/analysis/run",
+            "count": 60,
+            "avg_response_time": 0.37135043887141594,
+            "error_rate": 0.22416302765647744
+          },
+          {
+            "endpoint": "GET /api/v1/templates/default",
+            "count": 59,
+            "avg_response_time": 0.37052136230174165,
+            "error_rate": 0.2254335260115607
+          },
+          {
+            "endpoint": "GET /api/v1/templates/nonexistent",
+            "count": 56,
+            "avg_response_time": 0.3683605515891544,
+            "error_rate": 0.22889842632331903
+          },
+          {
+            "endpoint": "GET /api/v1/templates",
+            "count": 55,
+            "avg_response_time": 0.37207993996596705,
+            "error_rate": 0.2240117130307467
+          },
+          {
+            "endpoint": "GET /api/v1/content/:id",
+            "count": 55,
+            "avg_response_time": 0.3724915189613016,
+            "error_rate": 0.22320117474302498
+          },
+          {
+            "endpoint": "GET /api/v1/health",
+            "count": 55,
+            "avg_response_time": 0.37348336908569146,
+            "error_rate": 0.22156573116691286
+          },
+          {
+            "endpoint": "GET /api/v1/info",
+            "count": 53,
+            "avg_response_time": 0.3690176841354135,
+            "error_rate": 0.2266857962697274
+          }
+        ],
+        "highest_error_rates": [
+          {
+            "endpoint": "GET /api/v1/templates/nonexistent",
+            "error_rate": 0.22889842632331903
+          },
+          {
+            "endpoint": "GET /api/v1/content/nonexistent",
+            "error_rate": 0.22779369627507162
+          },
+          {
+            "endpoint": "GET /api/v1/info",
+            "error_rate": 0.2266857962697274
+          },
+          {
+            "endpoint": "GET /api/v1/logs/analysis",
+            "error_rate": 0.22557471264367815
+          },
+          {
+            "endpoint": "GET /api/v1/templates/default",
+            "error_rate": 0.2254335260115607
+          }
+        ]
+      },
+      "security_summary": {
+        "total_security_issues": 0,
+        "issues_by_type": [],
+        "recent_issues": []
+      },
+      "recommendations": [
+        "Address the most common error: 'Authentication Errors' (occurred 18 times)",
+        "Optimize the slow operation 'O' (took 8.86s)",
+        "Investigate API endpoint 'GET /api/v1/templates/nonexistent' with high error rate (22.9%)",
+        "Consider adding more detailed contextual information to error logs",
+        "Implement structured logging for better analysis capabilities",
+        "Add logging for key business metrics to track system health",
+        "Create dashboards for real-time monitoring of critical operations"
+      ]
+    },
+    "analysis_time": "2025-03-04T00:54:45.910318"
+  },
+  "timestamp": "2025-03-04T00:54:45.910471",
+  "target_api": "http://localhost:8001/api/v1",
+  "log_file": "gutenberg_test.log"
+}

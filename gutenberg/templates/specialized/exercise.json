@@ -1,0 +1,68 @@
+{
+  "template_id": "default_exercise",
+  "name": "Default Exercise Template",
+  "description": "Template for generating educational exercises with Stoic principles",
+  "template_type": "exercise",
+  "version": "1.0",
+  "sections": [
+    {
+      "id": "intro",
+      "name": "Introduction",
+      "content": "# Exercise: {{concept.name}}\n\nThis exercise will help you develop a deeper understanding of {{concept.name}}. Designed for {{age_range}} learners at a {{difficulty}} level.",
+      "is_required": true
+    },
+    {
+      "id": "instructions",
+      "name": "Instructions",
+      "content": "## Instructions\n\nRead each question or prompt carefully, and take your time to think about your responses. The goal is not just to complete the exercise, but to deepen your understanding of {{concept.name}}.",
+      "is_required": true
+    },
+    {
+      "id": "part1",
+      "name": "Part 1: Understanding",
+      "content": "## Part 1: Understanding the Basics\n\n1. What is {{concept.name}}? Provide a definition in your own words.\n2. What are the key components or principles of {{concept.name}}?\n3. Why is {{concept.name}} important in this field?",
+      "is_required": true
+    },
+    {
+      "id": "part2",
+      "name": "Part 2: Application",
+      "content": "## Part 2: Applying the Concept\n\n1. Describe a real-world scenario where {{concept.name}} applies.\n2. How would you use your understanding of {{concept.name}} to solve a problem?\n3. What challenges might arise when applying {{concept.name}}?",
+      "is_required": true
+    },
+    {
+      "id": "part3",
+      "name": "Part 3: Analysis",
+      "content": "## Part 3: Analysis and Reflection\n\n1. How does {{concept.name}} relate to other concepts you've learned?\n2. Are there any limitations or critiques of {{concept.name}}?\n3. How has your understanding of {{concept.name}} evolved through this exercise?",
+      "is_required": true
+    },
+    {
+      "id": "stoic_practice",
+      "name": "Stoic Practice",
+      "content": "## Stoic Practice\n\nReflect on your approach to learning {{concept.name}}:\n\n1. What aspects of learning this concept are within your control?\n2. What obstacles have you faced, and how might Stoic principles help you overcome them?\n3. How could the virtues of wisdom, courage, justice, and temperance guide your continued study of this concept?",
+      "is_required": true
+    },
+    {
+      "id": "conclusion",
+      "name": "Conclusion",
+      "content": "## Conclusion\n\nCompleting this exercise should have deepened your understanding of {{concept.name}}. Remember that true learning comes not just from knowing, but from applying and reflecting on knowledge.",
+      "is_required": true
+    }
+  ],
+  "variables": [
+    {
+      "name": "concept",
+      "description": "The concept the exercise focuses on",
+      "required": true
+    },
+    {
+      "name": "difficulty",
+      "description": "Difficulty level of the exercise",
+      "required": true
+    },
+    {
+      "name": "age_range",
+      "description": "Target age range for the exercise",
+      "required": true
+    }
+  ]
+}

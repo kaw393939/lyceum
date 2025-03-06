@@ -1,0 +1,68 @@
+{
+  "template_id": "default_assessment",
+  "name": "Default Assessment Template",
+  "description": "Template for generating educational assessments with Stoic principles",
+  "template_type": "assessment",
+  "version": "1.0",
+  "sections": [
+    {
+      "id": "intro",
+      "name": "Introduction",
+      "content": "# Assessment: {{concept.name}}\n\nThis assessment will evaluate your understanding of {{concept.name}}. Designed for {{age_range}} learners at a {{difficulty}} level.",
+      "is_required": true
+    },
+    {
+      "id": "instructions",
+      "name": "Instructions",
+      "content": "## Instructions\n\nThis assessment includes multiple types of questions to evaluate your understanding of {{concept.name}}. Answer each question to the best of your ability.",
+      "is_required": true
+    },
+    {
+      "id": "multiple_choice",
+      "name": "Multiple Choice Questions",
+      "content": "## Multiple Choice\n\nSelect the best answer for each question:\n\n1. What is the primary purpose of {{concept.name}}?\n   a) Option A\n   b) Option B\n   c) Option C\n   d) Option D\n\n2. Which of the following best describes a key principle of {{concept.name}}?\n   a) Option A\n   b) Option B\n   c) Option C\n   d) Option D\n\n3. In what context would {{concept.name}} be most appropriately applied?\n   a) Option A\n   b) Option B\n   c) Option C\n   d) Option D",
+      "is_required": true
+    },
+    {
+      "id": "short_answer",
+      "name": "Short Answer Questions",
+      "content": "## Short Answer\n\n1. Define {{concept.name}} in your own words and explain its significance.\n\n2. Describe one practical application of {{concept.name}}.\n\n3. How does {{concept.name}} relate to other concepts in this field?",
+      "is_required": true
+    },
+    {
+      "id": "essay",
+      "name": "Essay Question",
+      "content": "## Essay\n\nWrite a well-structured essay (250-500 words) addressing the following:\n\nExplain the importance of {{concept.name}} in its field, discuss its practical applications, and analyze any limitations or critiques. Include specific examples to support your points.",
+      "is_required": false
+    },
+    {
+      "id": "stoic_reflection",
+      "name": "Stoic Reflection",
+      "content": "## Stoic Reflection\n\n1. How can a Stoic approach help in learning and applying {{concept.name}}?\n\n2. Describe how the Stoic virtues (wisdom, courage, justice, temperance) might apply to the study and application of {{concept.name}}.\n\n3. What aspects of mastering {{concept.name}} are within your control, and what aspects might require acceptance of things beyond your control?",
+      "is_required": true
+    },
+    {
+      "id": "conclusion",
+      "name": "Conclusion",
+      "content": "## Conclusion\n\nReflect on your answers and consider how they demonstrate your understanding of {{concept.name}}. Remember that assessment is not just about evaluation, but also an opportunity for learning and growth.",
+      "is_required": true
+    }
+  ],
+  "variables": [
+    {
+      "name": "concept",
+      "description": "The concept being assessed",
+      "required": true
+    },
+    {
+      "name": "difficulty",
+      "description": "Difficulty level of the assessment",
+      "required": true
+    },
+    {
+      "name": "age_range",
+      "description": "Target age range for the assessment",
+      "required": true
+    }
+  ]
+}

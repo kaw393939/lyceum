@@ -1,0 +1,476 @@
+{% extends "base.html" %}
+
+{% block title %}Architecture - Lyceum{% endblock %}
+
+{% block body_class %}architecture-page{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="section-container">
+        <h1>Lyceum Architecture</h1>
+        <p class="subtitle">The technical foundation that powers our learning platform</p>
+    </div>
+</div>
+
+<div class="section-container">
+    <section class="content-section">
+        <div class="lead-paragraph">
+            Lyceum's architecture is designed to provide a scalable, resilient, and flexible foundation for 
+            personalized learning experiences. Our system combines modern AI capabilities with classical educational 
+            principles to create a uniquely powerful learning environment.
+        </div>
+
+        <div class="mermaid-diagram">
+            <pre class="mermaid">
+graph TB
+    subgraph "User Interface Layer"
+        UI[Web Interface]
+        Mobile[Mobile Apps]
+        API[API Gateway]
+    end
+    
+    subgraph "Application Layer"
+        LMS[Learning Management]
+        Dialog[Dialogue System]
+        KG[Knowledge Graph]
+        Recommend[Recommendation Engine]
+        Content[Content Generation]
+    end
+    
+    subgraph "Data Layer"
+        Vector[Vector Database]
+        Graph[Graph Database]
+        Document[Document Store]
+        User[User Profiles]
+    end
+    
+    subgraph "Infrastructure Layer"
+        Cloud[Cloud Services]
+        Cache[Caching Layer]
+        Security[Security & Auth]
+        Analytics[Analytics Engine]
+    end
+    
+    UI --> API
+    Mobile --> API
+    API --> Security
+    Security --> LMS
+    Security --> Dialog
+    Security --> KG
+    Security --> Recommend
+    Security --> Content
+    
+    LMS --> Document
+    LMS --> User
+    Dialog --> Vector
+    Dialog --> User
+    KG --> Graph
+    KG --> Vector
+    Recommend --> Graph
+    Recommend --> User
+    Content --> Vector
+    Content --> Document
+    
+    Vector --> Cloud
+    Graph --> Cloud
+    Document --> Cloud
+    User --> Cloud
+    
+    Cloud --> Cache
+    Cloud --> Analytics
+            </pre>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Core Architecture Principles</h2>
+        
+        <div class="vision-grid">
+            <div class="vision-card">
+                <div class="vision-card-icon">🧩</div>
+                <h3>Modular Design</h3>
+                <p>
+                    Each component is designed as a discrete service with clear boundaries and interfaces,
+                    enabling independent scaling, development, and deployment of different system parts.
+                </p>
+            </div>
+            
+            <div class="vision-card">
+                <div class="vision-card-icon">📊</div>
+                <h3>Knowledge-First</h3>
+                <p>
+                    The knowledge graph is our central organizing principle, mapping relationships between
+                    concepts, learning resources, and educational pathways.
+                </p>
+            </div>
+            
+            <div class="vision-card">
+                <div class="vision-card-icon">🛡️</div>
+                <h3>Privacy by Design</h3>
+                <p>
+                    User data protection and privacy controls are built into the core architecture,
+                    not added as an afterthought. Data ownership remains with the learner.
+                </p>
+            </div>
+            
+            <div class="vision-card">
+                <div class="vision-card-icon">⚡</div>
+                <h3>Real-Time Adaptation</h3>
+                <p>
+                    The system continuously adapts to learner behavior and performance,
+                    using machine learning to optimize learning pathways in real-time.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Key System Components</h2>
+        
+        <div class="two-column">
+            <div>
+                <h3>Knowledge Graph Engine</h3>
+                <p>
+                    The knowledge graph is the heart of Lyceum, representing the interconnected nature of human knowledge.
+                    It maps concepts, their relationships, prerequisites, and applications.
+                </p>
+                <p>
+                    Our graph engine uses a combination of expert-created structures and machine learning to continuously 
+                    evolve and refine these knowledge relationships based on:
+                </p>
+                <ul>
+                    <li>Educational research and subject matter expertise</li>
+                    <li>Actual learning patterns and outcomes</li>
+                    <li>New discoveries and content</li>
+                </ul>
+                <p>
+                    This graph provides the foundation for personalized learning paths and ensures that learners build 
+                    knowledge in a structured, coherent way.
+                </p>
+            </div>
+            
+            <div>
+                <div class="mermaid-diagram">
+                    <pre class="mermaid">
+graph LR
+    A[Mathematics] --> B[Calculus]
+    A --> C[Algebra]
+    A --> D[Geometry]
+    B --> E[Differential Equations]
+    C --> F[Linear Algebra]
+    F --> G[Matrix Operations]
+    D --> H[Trigonometry]
+    B --> H
+    H --> I[Fourier Analysis]
+    E --> I
+                    </pre>
+                </div>
+                <p class="image-caption">Simplified representation of knowledge graph relationships</p>
+            </div>
+        </div>
+        
+        <div class="two-column">
+            <div>
+                <div class="mermaid-diagram">
+                    <pre class="mermaid">
+sequenceDiagram
+    participant Student
+    participant DialogueSystem
+    participant KnowledgeGraph
+    participant ContentEngine
+    
+    Student->>DialogueSystem: Question or Concept
+    DialogueSystem->>KnowledgeGraph: Retrieve Related Concepts
+    KnowledgeGraph-->>DialogueSystem: Concept Context
+    DialogueSystem->>ContentEngine: Request Explanation
+    ContentEngine-->>DialogueSystem: Personalized Content
+    DialogueSystem-->>Student: Adaptive Response
+    Student->>DialogueSystem: Follow-up Question
+    DialogueSystem->>KnowledgeGraph: Update Understanding Model
+                    </pre>
+                </div>
+                <p class="image-caption">Dialogue system interaction flow</p>
+            </div>
+            
+            <div>
+                <h3>Dialogue System</h3>
+                <p>
+                    Our dialogue system embodies the Socratic method, engaging learners in meaningful conversations
+                    that help them discover and understand concepts through questioning and exploration.
+                </p>
+                <p>
+                    Built on large language models and reinforcement learning, the system:
+                </p>
+                <ul>
+                    <li>Adapts to the learner's current understanding</li>
+                    <li>Asks probing questions that encourage critical thinking</li>
+                    <li>Provides explanations that connect to the learner's existing knowledge</li>
+                    <li>Identifies and addresses misconceptions through gentle correction</li>
+                </ul>
+                <p>
+                    The dialogue system is designed to be a supportive guide rather than an authority,
+                    encouraging learners to reach their own conclusions.
+                </p>
+            </div>
+        </div>
+        
+        <div class="two-column">
+            <div>
+                <h3>Learning Path Engine</h3>
+                <p>
+                    The learning path engine creates personalized educational journeys for each learner,
+                    combining insights from:
+                </p>
+                <ul>
+                    <li>The knowledge graph's concept relationships</li>
+                    <li>The learner's current knowledge and gaps</li>
+                    <li>Optimal learning sequence research</li>
+                    <li>The learner's goals and preferences</li>
+                </ul>
+                <p>
+                    Using reinforcement learning algorithms, the system dynamically adjusts these paths based on learner 
+                    performance, engagement, and feedback. The result is a constantly optimizing educational experience
+                    that balances challenge with achievability.
+                </p>
+            </div>
+            
+            <div>
+                <h3>Content Generation System</h3>
+                <p>
+                    Our content generation system creates educational materials dynamically, tailored to each learner's needs.
+                    The system can produce:
+                </p>
+                <ul>
+                    <li>Clear explanations of complex concepts</li>
+                    <li>Practice problems and assessments</li>
+                    <li>Visual aids and diagrams</li>
+                    <li>Summaries and reviews</li>
+                    <li>Connections to real-world applications</li>
+                </ul>
+                <p>
+                    Content is generated using a combination of template-based approaches and large language models,
+                    with quality assurance processes to ensure accuracy and educational value.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Technical Stack</h2>
+        
+        <div class="highlight-box">
+            <h3>Front-End Technologies</h3>
+            <ul>
+                <li><strong>Web Interface:</strong> React with TypeScript, responsive design for all device sizes</li>
+                <li><strong>Mobile Applications:</strong> React Native for cross-platform compatibility</li>
+                <li><strong>Data Visualization:</strong> D3.js and Mermaid for knowledge graphs and learning analytics</li>
+                <li><strong>Accessibility:</strong> WCAG 2.1 AA compliance with assistive technology support</li>
+            </ul>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>Back-End Technologies</h3>
+            <ul>
+                <li><strong>API Layer:</strong> GraphQL with Apollo Server for flexible, efficient data exchange</li>
+                <li><strong>Services:</strong> Containerized microservices written in Python and TypeScript</li>
+                <li><strong>Knowledge Graph:</strong> Neo4j with custom extensions for educational relationship modeling</li>
+                <li><strong>Vector Store:</strong> Qdrant for efficient similarity search and concept embeddings</li>
+                <li><strong>Document Store:</strong> MongoDB for content and user data</li>
+            </ul>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>AI & Machine Learning</h3>
+            <ul>
+                <li><strong>Dialogue Models:</strong> Fine-tuned large language models optimized for educational dialogue</li>
+                <li><strong>Recommender System:</strong> Hybrid approach combining collaborative filtering and knowledge graph traversal</li>
+                <li><strong>Knowledge Representation:</strong> Custom embeddings that capture educational relationships</li>
+                <li><strong>Learning Analytics:</strong> Predictive models for identifying learning patterns and potential interventions</li>
+            </ul>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>Infrastructure</h3>
+            <ul>
+                <li><strong>Cloud Platform:</strong> Kubernetes-orchestrated containers on AWS</li>
+                <li><strong>Scaling:</strong> Autoscaling based on demand with resource optimization</li>
+                <li><strong>Monitoring:</strong> Prometheus and Grafana for system health and performance</li>
+                <li><strong>Security:</strong> Zero-trust architecture with continuous vulnerability scanning</li>
+                <li><strong>Data Protection:</strong> End-to-end encryption and compliance with GDPR, FERPA, and other regulations</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>System Integration</h2>
+        
+        <p class="lead-paragraph">
+            Lyceum is designed to integrate seamlessly with existing educational technologies and systems,
+            extending their capabilities rather than replacing them.
+        </p>
+        
+        <div class="vision-grid">
+            <div class="component-card">
+                <div class="component-icon">🔄</div>
+                <h3>LMS Integration</h3>
+                <p>
+                    Connect with popular Learning Management Systems like Canvas, Moodle, and Blackboard
+                    through standard protocols (LTI, APIs) to enhance existing course structures.
+                </p>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-icon">📚</div>
+                <h3>Content Repositories</h3>
+                <p>
+                    Integrate with OER platforms, digital libraries, and publisher content through
+                    standardized metadata mapping to our knowledge graph.
+                </p>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-icon">📊</div>
+                <h3>Analytics Platforms</h3>
+                <p>
+                    Export learning data to institutional analytics systems through standardized formats,
+                    enabling insights across the entire learning ecosystem.
+                </p>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-icon">🧩</div>
+                <h3>Developer API</h3>
+                <p>
+                    Comprehensive API access allows third-party developers to build tools and extensions
+                    that leverage Lyceum's knowledge graph and learning capabilities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Deployment Options</h2>
+        
+        <div class="two-column">
+            <div>
+                <h3>Cloud Hosted (SaaS)</h3>
+                <p>
+                    Our primary offering is a fully-managed cloud solution where we handle all infrastructure,
+                    scaling, security, and updates. This option provides:
+                </p>
+                <ul>
+                    <li>Rapid deployment with minimal IT resources required</li>
+                    <li>Automatic updates with new features and improvements</li>
+                    <li>Enterprise-grade security and compliance</li>
+                    <li>Scalability to handle any number of users</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>On-Premises</h3>
+                <p>
+                    For organizations with specific security requirements or existing infrastructure investments,
+                    we offer an on-premises deployment option that provides:
+                </p>
+                <ul>
+                    <li>Complete data sovereignty within your network</li>
+                    <li>Integration with existing authentication systems</li>
+                    <li>Customized security policies</li>
+                    <li>Offline capability for environments with limited connectivity</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>Hybrid Options</h3>
+            <p>
+                We also support hybrid deployments where sensitive components remain on-premises while
+                leveraging cloud resources for computational-intensive tasks like machine learning.
+                This approach provides a balance of security, performance, and manageability.
+            </p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Future Architectural Directions</h2>
+        
+        <div class="vision-grid">
+            <div class="vision-card">
+                <div class="vision-card-icon">🧠</div>
+                <h3>Cognitive Architecture</h3>
+                <p>
+                    Evolving our system toward a more brain-inspired architecture that better models
+                    how humans learn and recall information across different contexts and time periods.
+                </p>
+            </div>
+            
+            <div class="vision-card">
+                <div class="vision-card-icon">🔗</div>
+                <h3>Knowledge Federation</h3>
+                <p>
+                    Developing protocols for secure, privacy-preserving knowledge sharing between
+                    different Lyceum installations and other learning systems.
+                </p>
+            </div>
+            
+            <div class="vision-card">
+                <div class="vision-card-icon">🌐</div>
+                <h3>Multi-modal Learning</h3>
+                <p>
+                    Expanding capabilities to seamlessly integrate visual, auditory, and interactive
+                    learning experiences through unified representation models.
+                </p>
+            </div>
+            
+            <div class="vision-card">
+                <div class="vision-card-icon">🤝</div>
+                <h3>Collaborative Intelligence</h3>
+                <p>
+                    Creating architectures that enable multiple learners to collaboratively build
+                    and explore knowledge structures together with AI assistance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Technical Documentation</h2>
+        <p>For developers and technical teams interested in integrating with Lyceum, we provide comprehensive documentation:</p>
+        <div class="two-column">
+            <div>
+                <ul class="docs-list">
+                    <li><a href="#" class="text-button">API Reference</a></li>
+                    <li><a href="#" class="text-button">Integration Guides</a></li>
+                    <li><a href="#" class="text-button">Knowledge Graph Schema</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="docs-list">
+                    <li><a href="#" class="text-button">Deployment Handbook</a></li>
+                    <li><a href="#" class="text-button">Security Whitepaper</a></li>
+                    <li><a href="#" class="text-button">Performance Benchmarks</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>
+            <a href="/contact" class="primary-button">Request Technical Consultation</a>
+        </p>
+    </section>
+</div>
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Mermaid diagrams
+    mermaid.initialize({ 
+        startOnLoad: true,
+        theme: 'neutral',
+        flowchart: {
+            curve: 'basis'
+        }
+    });
+});
+</script>
+{% endblock %}
+
+{% endblock %}

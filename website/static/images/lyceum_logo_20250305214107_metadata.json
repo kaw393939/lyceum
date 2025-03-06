@@ -1,0 +1,13 @@
+{
+  "prompt": "A minimalist logo design for an AI educational system named \"Lyceum\". The logo should subtly incorporate elements of both ancient wisdom (like an owl or Greek column) and modern AI (like neural network patterns). The design should be elegant, balanced, and work well at various sizes, suitable for a tech company focused on education. Use a sophisticated color palette of deep blue, gold, and white.",
+  "timestamp": "2025-03-05T21:41:07.214307",
+  "parameters": {
+    "size": "1024x1024",
+    "quality": "standard",
+    "style": "vivid",
+    "n": 1
+  },
+  "paths": [
+    "/home/kwilliams/projects/plato/lyceum/static/images/lyceum_logo_20250305214107_0.png"
+  ]
+}

@@ -1,0 +1,13 @@
+# Database Inspector Configuration
+
+mongodb:
+  uri: "mongodb://localhost:27017"
+  timeout_ms: 5000
+
+neo4j:
+  uri: "bolt://localhost:7687"
+  user: "neo4j"
+  password: "password"
+
+qdrant:
+  url: "http://localhost:6333"

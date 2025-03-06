@@ -1,0 +1,342 @@
+services:
+  # Lyceum Design and Visualization System
+  lyceum:
+    build:
+      context: ./lyceum
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8000"  # Map to a different port to avoid conflicts
+    volumes:
+      - ./lyceum:/app  # Mount whole directory for development
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+    networks:
+      - education_network
+    # Enable interactive terminal for debugging
+    tty: true
+    stdin_open: true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # Knowledge Map System (renamed from aristotle to ptolemy)
+  ptolemy:
+    build:
+      context: ./ptolemy
+      dockerfile: Dockerfile
+      target: development  # Use development for better debugging
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./ptolemy:/app  # Mount whole directory for development
+    env_file:
+      - ./ptolemy/.env
+    environment:
+      # Database connections
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=password
+      - QDRANT_URL=http://qdrant:6333
+      - QDRANT_COLLECTION=goliath_vectors
+      - VECTOR_DIMENSION=1536
+      - MONGODB_URI=mongodb://ptolemy_user:ptolemy_password@mongodb:27017/ptolemy
+      # Service configuration
+      - SERVICE_NAME=ptolemy
+      - LOG_LEVEL=DEBUG
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    depends_on:
+      - neo4j
+      - qdrant
+      - mongodb
+    restart: unless-stopped
+    networks:
+      - education_network
+    # Enable interactive terminal for debugging
+    tty: true
+    stdin_open: true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # Content Generation System
+  gutenberg:
+    build:
+      context: ./gutenberg
+      dockerfile: Dockerfile
+      target: development  # Use development for better debugging experience
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./gutenberg:/app  # Mount whole directory for development
+    environment:
+      # Service dependencies
+      - PTOLEMY_API_URL=http://ptolemy:8000
+      - PTOLEMY_API_KEY=${PTOLEMY_API_KEY:-}
+      # Database connections
+      - QDRANT_URL=http://qdrant:6333
+      - QDRANT_COLLECTION=goliath_vectors
+      - VECTOR_DIMENSION=1536
+      - MONGODB_URI=mongodb://gutenberg_user:gutenberg_password@mongodb:27017/gutenberg
+      # Service configuration
+      - SERVICE_NAME=gutenberg
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - LOG_LEVEL=DEBUG
+    depends_on:
+      - ptolemy
+      - qdrant
+      - mongodb
+    restart: unless-stopped
+    networks:
+      - education_network
+    # Enable interactive terminal for debugging
+    tty: true
+    stdin_open: true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # Future services are commented out until implementation is complete
+  # Remove comments below when ready to deploy these services
+  
+  # GNN Recommendation System (renamed from theophrastus to galileo)
+  # galileo:
+  #   build:
+  #     context: ./galileo
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8502:8502"
+  #   volumes:
+  #     - ./galileo/data:/app/data
+  #     - ./galileo/config.yaml:/app/config.yaml
+  #     - ./galileo/models:/app/models
+  #   env_file:
+  #     - ./galileo/.env
+  #   environment:
+  #     - PTOLEMY_URL=http://ptolemy:8000
+  #     - POSTGRES_URI=postgresql://postgres:postgres@postgres:5432/galileo
+  #     - NEO4J_URI=bolt://neo4j:7687
+  #     - NEO4J_USER=neo4j
+  #     - NEO4J_PASSWORD=password
+  #     - REDIS_URL=redis://redis:6379/0
+  #   depends_on:
+  #     ptolemy:
+  #       condition: service_healthy
+  #     postgres:
+  #       condition: service_healthy
+  #     neo4j:
+  #       condition: service_healthy
+  #     redis:
+  #       condition: service_healthy
+  #   restart: unless-stopped
+  #   networks:
+  #     - education_network
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost:8502/health"]
+  #     interval: 30s
+  #     timeout: 10s
+  #     retries: 3
+  #     start_period: 15s
+
+  # Learner Interaction System
+  socrates:
+    build:
+      context: ./socrates
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./socrates/config.yaml:/app/config.yaml
+    env_file:
+      - ./socrates/.env
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - PTOLEMY_URL=http://ptolemy:8000
+      - GUTENBERG_URL=http://gutenberg:8001
+      - QDRANT_URL=http://qdrant:6333
+      - PTOLEMY_USE_MOCK=true
+      - GUTENBERG_USE_MOCK=true
+      - MODEL=gpt-4o
+      - MONGODB_URI=mongodb://socrates_user:socrates_password@mongodb:27017/socrates
+      - MONGODB_USE_MOCK=false
+      - PTOLEMY_API_KEY=mock_key
+      - GUTENBERG_API_KEY=mock_key
+    depends_on:
+      - mongodb
+      - qdrant
+    restart: unless-stopped
+    networks:
+      - education_network
+    # Enable interactive terminal for debugging
+    tty: true
+    stdin_open: true
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 20s
+      retries: 5
+      start_period: 45s
+
+  # Persistence Services
+  
+  # Graph Database
+  neo4j:
+    image: neo4j:5.11
+    ports:
+      - "7474:7474"  # HTTP
+      - "7687:7687"  # Bolt
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+      - neo4j_import:/import
+      - neo4j_plugins:/plugins
+    environment:
+      - NEO4J_AUTH=neo4j/password
+      - NEO4J_dbms_memory_pagecache_size=1G
+      - NEO4J_dbms_memory_heap_initial__size=1G
+      - NEO4J_dbms_memory_heap_max__size=2G
+      - NEO4J_server_config_strict__validation_enabled=false
+    restart: unless-stopped
+    networks:
+      - education_network
+    healthcheck:
+      test: ["CMD", "wget", "-O", "/dev/null", "-q", "http://localhost:7474"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  # Vector Database - Shared between services (Used by both Ptolemy and Gutenberg)
+  qdrant:
+    image: qdrant/qdrant:v1.7.4
+    ports:
+      - "6333:6333"  # HTTP
+      - "6334:6334"  # GRPC
+    volumes:
+      - qdrant_data:/qdrant/storage
+    environment:
+      - QDRANT_ALLOW_RECOVERY_MODE=true
+      - QDRANT_TELEMETRY_DISABLED=true
+      - QDRANT_LOG_LEVEL=INFO
+    restart: unless-stopped
+    # No healthcheck - let's use a sleep command in the start script
+    networks:
+      - education_network
+    # Ensure adequate resources for vector operations
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 1G
+
+  # Document Store - Shared between services (Used by both Ptolemy and Gutenberg)
+  mongodb:
+    build:
+      context: ./mongodb
+      dockerfile: Dockerfile
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      # Root admin credentials
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      # This database is created first
+      - MONGO_INITDB_DATABASE=admin
+      # Service-specific user credentials (used by init script)
+      - PTOLEMY_USER=ptolemy_user
+      - PTOLEMY_PASSWORD=ptolemy_password
+      - GUTENBERG_USER=gutenberg_user
+      - GUTENBERG_PASSWORD=gutenberg_password
+      - SOCRATES_USER=socrates_user
+      - SOCRATES_PASSWORD=socrates_password
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/healthcheck.sh"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 60s
+    networks:
+      - education_network
+    # Ensure adequate resources
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+
+  # Relational Database
+  postgres:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=education
+    restart: unless-stopped
+    networks:
+      - education_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # Caching System
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - education_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+# Define version for compatibility
+version: '3.8'
+
+networks:
+  education_network:
+    driver: bridge
+
+volumes:
+  neo4j_data:
+  neo4j_logs:
+  neo4j_import:
+  neo4j_plugins:
+  qdrant_data:
+  mongo_data:
+  postgres_data:
+  redis_data:

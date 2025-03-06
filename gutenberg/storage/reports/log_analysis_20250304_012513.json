@@ -1,0 +1,28 @@
+{
+  "analysis_time": "2025-03-04T01:25:13.342592",
+  "log_file": "gutenberg.log",
+  "summary": {
+    "total_requests": 0,
+    "requests_with_errors": 0,
+    "requests_with_slow_ops": 0,
+    "error_rate": 0.0,
+    "slow_operation_rate": 0.0
+  },
+  "error_summary": {
+    "total_errors": 0,
+    "unique_error_types": 0,
+    "most_common_errors": []
+  },
+  "performance_summary": {
+    "slow_operations_count": 0,
+    "slowest_operations": []
+  },
+  "api_summary": {
+    "total_api_calls": 0,
+    "unique_endpoints": 0,
+    "most_used_endpoints": []
+  },
+  "recommendations": [
+    "No significant issues detected. Continue monitoring."
+  ]
+}

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyceum - Transformative Educational Experience</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/main.css">
+    <!-- External libraries -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Internal JS - load visualizer first as main.js depends on it -->
+    <script src="static/js/visualizer.js"></script>
+    <script src="static/js/main.js" defer></script>
+</head>
+<body>
+    <div class="hero">
+        <div id="hero-visualization" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0;"></div>
+        <div class="hero-content" style="position: relative; z-index: 1;">
+            <img src="static/images/lyceum_logo_20250305214107_0.png" alt="Lyceum Logo" class="logo">
+            <h1>Lyceum</h1>
+            <p class="tagline">Where Ancient Wisdom Meets Modern Intelligence</p>
+            
+            <div class="audio-introduction" data-section="introduction">
+                <div class="audio-player-header">
+                    <button class="play-button">
+                        <span class="play-icon">▶</span>
+                        <span class="button-text">Listen to Introduction</span>
+                    </button>
+                    <select class="voice-selector">
+                        <option value="alloy">Alloy Voice</option>
+                        <option value="echo">Echo Voice</option>
+                        <option value="fable">Fable Voice</option>
+                        <option value="nova">Nova Voice</option>
+                        <option value="shimmer">Shimmer Voice</option>
+                    </select>
+                </div>
+                <div id="audio-visualization" class="audio-visualization"></div>
+                <div class="audio-playback-info">
+                    <span class="current-voice">Alloy voice</span>
+                    <span class="playback-time">0:00 / 0:00</span>
+                </div>
+                <audio preload="metadata">
+                    <source src="static/audio/lyceum_introduction_alloy_latest.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            
+            <a href="#vision" class="cta-button">Discover the Magic</a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <img src="static/images/lyceum_logo_20250305214107_0.png" alt="Lyceum" height="40">
+                    <span class="logo-text">Lyceum</span>
+                </a>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span>Menu</span>
+                </button>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#vision" class="nav-link">Vision</a></li>
+                        <li><a href="#features" class="nav-link">Features</a></li>
+                        <li><a href="#architecture" class="nav-link">Architecture</a></li>
+                        <li><a href="#components" class="nav-link">Components</a></li>
+                        <li><a href="#business" class="nav-link">Business</a></li>
+                        <li><a href="#implementation" class="nav-link">Implementation</a></li>
+                        <li><a href="#technical-docs" class="nav-link">Documentation</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="vision" class="vision-section">
+            <div class="section-container" data-aos="fade-up">
+                <h2>Our Vision</h2>
+                <div class="vision-content">
+                    <div class="vision-text" id="vision-text-container">
+                        <div id="vision-loading" class="loading-indicator">
+                            <div class="spinner"></div>
+                            <p>Loading Claude 3.7 generated vision...</p>
+                        </div>
+                        <div id="vision-text" style="display: none;">
+                            <p>The Lyceum reimagines education for the digital age by blending the philosophical depth of ancient learning centers with cutting-edge AI technology.</p>
+                            <p>Like the sage archetype, we guide learners on transformative journeys of discovery. Like the magician, we unlock possibilities through adaptive, personalized learning experiences that seem almost magical in their effectiveness.</p>
+                            <p>Our platform doesn't just deliver content—it creates immersive learning environments where dialogue, mentorship, and discovery drive profound understanding.</p>
+                        </div>
+                    </div>
+                    <div class="vision-image">
+                        <img id="dialogue-image" src="static/images/lyceum_logo_20250305214107_0.png" alt="Lyceum Vision">
+                        <div class="image-caption">AI-Generated Visualization of Lyceum</div>
+                    </div>
+                </div>
+                <div class="ai-attribution">
+                    <p>Vision text generated by Claude 3.7 Sonnet • Images generated by DALL-E 3</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="section-container" data-aos="fade-up">
+                <h2>Magical Learning Experiences</h2>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="feature-icon">🔮</div>
+                        <h3>Socratic Dialogue</h3>
+                        <p>Engage in meaningful conversations with AI mentors that adapt to your understanding, challenging assumptions and developing critical thinking.</p>
+                    </div>
+                    <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="feature-icon">🧠</div>
+                        <h3>Knowledge Graph</h3>
+                        <p>Experience learning that understands how concepts connect, providing customized paths through complex subject matter.</p>
+                    </div>
+                    <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="feature-icon">🧙‍♂️</div>
+                        <h3>Historical Personas</h3>
+                        <p>Learn directly from AI embodiments of history's greatest minds, engaging with Aristotle, Einstein, or Marie Curie.</p>
+                    </div>
+                    <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Adaptive Content</h3>
+                        <p>Experience content that evolves with your progress, filling knowledge gaps and challenging you appropriately.</p>
+                    </div>
+                    <div class="feature-card" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="feature-icon">🔍</div>
+                        <h3>Project-Based Learning</h3>
+                        <p>Apply knowledge through guided projects that adapt to your interests and learning style.</p>
+                    </div>
+                    <div class="feature-card" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="feature-icon">🌊</div>
+                        <h3>Learning Flow</h3>
+                        <p>Enter a state of optimal learning with experiences paced perfectly for your abilities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="architecture" class="architecture-section">
+            <div class="section-container" data-aos="fade-up">
+                <h2>System Architecture</h2>
+                <p class="section-description">Lyceum's architecture combines powerful microservices with sophisticated AI components to deliver transformative learning experiences.</p>
+                <div id="architecture-diagram" class="mermaid-diagram">
+                    <!-- Mermaid diagram will be inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="components" class="components-section">
+            <div class="section-container" data-aos="fade-up">
+                <h2>Core Components</h2>
+                <p class="section-description">Our platform's magical abilities emerge from five integrated components that work in harmony.</p>
+                <div id="components-visualization" class="visualization"></div>
+                <div class="component-cards">
+                    <div class="component-card" data-aos="fade-right">
+                        <h3>Core System</h3>
+                        <p>The central orchestration layer that coordinates all aspects of the Lyceum. It manages user sessions, learning paths, and integrates the various specialized services.</p>
+                    </div>
+                    <div class="component-card" data-aos="fade-left">
+                        <h3>Knowledge Graph</h3>
+                        <p>A connected network of concepts, representing relationships between ideas, prerequisites, and learning progressions. Forms the foundation of the educational content structure.</p>
+                    </div>
+                    <div class="component-card" data-aos="fade-right">
+                        <h3>Dialogue System</h3>
+                        <p>Facilitates Socratic conversations between learners and the system, guiding discovery through targeted questions and responsive interactions.</p>
+                    </div>
+                    <div class="component-card" data-aos="fade-left">
+                        <h3>Content Engine</h3>
+                        <p>Generates and adapts learning materials based on the knowledge graph, learner needs, and pedagogical approaches. Creates multimodal content for diverse learning preferences.</p>
+                    </div>
+                    <div class="component-card" data-aos="fade-right">
+                        <h3>Mentor Service</h3>
+                        <p>Provides personalized guidance to learners, offering direction, motivation, and targeted assistance based on individual progress, struggles, and learning patterns.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="business" class="business-section">
+            <div class="section-container" data-aos="fade-up">
+                <h2>Business Strategy</h2>
+                <div class="business-model">
+                    <div class="business-column" data-aos="fade-right">
+                        <h3>Market Opportunity</h3>
+                        <p>The global educational technology market is projected to reach $404 billion by 2025, with AI-powered learning growing at 45% annually. Lyceum addresses the critical challenges of:</p>
+                        <ul>
+                            <li>Student engagement and retention</li>
+                            <li>Personalized learning at scale</li>
+                            <li>Critical thinking development</li>
+                            <li>Educator capacity constraints</li>
+                            <li>Knowledge application gaps</li>
+                        </ul>
+                    </div>
+                    <div class="business-column" data-aos="fade-left">
+                        <h3>Value Proposition</h3>
+                        <p>Lyceum delivers:</p>
+                        <ul>
+                            <li><strong>For Learners:</strong> Deeply engaging, personalized learning experiences that adapt to individual needs and learning styles</li>
+                            <li><strong>For Educators:</strong> Powerful tools to create immersive learning experiences while reducing administrative burden</li>
+                            <li><strong>For Institutions:</strong> Improved student outcomes, retention rates, and educational effectiveness metrics</li>
+                            <li><strong>For Enterprises:</strong> Effective workforce development and knowledge transfer solutions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="business-grid" data-aos="fade-up">
+                    <div class="business-card">
+                        <h3>Revenue Model</h3>
+                        <ul>
+                            <li>SaaS subscriptions for institutions and enterprises</li>
+                            <li>Individual learner subscriptions with tiered access</li>
+                            <li>Content marketplace for specialized courses</li>
+                            <li>Enterprise implementation services</li>
+                            <li>API access for educational platform integration</li>
+                        </ul>
+                    </div>
+                    <div class="business-card">
+                        <h3>Go-to-Market Strategy</h3>
+                        <ul>
+                            <li>Higher education partnerships for initial adoption</li>
+                            <li>Professional development and corporate learning pilots</li>
+                            <li>Open access to core features with premium tiers</li>
+                            <li>Educational content partnerships with publishers</li>
+                            <li>Targeted marketing to online learning communities</li>
+                        </ul>
+                    </div>
+                    <div class="business-card">
+                        <h3>Competitive Advantage</h3>
+                        <ul>
+                            <li>Philosophical depth integrated with cutting-edge AI</li>
+                            <li>Advanced dialogue capabilities beyond standard LLM interfaces</li>
+                            <li>Knowledge graph foundation for complex learning paths</li>
+                            <li>Personalized mentorship that adapts to learner development</li>
+                            <li>Character development integrated with knowledge acquisition</li>
+                        </ul>
+                    </div>
+                    <div class="business-card">
+                        <h3>Growth Strategy</h3>
+                        <ul>
+                            <li>Expand from higher education to K-12 and enterprise</li>
+                            <li>Develop domain-specific knowledge graphs and content</li>
+                            <li>Continuous enhancement of dialogue and mentorship capabilities</li>
+                            <li>International expansion with localized content</li>
+                            <li>Strategic acquisitions of complementary technologies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="implementation" class="implementation-section">
+            <div class="section-container" data-aos="fade-up">
+                <h2>Implementation Strategy</h2>
+                <div class="implementation-content">
+                    <p class="section-description">Our phased implementation approach ensures steady progress and continual value delivery.</p>
+                    
+                    <div class="timeline" data-aos="fade-up">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>Phase 1: Foundation (Months 1-3)</h3>
+                                <ul>
+                                    <li>Core system architecture design</li>
+                                    <li>Knowledge graph extensions</li>
+                                    <li>Basic dialogue system integration</li>
+                                    <li>Initial mentor service framework</li>
+                                    <li>Integration with existing platform services</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>Phase 2: Knowledge Integration (Months 4-6)</h3>
+                                <ul>
+                                    <li>Expanded philosophical concept ontology</li>
+                                    <li>Enhanced relationship mapping</li>
+                                    <li>Dialectic pattern templates</li>
+                                    <li>Knowledge visualization tools</li>
+                                    <li>Content template enrichment</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>Phase 3: Dialogue Systems (Months 6-9)</h3>
+                                <ul>
+                                    <li>Advanced Socratic dialogue patterns</li>
+                                    <li>Adaptive questioning frameworks</li>
+                                    <li>Dialectical response analysis</li>
+                                    <li>Conversation visualization</li>
+                                    <li>Philosophical argument mapping</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>Phase 4: Mentor AI (Months 9-12)</h3>
+                                <ul>
+                                    <li>Personalized mentor profiles</li>
+                                    <li>Intervention strategy framework</li>
+                                    <li>Learning analytics integration</li>
+                                    <li>Virtue development frameworks</li>
+                                    <li>Progress visualization tools</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>Phase 5: Full Integration (Months 12-15)</h3>
+                                <ul>
+                                    <li>Complete system integration</li>
+                                    <li>Performance optimization</li>
+                                    <li>User experience refinement</li>
+                                    <li>Advanced analytics</li>
+                                    <li>Expanded content library</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech-stack" class="tech-stack-section">
+            <div class="section-container" data-aos="fade-up">
+                <h2>Technology Stack</h2>
+                <div class="tech-stack-grid">
+                    <div class="tech-card" data-aos="flip-left" data-aos-delay="100">
+                        <h3>Core System</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>FastAPI</li>
+                            <li>Redis</li>
+                            <li>PostgreSQL</li>
+                            <li>RabbitMQ</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card" data-aos="flip-left" data-aos-delay="200">
+                        <h3>Knowledge Graph</h3>
+                        <ul>
+                            <li>Neo4j</li>
+                            <li>Qdrant</li>
+                            <li>GraphQL</li>
+                            <li>Python</li>
+                            <li>Vector Embeddings</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card" data-aos="flip-left" data-aos-delay="300">
+                        <h3>Dialogue System</h3>
+                        <ul>
+                            <li>LLM Integration</li>
+                            <li>LangChain</li>
+                            <li>Custom Prompt Engineering</li>
+                            <li>RAG Architecture</li>
+                            <li>State Management</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card" data-aos="flip-left" data-aos-delay="400">
+                        <h3>Content Engine</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>Jinja Templates</li>
+                            <li>MongoDB</li>
+                            <li>FastAPI</li>
+                            <li>Media Generation APIs</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card" data-aos="flip-left" data-aos-delay="500">
+                        <h3>Mentor Service</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>PyTorch</li>
+                            <li>FastAPI</li>
+                            <li>PostgreSQL</li>
+                            <li>Analytics Dashboard</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card" data-aos="flip-left" data-aos-delay="600">
+                        <h3>Infrastructure</h3>
+                        <ul>
+                            <li>Docker</li>
+                            <li>Kubernetes</li>
+                            <li>CI/CD Pipelines</li>
+                            <li>Prometheus</li>
+                            <li>Grafana</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="technical-docs" class="technical-docs-section">
+            <div class="section-container" data-aos="fade-up">
+                <h2>Technical Documentation</h2>
+                <p class="section-description">The Lyceum system integrates with the existing Goliath Educational Platform, which consists of several microservices working together to create a comprehensive educational experience.</p>
+                
+                <div class="platform-components">
+                    <div class="component-diagram" id="platform-diagram">
+                        <!-- Mermaid diagram will be inserted here -->
+                    </div>
+                    
+                    <div class="component-details">
+                        <div class="component-detail" data-aos="fade-up">
+                            <div class="component-icon"><img src="static/images/ptolemy_icon.svg" alt="Ptolemy" onerror="this.src='static/images/lyceum_logo_20250305214107_0.png'; this.style.width='40px'"></div>
+                            <div class="component-content">
+                                <h3>Ptolemy: Knowledge Mapping Service</h3>
+                                <p>Manages educational concepts and their relationships, creating a comprehensive knowledge graph.</p>
+                                <ul>
+                                    <li><strong>Technologies:</strong> Neo4j, Qdrant, GraphQL, Vector Embeddings</li>
+                                    <li><strong>Status:</strong> Implemented, with ongoing data consistency testing</li>
+                                    <li><strong>Integration:</strong> Provides knowledge structure for content generation and learning paths</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="component-detail" data-aos="fade-up">
+                            <div class="component-icon"><img src="static/images/gutenberg_icon.svg" alt="Gutenberg" onerror="this.src='static/images/lyceum_logo_20250305214107_0.png'; this.style.width='40px'"></div>
+                            <div class="component-content">
+                                <h3>Gutenberg: Content Generation Service</h3>
+                                <p>Creates adaptive educational materials based on concepts in the knowledge graph.</p>
+                                <ul>
+                                    <li><strong>Technologies:</strong> FastAPI, MongoDB, RAG (Retrieval-Augmented Generation)</li>
+                                    <li><strong>Status:</strong> Implemented, with ongoing enhancements</li>
+                                    <li><strong>Integration:</strong> Generates content for learner interactions and learning paths</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="component-detail" data-aos="fade-up">
+                            <div class="component-icon"><img src="static/images/socrates_icon.svg" alt="Socrates" onerror="this.src='static/images/lyceum_logo_20250305214107_0.png'; this.style.width='40px'"></div>
+                            <div class="component-content">
+                                <h3>Socrates: Learner Interaction System</h3>
+                                <p>Provides conversational interfaces and dialogue-based learning experiences.</p>
+                                <ul>
+                                    <li><strong>Technologies:</strong> Streamlit, LLM-powered dialogue, Conversation templates</li>
+                                    <li><strong>Status:</strong> Implemented, with RAG demo available</li>
+                                    <li><strong>Integration:</strong> Uses knowledge and content for meaningful learning dialogues</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="component-detail" data-aos="fade-up">
+                            <div class="component-icon"><img src="static/images/galileo_icon.svg" alt="Galileo" onerror="this.src='static/images/lyceum_logo_20250305214107_0.png'; this.style.width='40px'"></div>
+                            <div class="component-content">
+                                <h3>Galileo: Learning Path Recommendation</h3>
+                                <p>Creates personalized learning journeys based on concept relationships and learner needs.</p>
+                                <ul>
+                                    <li><strong>Technologies:</strong> Graph Neural Networks (GNN), PyTorch, FastAPI</li>
+                                    <li><strong>Status:</strong> In development, with ML models being trained</li>
+                                    <li><strong>Integration:</strong> Guides learner progression through optimized learning paths</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="component-detail" data-aos="fade-up">
+                            <div class="component-icon"><img src="static/images/lyceum_icon.svg" alt="Lyceum" onerror="this.src='static/images/lyceum_logo_20250305214107_0.png'; this.style.width='40px'"></div>
+                            <div class="component-content">
+                                <h3>Lyceum: Educational Experience Layer</h3>
+                                <p>Brings together all components into a cohesive, philosophically-grounded learning experience.</p>
+                                <ul>
+                                    <li><strong>Technologies:</strong> AI-powered media generation, Dynamic web interfaces</li>
+                                    <li><strong>Status:</strong> Under active development, with core design implemented</li>
+                                    <li><strong>Integration:</strong> Orchestrates all services to create transformative education</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="documentation-links" data-aos="fade-up">
+                    <h3>Additional Documentation</h3>
+                    <div class="doc-links-grid">
+                        <a href="https://github.com/your-org/plato/blob/main/ARCHITECTURE.md" class="doc-link" target="_blank">
+                            <div class="doc-icon">📐</div>
+                            <div class="doc-info">
+                                <h4>Architecture</h4>
+                                <p>System architecture and component design</p>
+                            </div>
+                        </a>
+                        <a href="https://github.com/your-org/plato/blob/main/API_DOCUMENTATION.md" class="doc-link" target="_blank">
+                            <div class="doc-icon">🔌</div>
+                            <div class="doc-info">
+                                <h4>API Documentation</h4>
+                                <p>Service endpoints and integration points</p>
+                            </div>
+                        </a>
+                        <a href="https://github.com/your-org/plato/blob/main/DEVELOPMENT_GUIDE.md" class="doc-link" target="_blank">
+                            <div class="doc-icon">💻</div>
+                            <div class="doc-info">
+                                <h4>Development Guide</h4>
+                                <p>Guidelines for contributing to the project</p>
+                            </div>
+                        </a>
+                        <a href="https://github.com/your-org/plato/blob/main/SYSTEM_DESIGN.md" class="doc-link" target="_blank">
+                            <div class="doc-icon">🧩</div>
+                            <div class="doc-info">
+                                <h4>System Design</h4>
+                                <p>Detailed design of the Lyceum system</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="section-container" data-aos="fade-up">
+                <h2>Begin Your Journey</h2>
+                <p class="contact-text">Ready to explore the transformative potential of Lyceum for your organization or institution?</p>
+                <a href="#" class="cta-button">Contact Us</a>
+                <div class="contact-info">
+                    <p>contact@lyceum.ai</p>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="static/images/lyceum_logo_20250305214107_0.png" alt="Lyceum" height="60">
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">System Design</a></li>
+                        <li><a href="#">Implementation Plan</a></li>
+                        <li><a href="#">Knowledge Base</a></li>
+                        <li><a href="#">Research</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lyceum Educational Systems, Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS animations
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Mobile navigation toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('.nav');
+            
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    nav.classList.toggle('open');
+                    this.setAttribute('aria-expanded', 
+                        this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+                    );
+                });
+            }
+            
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 10) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Add active class to current nav item based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 180)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                    if (navLink.getAttribute('href').substring(1) === current) {
+                        navLink.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

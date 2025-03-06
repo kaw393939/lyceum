@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - Get in Touch with Lyceum{% endblock %}
+
+{% block body_class %}contact-page{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+    <div class="section-container">
+        <div class="page-header">
+            <h1>Contact Us</h1>
+            <p class="subtitle">Begin Your Lyceum Journey</p>
+        </div>
+        
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="contact-intro">
+                    <p class="lead-paragraph">We're excited to explore how Lyceum can transform learning in your organization. Reach out to discuss your specific needs or to schedule a personalized demonstration.</p>
+                    
+                    <div class="audio-player" id="contact-player" data-section="contact">
+                        <div class="audio-player-header">
+                            <button class="play-button">
+                                <span class="play-icon">▶</span>
+                                <span class="button-text">Listen to Welcome</span>
+                            </button>
+                            <select class="voice-selector">
+                                <option value="shimmer">Shimmer (Default)</option>
+                                <option value="alloy">Alloy</option>
+                                <option value="echo">Echo</option>
+                                <option value="fable">Fable</option>
+                            </select>
+                        </div>
+                        <div class="audio-visualization"></div>
+                        <audio preload="none" style="display:none;">
+                            <source src="/static/audio/lyceum_contact_shimmer_latest.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-playback-info">
+                            <span class="current-voice">Shimmer voice</span>
+                            <span class="playback-time"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="organization">Organization</label>
+                                <input type="text" id="organization" name="organization">
+                            </div>
+                            <div class="form-group">
+                                <label for="role">Your Role</label>
+                                <input type="text" id="role" name="role">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="consent-group">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">I consent to Lyceum collecting and storing the information I have provided above in order to respond to my inquiry. See our <a href="/privacy">Privacy Policy</a> for details.</label>
+                        </div>
+                        
+                        <button type="submit" class="primary-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Contact Information</h3>
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <div class="info-icon">✉️</div>
+                            <div class="info-content">
+                                <h4>Email</h4>
+                                <p>info@lyceum-education.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">📱</div>
+                            <div class="info-content">
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-content">
+                                <h4>Address</h4>
+                                <p>123 Learning Avenue<br>
+                                Knowledge City, CA 94043<br>
+                                United States</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                    <p>Saturday: 10:00 AM - 2:00 PM EST</p>
+                    <p>Sunday: Closed</p>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://twitter.com/lyceumlearning" class="social-link">Twitter</a>
+                        <a href="https://linkedin.com/company/lyceum-edu" class="social-link">LinkedIn</a>
+                        <a href="https://github.com/lyceum-edu" class="social-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("Contact page initialized");
+    
+    // Initialize form handling
+    const form = document.getElementById('contact-form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const formData = new FormData(form);
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            // Change button text to show loading
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(function() {
+                // Successful submission
+                form.innerHTML = `
+                    <div class="success-message">
+                        <div class="success-icon">✓</div>
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for reaching out to us. Our team will get back to you within 24-48 hours.</p>
+                    </div>
+                `;
+            }, 1500);
+        });
+    }
+});
+</script>
+{% endblock %}

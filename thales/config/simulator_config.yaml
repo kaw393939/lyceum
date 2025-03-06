@@ -1,0 +1,45 @@
+# Service Simulator Configuration
+
+ptolemy:
+  base_url: "http://localhost:8001"
+  endpoints:
+    - path: "/concept/{concept_id}"
+      method: "GET"
+      response_template:
+        id: "{concept_id}"
+        name: "Concept {concept_id}"
+        description: "Description for concept {concept_id}"
+        relationships:
+          - target_id: "related_concept_1"
+            type: "RELATED"
+            weight: 0.8
+          - target_id: "prerequisite_concept_1"
+            type: "PREREQUISITE"
+            weight: 0.9
+    
+    - path: "/concepts/search"
+      method: "POST"
+      response_template:
+        results:
+          - id: "search_result_1"
+            name: "Search Result 1"
+            relevance: 0.95
+          - id: "search_result_2"
+            name: "Search Result 2"
+            relevance: 0.85
+          - id: "search_result_3"
+            name: "Search Result 3"
+            relevance: 0.75
+
+gutenberg:
+  base_url: "http://localhost:8002"
+  endpoints:
+    - path: "/api/content/generate"
+      method: "POST"
+      response_template:
+        content_id: "generated_content_{request.concept_id}"
+        title: "Generated Content for {request.concept_id}"
+        content: "This is the generated content for concept {request.concept_id} in {request.format} format."
+        format: "{request.format}"
+        concept_id: "{request.concept_id}"
+        created_at: "{timestamp}"

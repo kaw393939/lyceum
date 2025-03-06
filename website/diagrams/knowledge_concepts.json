@@ -1,0 +1,327 @@
+
+{
+  "concepts": [
+    {
+      "id": "dialectic",
+      "name": "Dialectic",
+      "category": "philosophical_method",
+      "description": "A method of philosophical argument that involves the exchange of logical arguments and counter-arguments, with the aim of resolving contradictions to reach closer approximations of truth.",
+      "attributes": {
+        "origin": "Ancient Greek",
+        "key_figures": ["Socrates", "Plato", "Aristotle", "Hegel", "Marx"],
+        "related_disciplines": ["Logic", "Epistemology", "Rhetoric"]
+      },
+      "relationships": [
+        {
+          "type": "INCLUDES",
+          "target_id": "socratic_method",
+          "attributes": {
+            "strength": 0.9,
+            "description": "The Socratic method is a form of dialectic"
+          }
+        },
+        {
+          "type": "RELATES_TO",
+          "target_id": "logic",
+          "attributes": {
+            "strength": 0.8,
+            "description": "Dialectic relies on logical principles"
+          }
+        },
+        {
+          "type": "CONTRASTS_WITH",
+          "target_id": "dogmatism",
+          "attributes": {
+            "strength": 0.7,
+            "description": "Dialectic approaches stand in contrast to dogmatic ones"
+          }
+        }
+      ]
+    },
+    {
+      "id": "socratic_method",
+      "name": "Socratic Method",
+      "category": "dialogue_technique",
+      "description": "A form of cooperative argumentative dialogue between individuals, based on asking and answering questions to stimulate critical thinking and draw out ideas and underlying assumptions.",
+      "attributes": {
+        "origin": "Ancient Greece",
+        "key_figures": ["Socrates", "Plato"],
+        "also_known_as": ["Elenchus", "Socratic questioning", "Maieutic method"]
+      },
+      "relationships": [
+        {
+          "type": "PART_OF",
+          "target_id": "dialectic",
+          "attributes": {
+            "strength": 0.9,
+            "description": "The Socratic method is a specific form of dialectic"
+          }
+        },
+        {
+          "type": "PREREQUISITE_FOR",
+          "target_id": "critical_thinking",
+          "attributes": {
+            "strength": 0.8,
+            "description": "The Socratic method helps develop critical thinking"
+          }
+        }
+      ]
+    },
+    {
+      "id": "virtue_ethics",
+      "name": "Virtue Ethics",
+      "category": "ethical_theory",
+      "description": "An approach to ethics that emphasizes the virtues, or moral character, in contrast to theories that emphasize duties, rules, or the consequences of actions.",
+      "attributes": {
+        "origin": "Ancient Greece",
+        "key_figures": ["Aristotle", "Plato", "Thomas Aquinas", "Alasdair MacIntyre"],
+        "key_virtues": ["Wisdom", "Courage", "Temperance", "Justice"]
+      },
+      "relationships": [
+        {
+          "type": "CONTRASTS_WITH",
+          "target_id": "deontology",
+          "attributes": {
+            "strength": 0.7,
+            "description": "Virtue ethics focuses on character rather than rules"
+          }
+        },
+        {
+          "type": "CONTRASTS_WITH",
+          "target_id": "consequentialism",
+          "attributes": {
+            "strength": 0.7,
+            "description": "Virtue ethics focuses on character rather than outcomes"
+          }
+        },
+        {
+          "type": "RELATES_TO",
+          "target_id": "eudaimonia",
+          "attributes": {
+            "strength": 0.9,
+            "description": "Virtue ethics aims at eudaimonia (flourishing)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eudaimonia",
+      "name": "Eudaimonia",
+      "category": "philosophical_concept",
+      "description": "A Greek term usually translated as happiness, welfare, or flourishing, referring to the highest human good and the aim of practical philosophy, including ethics and political philosophy.",
+      "attributes": {
+        "origin": "Ancient Greece",
+        "key_figures": ["Aristotle", "Epicurus", "Stoics"],
+        "translations": ["Happiness", "Flourishing", "Well-being", "Human good"]
+      },
+      "relationships": [
+        {
+          "type": "GOAL_OF",
+          "target_id": "virtue_ethics",
+          "attributes": {
+            "strength": 0.9,
+            "description": "Eudaimonia is the goal of virtue ethics"
+          }
+        },
+        {
+          "type": "RELATES_TO",
+          "target_id": "arete",
+          "attributes": {
+            "strength": 0.8,
+            "description": "Eudaimonia is achieved through arete (excellence/virtue)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "arete",
+      "name": "Arete",
+      "category": "philosophical_concept",
+      "description": "A Greek term referring to excellence or virtue, particularly of the kind that is associated with fulfilling one's purpose or function well.",
+      "attributes": {
+        "origin": "Ancient Greece",
+        "key_figures": ["Homer", "Aristotle", "Plato"],
+        "translations": ["Excellence", "Virtue", "Goodness"]
+      },
+      "relationships": [
+        {
+          "type": "MEANS_TO",
+          "target_id": "eudaimonia",
+          "attributes": {
+            "strength": 0.8,
+            "description": "Arete is a means to achieving eudaimonia"
+          }
+        },
+        {
+          "type": "CENTRAL_TO",
+          "target_id": "virtue_ethics",
+          "attributes": {
+            "strength": 0.9,
+            "description": "Arete is central to virtue ethics"
+          }
+        }
+      ]
+    },
+    {
+      "id": "episteme",
+      "name": "Episteme",
+      "category": "knowledge_concept",
+      "description": "A Greek term for knowledge or understanding, particularly of a theoretical or abstract nature, contrasted with techne (craft knowledge) and phronesis (practical wisdom).",
+      "attributes": {
+        "origin": "Ancient Greece",
+        "key_figures": ["Plato", "Aristotle"],
+        "translations": ["Knowledge", "Understanding", "Science"]
+      },
+      "relationships": [
+        {
+          "type": "CONTRASTS_WITH",
+          "target_id": "doxa",
+          "attributes": {
+            "strength": 0.8,
+            "description": "Episteme (knowledge) contrasts with doxa (opinion)"
+          }
+        },
+        {
+          "type": "CONTRASTS_WITH",
+          "target_id": "techne",
+          "attributes": {
+            "strength": 0.6,
+            "description": "Episteme is theoretical knowledge versus technical knowledge"
+          }
+        },
+        {
+          "type": "CONTRASTS_WITH",
+          "target_id": "phronesis",
+          "attributes": {
+            "strength": 0.6,
+            "description": "Episteme is theoretical knowledge versus practical wisdom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "phronesis",
+      "name": "Phronesis",
+      "category": "knowledge_concept",
+      "description": "A Greek term for practical wisdom or prudence, the ability to know how to achieve the end goal of living well overall, acquired through experience and deliberation.",
+      "attributes": {
+        "origin": "Ancient Greece",
+        "key_figures": ["Aristotle"],
+        "translations": ["Practical wisdom", "Prudence", "Practical judgment"]
+      },
+      "relationships": [
+        {
+          "type": "CONTRASTS_WITH",
+          "target_id": "episteme",
+          "attributes": {
+            "strength": 0.6,
+            "description": "Phronesis is practical wisdom versus theoretical knowledge"
+          }
+        },
+        {
+          "type": "CENTRAL_TO",
+          "target_id": "virtue_ethics",
+          "attributes": {
+            "strength": 0.8,
+            "description": "Phronesis is central to virtue ethics"
+          }
+        },
+        {
+          "type": "ENABLES",
+          "target_id": "moral_decision_making",
+          "attributes": {
+            "strength": 0.9,
+            "description": "Phronesis enables good moral decision making"
+          }
+        }
+      ]
+    },
+    {
+      "id": "aporia",
+      "name": "Aporia",
+      "category": "philosophical_concept",
+      "description": "A Greek term referring to a state of puzzlement or impasse, often deliberately induced in Socratic dialogue to expose contradictions in beliefs and to initiate deeper critical thinking.",
+      "attributes": {
+        "origin": "Ancient Greece",
+        "key_figures": ["Socrates", "Plato"],
+        "translations": ["Puzzlement", "Impasse", "Confusion", "Doubt"]
+      },
+      "relationships": [
+        {
+          "type": "PART_OF",
+          "target_id": "socratic_method",
+          "attributes": {
+            "strength": 0.9,
+            "description": "Aporia is a crucial stage in the Socratic method"
+          }
+        },
+        {
+          "type": "PRECEDES",
+          "target_id": "anamnesis",
+          "attributes": {
+            "strength": 0.7,
+            "description": "Aporia often precedes anamnesis (recollection) in Platonic dialogues"
+          }
+        }
+      ]
+    },
+    {
+      "id": "elenchus",
+      "name": "Elenchus",
+      "category": "dialogue_technique",
+      "description": "A Greek term for the central technique used in the Socratic method, involving a series of questions designed to test or refute a proposition or hypothesis.",
+      "attributes": {
+        "origin": "Ancient Greece",
+        "key_figures": ["Socrates", "Plato"],
+        "translations": ["Refutation", "Cross-examination", "Testing"]
+      },
+      "relationships": [
+        {
+          "type": "PART_OF",
+          "target_id": "socratic_method",
+          "attributes": {
+            "strength": 0.9,
+            "description": "Elenchus is the central technique of the Socratic method"
+          }
+        },
+        {
+          "type": "CAUSES",
+          "target_id": "aporia",
+          "attributes": {
+            "strength": 0.8,
+            "description": "Elenchus typically causes aporia (puzzlement)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dialectical_materialism",
+      "name": "Dialectical Materialism",
+      "category": "philosophical_method",
+      "description": "A philosophical approach developed by Karl Marx and Friedrich Engels that applies dialectic methods to understand material conditions and social change.",
+      "attributes": {
+        "origin": "19th Century Germany",
+        "key_figures": ["Karl Marx", "Friedrich Engels"],
+        "influences": ["Hegel", "Feuerbach", "Classical Political Economy"]
+      },
+      "relationships": [
+        {
+          "type": "DERIVES_FROM",
+          "target_id": "dialectic",
+          "attributes": {
+            "strength": 0.8,
+            "description": "Dialectical materialism derives from dialectic"
+          }
+        },
+        {
+          "type": "FOUNDATION_OF",
+          "target_id": "marxism",
+          "attributes": {
+            "strength": 0.9,
+            "description": "Dialectical materialism is a foundation of Marxism"
+          }
+        }
+      ]
+    }
+  ]
+}

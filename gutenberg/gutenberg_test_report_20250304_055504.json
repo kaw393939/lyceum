@@ -1,0 +1,328 @@
+{
+  "timestamp": "2025-03-04T05:55:04.200340",
+  "test_duration_seconds": 169.638301,
+  "summary": {
+    "total_tests": 29,
+    "pass": 23,
+    "fail": 3,
+    "warnings": 0,
+    "info": 3,
+    "success_rate": 88.46153846153845
+  },
+  "issues": [
+    {
+      "test": "Vector Store Connection",
+      "message": "Failed to connect to vector store"
+    },
+    {
+      "test": "Vector Storage",
+      "message": "Failed to store vector embedding"
+    },
+    {
+      "test": "Vector Search",
+      "message": "Search returned no results"
+    }
+  ],
+  "warnings": [],
+  "recommendations": [
+    "Check vector store configuration and ensure the service is running",
+    "Check vector store write permissions",
+    "Check vector search functionality",
+    "Frequent error 'Unknown Error' occurred 78 times.",
+    "Frequent error '' occurred 9 times."
+  ],
+  "test_results": [
+    {
+      "section": "System Connection Tests",
+      "timestamp": "2025-03-04T05:52:14.567845"
+    },
+    {
+      "test": "MongoDB Connection",
+      "result": "\u2705 PASS",
+      "message": "Connected to MongoDB",
+      "timestamp": "2025-03-04T05:52:14.568161",
+      "recommendation": "Check MongoDB configuration and ensure the service is running"
+    },
+    {
+      "test": "Vector Store Connection",
+      "result": "\u274c FAIL",
+      "message": "Failed to connect to vector store",
+      "timestamp": "2025-03-04T05:52:34.814367",
+      "recommendation": "Check vector store configuration and ensure the service is running"
+    },
+    {
+      "test": "LLM Service Connection",
+      "result": "\u2705 PASS",
+      "message": "Connected to LLM service",
+      "timestamp": "2025-03-04T05:52:39.966416",
+      "recommendation": "Check LLM service API keys and configuration"
+    },
+    {
+      "section": "Ptolemy Client Tests",
+      "timestamp": "2025-03-04T05:52:39.968772"
+    },
+    {
+      "test": "Get Concept",
+      "result": "\u2705 PASS",
+      "message": "Retrieved concept: stoicism",
+      "timestamp": "2025-03-04T05:52:40.069343",
+      "recommendation": "Check Ptolemy connection and ensure concept exists"
+    },
+    {
+      "test": "Concept Data Structure",
+      "result": "\u2705 PASS",
+      "message": "Concept has valid structure",
+      "timestamp": "2025-03-04T05:52:40.069396",
+      "recommendation": "Review Ptolemy concept schema"
+    },
+    {
+      "test": "Get Concept Relationships",
+      "result": "\u2705 PASS",
+      "message": "Retrieved 5 relationships",
+      "timestamp": "2025-03-04T05:52:40.169932",
+      "recommendation": "Check Ptolemy relationship data"
+    },
+    {
+      "test": "Get Concept Graph",
+      "result": "\u2705 PASS",
+      "message": "Retrieved graph with 6 nodes and 5 edges",
+      "timestamp": "2025-03-04T05:52:40.470538",
+      "recommendation": "Check Ptolemy graph functionality"
+    },
+    {
+      "test": "Get Learning Path",
+      "result": "\u2705 PASS",
+      "message": "Retrieved learning path: stoicism_intro",
+      "timestamp": "2025-03-04T05:52:40.571428",
+      "recommendation": "Check Ptolemy learning path data"
+    },
+    {
+      "section": "MongoDB Service Tests",
+      "timestamp": "2025-03-04T05:52:40.571579"
+    },
+    {
+      "test": "Create Content",
+      "result": "\u2705 PASS",
+      "message": "Created content with ID: test_2259cd0b-1819-4d0a-96ec-e48696f8a9e9",
+      "timestamp": "2025-03-04T05:52:40.572696",
+      "recommendation": "Check MongoDB write permissions"
+    },
+    {
+      "test": "Retrieve Content",
+      "result": "\u2705 PASS",
+      "message": "Retrieved content matches original",
+      "timestamp": "2025-03-04T05:52:40.572834",
+      "recommendation": "Check MongoDB read consistency"
+    },
+    {
+      "test": "Update Content",
+      "result": "\u2705 PASS",
+      "message": "Updated content successfully",
+      "timestamp": "2025-03-04T05:52:40.573086",
+      "recommendation": "Check MongoDB update functionality"
+    },
+    {
+      "test": "Delete Content",
+      "result": "\u2139\ufe0f INFO",
+      "message": "Deleted content successfully",
+      "timestamp": "2025-03-04T05:52:40.573267",
+      "recommendation": null
+    },
+    {
+      "test": "Create Template",
+      "result": "\u2705 PASS",
+      "message": "Created template with ID: test_template_e1b72a28-cd0e-4797-95d5-f16d53766db9",
+      "timestamp": "2025-03-04T05:52:40.573540",
+      "recommendation": "Check MongoDB template collection configuration"
+    },
+    {
+      "test": "Retrieve Template",
+      "result": "\u2705 PASS",
+      "message": "Retrieved template matches original",
+      "timestamp": "2025-03-04T05:52:40.573672",
+      "recommendation": "Check MongoDB template retrieval functionality"
+    },
+    {
+      "test": "List Templates",
+      "result": "\u2139\ufe0f INFO",
+      "message": "Listed 2 templates",
+      "timestamp": "2025-03-04T05:52:40.573798",
+      "recommendation": null
+    },
+    {
+      "section": "LLM Service Tests",
+      "timestamp": "2025-03-04T05:52:40.574044"
+    },
+    {
+      "test": "LLM Text Generation",
+      "result": "\u2705 PASS",
+      "message": "Generated content of length 718",
+      "timestamp": "2025-03-04T05:52:42.378166",
+      "recommendation": "Check LLM service API key and rate limits"
+    },
+    {
+      "test": "LLM Content Relevance",
+      "result": "\u2705 PASS",
+      "message": "Generated content is relevant to the prompt",
+      "timestamp": "2025-03-04T05:52:42.378202",
+      "recommendation": null
+    },
+    {
+      "section": "Vector Store Tests",
+      "timestamp": "2025-03-04T05:52:42.378240"
+    },
+    {
+      "test": "Vector Embedding Generation",
+      "result": "\u2705 PASS",
+      "message": "Generated embedding of dimension 1536",
+      "timestamp": "2025-03-04T05:53:09.197615",
+      "recommendation": "Check vector store and embedding model configuration"
+    },
+    {
+      "test": "Vector Storage",
+      "result": "\u274c FAIL",
+      "message": "Failed to store vector embedding",
+      "timestamp": "2025-03-04T05:53:19.201532",
+      "recommendation": "Check vector store write permissions"
+    },
+    {
+      "test": "Vector Search",
+      "result": "\u274c FAIL",
+      "message": "Search returned no results",
+      "timestamp": "2025-03-04T05:53:19.201685",
+      "recommendation": "Check vector search functionality"
+    },
+    {
+      "section": "Template Engine Tests",
+      "timestamp": "2025-03-04T05:53:19.201780"
+    },
+    {
+      "test": "Template Processing",
+      "result": "\u2705 PASS",
+      "message": "Processed template with 18158 characters",
+      "timestamp": "2025-03-04T05:53:44.645089",
+      "recommendation": "Check template engine configuration and template structure"
+    },
+    {
+      "test": "Variable Substitution",
+      "result": "\u2705 PASS",
+      "message": "Template variables were substituted correctly",
+      "timestamp": "2025-03-04T05:53:44.645140",
+      "recommendation": null
+    },
+    {
+      "section": "RAG Processor Tests",
+      "timestamp": "2025-03-04T05:53:44.645240"
+    },
+    {
+      "test": "RAG Query Processing",
+      "result": "\u2705 PASS",
+      "message": "Processed RAG query with 1446 characters of response",
+      "timestamp": "2025-03-04T05:54:07.979095",
+      "recommendation": "Check RAG processor, LLM service, and vector store configuration"
+    },
+    {
+      "test": "RAG Retrieval",
+      "result": "\u2705 PASS",
+      "message": "RAG retrieved 5 results",
+      "timestamp": "2025-03-04T05:54:07.979127",
+      "recommendation": null
+    },
+    {
+      "test": "RAG Citations",
+      "result": "\u2139\ufe0f INFO",
+      "message": "RAG generated 5 citations",
+      "timestamp": "2025-03-04T05:54:07.979153",
+      "recommendation": null
+    },
+    {
+      "section": "Content Generator Tests",
+      "timestamp": "2025-03-04T05:54:07.979178"
+    },
+    {
+      "test": "Content Generation",
+      "result": "\u2705 PASS",
+      "message": "Generated content with ID 987f658d-a390-40bb-ac2e-940b51f9e423",
+      "timestamp": "2025-03-04T05:55:04.198077",
+      "recommendation": "Check content generator, template engine, and LLM service configuration"
+    },
+    {
+      "test": "Content Structure",
+      "result": "\u2705 PASS",
+      "message": "Generated content has 9 sections",
+      "timestamp": "2025-03-04T05:55:04.198184",
+      "recommendation": null
+    },
+    {
+      "test": "Content Relevance",
+      "result": "\u2705 PASS",
+      "message": "Generated content references the requested concept",
+      "timestamp": "2025-03-04T05:55:04.198285",
+      "recommendation": null
+    },
+    {
+      "test": "Content Metadata",
+      "result": "\u2705 PASS",
+      "message": "Generated content has valid metadata",
+      "timestamp": "2025-03-04T05:55:04.198373",
+      "recommendation": null
+    }
+  ],
+  "test_data": {
+    "generated_content_ids": [
+      "987f658d-a390-40bb-ac2e-940b51f9e423",
+      "test_2259cd0b-1819-4d0a-96ec-e48696f8a9e9"
+    ],
+    "template_ids": [
+      "test_template_e1b72a28-cd0e-4797-95d5-f16d53766db9"
+    ],
+    "request_ids": []
+  },
+  "log_analysis": {
+    "analysis_time": "2025-03-04T05:55:04.207727",
+    "log_file": "gutenberg_tests.log",
+    "summary": {
+      "total_requests": 1,
+      "requests_with_errors": 0,
+      "requests_with_slow_ops": 0,
+      "error_rate": 0.0,
+      "slow_operation_rate": 0.0
+    },
+    "error_summary": {
+      "total_errors": 87,
+      "unique_error_types": 2,
+      "most_common_errors": [
+        {
+          "type": "Unknown Error",
+          "count": 78
+        },
+        {
+          "type": "",
+          "count": 9
+        }
+      ]
+    },
+    "performance_summary": {
+      "slow_operations_count": 0,
+      "slowest_operations": []
+    },
+    "api_summary": {
+      "total_api_calls": 28,
+      "unique_endpoints": 2,
+      "most_used_endpoints": [
+        {
+          "endpoint": "POST https",
+          "count": 27
+        },
+        {
+          "endpoint": "GET https",
+          "count": 1
+        }
+      ]
+    },
+    "recommendations": [
+      "Frequent error 'Unknown Error' occurred 78 times.",
+      "Frequent error '' occurred 9 times."
+    ]
+  }
+}

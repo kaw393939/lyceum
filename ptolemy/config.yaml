@@ -1,0 +1,288 @@
+neo4j:
+  uri: "bolt://neo4j:7687"
+  user: "neo4j"
+  password: "password"
+  database: "neo4j"
+  connection_timeout: 30
+  max_connection_lifetime: 3600
+  max_connection_pool_size: 50
+  connection_acquisition_timeout: 60
+
+qdrant:
+  url: "http://qdrant:6333"
+  collection_name: "concepts"
+  vector_size: 384
+  distance: "Cosine"
+  shard_number: 1
+  replication_factor: 1
+  write_consistency_factor: 1
+  on_disk_payload: true
+
+mongo:
+  uri: "mongodb://ptolemy_user:ptolemy_password@mongodb:27017/ptolemy"
+  database: "ptolemy"
+  concepts_collection: "concepts"
+  domains_collection: "domains"
+  relationships_collection: "relationships"
+  learning_paths_collection: "learning_paths"
+  analytics_collection: "analytics"
+  users_collection: "users"
+  activity_collection: "activity"
+  cache_collection: "cache"
+
+redis:
+  uri: "redis://redis:6379/0"
+  password: null
+  prefix: "ptolemy:"
+  ttl: 3600
+
+embeddings:
+  model_name: "all-MiniLM-L6-v2"
+  cache_dir: "./data/model_cache"
+  batch_size: 32
+  use_gpu: false
+  quantize: false
+  max_seq_length: 256
+  default_pooling: "mean"
+
+llm:
+  provider: "openai"
+  default_model: "gpt-4o-mini"
+  fallback_model: "gpt-3.5-turbo-1106"
+  temperature_analysis: 0.2
+  temperature_generation: 0.7
+  temperature_enrichment: 0.5
+  max_tokens_analysis: 2000
+  max_tokens_generation: 4000
+  max_tokens_enrichment: 1000
+  timeout: 60
+  retry_count: 3
+  retry_delay: 2
+  use_azure: false
+  azure_deployment_id: null
+  azure_api_version: "2023-05-15"
+  stream_responses: false
+  rate_limit_minute: 100
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins:
+    - "*"
+  api_prefix: "/api/v1"
+  docs_url: "/docs"
+  redoc_url: "/redoc"
+  debug: true
+  workers: 4
+  request_timeout: 60
+  enable_profiling: false
+  enable_metrics: true
+  rate_limit_enabled: true
+  rate_limit_requests: 100
+  rate_limit_period: 60
+  jwt_algorithm: "HS256"
+  jwt_expiration: 86400
+  require_auth: false
+
+logging:
+  level: "INFO"
+  file: "ptolemy.log"
+  console: true
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_api_requests: true
+  log_errors_only: false
+  enable_request_id: true
+  enable_structured_logging: false
+  max_file_size: 10485760
+  backup_count: 5
+
+prompts:
+  domain_analysis_prompt: |
+    Analyze the educational domain "{domain}" with this description: 
+    "{description}"
+    
+    {topics_text}
+    
+    Determine the appropriate number of distinct concepts that should be taught to provide:
+    1. Comprehensive coverage of the domain
+    2. Appropriate granularity
+    3. A logical learning progression
+    
+    Respond with a JSON object containing:
+    "recommended_concept_count": <integer>, "justification": "<brief explanation>", "suggested_model": "<gpt-3.5-turbo or gpt-4-turbo>"
+  concept_generation_prompt: |
+    Create a comprehensive knowledge graph with {num_concepts} concepts for teaching {domain}.
+    
+    Domain description: {description}
+    
+    {topics_text}
+    
+    Important guidelines:
+    1. Ensure concepts have appropriate granularity.
+    2. Cover both fundamental and advanced aspects.
+    3. Create a logical progression from basic to advanced.
+    4. Assign prerequisites to create a meaningful learning path.
+    5. Include both theoretical concepts and practical applications.
+    
+    Return a JSON object with an array "concepts". Each concept must have:
+    - id: a unique string
+    - name: a clear name
+    - description: a paragraph of 3-5 sentences covering definition, relevance, connections, and an example.
+    - difficulty: a number from 0.0 to 1.0
+    - complexity: a number from 0.0 to 1.0
+    - importance: a number from 0.0 to 1.0
+    - prerequisites: an array of concept IDs
+    - keywords: an array of relevant keywords
+    - estimated_learning_time_minutes: integer estimate of learning time
+    Ensure all JSON syntax is valid.
+  concept_enrichment_prompt: |
+    Enrich each concept description by adding:
+    1. A teaching approach suggestion (e.g., 'This concept can be effectively taught through hands-on exercises.')
+    2. Common misconceptions students might have
+    3. Real-world applications of the concept
+    4. Assessment strategies to check understanding
+    
+    Keep the original description and seamlessly integrate these additions.
+  relationship_generation_prompt: |
+    Analyze these educational concepts and create meaningful relationships between them:
+    
+    {concepts_text}
+    
+    Create relationships that establish a coherent knowledge structure with these types:
+    - prerequisite: Concept A must be understood before Concept B
+    - builds_on: Concept B extends or enhances Concept A
+    - related_to: Concepts share significant connections but neither is prerequisite
+    - part_of: Concept A is a component of the broader Concept B
+    - example_of: Concept A illustrates or instantiates Concept B
+    - contrasts_with: Concepts highlight differences or alternative approaches
+    
+    For each relationship, specify:
+    1. source_id: ID of the source concept
+    2. target_id: ID of the target concept
+    3. relationship_type: one of the types above
+    4. strength: number from 0.0 to 1.0 indicating relationship strength
+    5. description: brief explanation of the relationship
+    
+    Return a JSON object with an array "relationships" containing these relationships.
+    Ensure all relationships are pedagogically meaningful and create a coherent learning structure.
+  learning_path_prompt: |
+    Create an optimal learning path through these concepts for a {level} learner:
+    
+    {concepts_text}
+    
+    The learner's goal is: {goal}
+    
+    Create a sequence of concepts that:
+    1. Starts with appropriate foundational concepts
+    2. Respects prerequisite relationships
+    3. Builds complexity gradually
+    4. Reaches the goal efficiently
+    5. Includes only necessary concepts
+    
+    For each step in the path, specify:
+    1. concept_id: ID of the concept to learn
+    2. order: position in sequence (starting from 1)
+    3. estimated_time_minutes: time to spend on this concept
+    4. reason: brief explanation of why this concept is included at this point
+    5. learning_activities: suggested activities to master this concept
+    
+    Return a JSON object with "path" array containing these steps.
+    Ensure the path is coherent, properly sequenced, and achieves the learning goal.
+  consistency_check_prompt: |
+    Analyze this knowledge graph for consistency issues:
+    
+    Concepts:
+    {concepts_text}
+    
+    Relationships:
+    {relationships_text}
+    
+    Identify any of these problems:
+    1. Circular prerequisites (A requires B, B requires C, C requires A)
+    2. Contradictory relationships (A is prerequisite for B, but B is also prerequisite for A)
+    3. Missing prerequisites (concept requires knowledge not represented in prerequisites)
+    4. Isolated concepts (no incoming or outgoing relationships)
+    5. Inconsistent difficulty levels (prerequisites have higher difficulty than dependents)
+    6. Pedagogical sequencing issues (concepts that should be taught together are far apart)
+    
+    For each issue found, provide:
+    - issue_type: category of problem
+    - concepts_involved: IDs of relevant concepts
+    - description: detailed explanation of the issue
+    - recommendation: suggested fix
+    
+    Return a JSON object with an array "issues" containing these problems.
+    If no issues are found, return an empty array.
+  topic_extraction_prompt: |
+    From this educational domain description:
+    "{description}"
+    
+    Extract 8-12 key topics that form the core of this domain. For each topic:
+    1. Provide a clear, concise name
+    2. Give a brief (1-2 sentence) description
+    3. Explain why this topic is essential to the domain
+    4. Estimate its relative importance (high/medium/low)
+    
+    Ensure topics are:
+    - Distinct yet comprehensive of the domain
+    - At approximately the same level of granularity
+    - Ordered in a logical learning sequence
+    
+    Return as a JSON array of topic objects.
+  knowledge_gap_prompt: |
+    Analyze the current structure of our knowledge domain on {domain}:
+    
+    {existing_structure}
+    
+    Recent learner questions and interests suggest these areas require attention:
+    {learner_interests}
+    
+    Identify knowledge gaps in our current structure that should be addressed to better serve learners. For each gap:
+    1. Describe the missing concept, topic, or relationship
+    2. Explain why it's important based on learner interests
+    3. Specify where it fits in the existing structure
+    4. Suggest content or relationships that should be developed
+    
+    Return a JSON object with an array "gaps" containing these identified needs.
+    Focus on substantive gaps that represent meaningful learning opportunities.
+  default_concept_count: 15
+  max_concepts_gpt35: 25
+  max_concepts_general: 50
+  generation_temperature: 0.7
+  analysis_temperature: 0.2
+  enrichment_temperature: 0.5
+
+validation:
+  enable_automated_checks: true
+  consistency_check_interval: 86400
+  concept_relation_min_threshold: 1
+  max_orphaned_concepts: 10
+  validate_on_write: true
+  detect_cycles: true
+  detect_contradictions: true
+
+integration:
+  gutenberg_api_url: null
+  gutenberg_api_key: null
+  socrates_api_url: null
+  socrates_api_key: null
+  enable_webhooks: false
+  webhook_urls: {}
+  enable_event_streaming: false
+  event_streaming_url: null
+
+metrics:
+  enabled: true
+  prometheus_port: 9090
+  export_interval: 15
+  include_neo4j_metrics: true
+  include_mongo_metrics: true
+  include_qdrant_metrics: true
+  include_llm_metrics: true
+  include_api_metrics: true
+  labels:
+    service: "ptolemy"
+
+data_dir: "./data"
+environment: "development"
+version: "2.0.0"

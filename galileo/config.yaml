@@ -1,0 +1,32 @@
+knowledge_graph:
+  concepts_file: "data/concepts.json"
+  questions_file: "data/questions.json"
+  resources_file: "data/resources.json"
+  learners_file: "data/learners.json"
+  cache_dir: "data/cache"
+
+gnn:
+  model_type: "hetero_gat"  # Options: hetero_gat, hetero_sage, hetero_gcn
+  hidden_channels: 64
+  num_layers: 2
+  num_heads: 4
+  dropout: 0.2
+  learning_rate: 0.001
+
+achievements:
+  mastery_threshold: 0.75
+  points_multiplier: 1.0
+  difficulty_bonus: 0.5
+  streak_bonus: 0.2
+
+recommendation:
+  exploration_weight: 0.3
+  recency_decay: 0.9
+  diversity_factor: 0.2
+  personalization_weight: 0.7
+
+llm:
+  model: "gpt-3.5-turbo"
+  temperature: 0.7
+  max_tokens: 200
+  cache_responses: true

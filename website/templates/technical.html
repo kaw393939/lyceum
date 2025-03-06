@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block title %}Technical Architecture - How Lyceum Works{% endblock %}
+
+{% block body_class %}technical-page{% endblock %}
+
+{% block content %}
+<section class="technical-section">
+    <div class="section-container">
+        <div class="page-header">
+            <h1>Technical Architecture</h1>
+            <p class="subtitle">The Engineering Behind Transformative Learning</p>
+        </div>
+        
+        <div class="multimedia-content">
+            <img src="/static/images/lyceum_knowledge_latest.png" alt="Lyceum Technical Architecture" class="page-image" id="technical-hero-image">
+            <div class="image-caption">Comprehensive system architecture of the Lyceum platform</div>
+        </div>
+        
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="technical-intro">
+                    <p class="lead-paragraph">The Lyceum platform integrates sophisticated AI technologies with robust educational frameworks to create a transformative learning experience. Our architecture emphasizes reliability, scalability, and fluid interoperability between components.</p>
+                    
+                    <div class="audio-player" id="technical-player" data-section="technical">
+                        <div class="audio-player-header">
+                            <button class="play-button">
+                                <span class="play-icon">▶</span>
+                                <span class="button-text">Listen to Technical Overview</span>
+                            </button>
+                            <select class="voice-selector">
+                                <option value="echo">Echo (Default)</option>
+                                <option value="fable">Fable</option>
+                                <option value="alloy">Alloy</option>
+                                <option value="nova">Nova</option>
+                            </select>
+                        </div>
+                        <div class="audio-visualization"></div>
+                        <audio preload="none" style="display:none;">
+                            <source src="/static/audio/lyceum_technical_echo_latest.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-playback-info">
+                            <span class="current-voice">Echo voice</span>
+                            <span class="playback-time"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="technical-main">
+                    <h2>System Architecture</h2>
+                    <p>The Lyceum system integrates five primary components designed to work harmoniously while remaining independently scalable:</p>
+                    
+                    <div class="technical-diagram" id="technical-diagram">
+                        <!-- Mermaid diagram will be inserted here -->
+                    </div>
+                    
+                    <div class="component-grid">
+                        <div class="component-card">
+                            <div class="component-header">
+                                <div class="component-icon">🧠</div>
+                                <h3>Knowledge Graph Service</h3>
+                            </div>
+                            <p>Maps concepts, relationships, and learning pathways in a comprehensive knowledge network.</p>
+                            <ul class="component-features">
+                                <li>Neo4j graph database for concept relationships</li>
+                                <li>Qdrant vector store for semantic search</li>
+                                <li>Concept mapping algorithms</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="component-card">
+                            <div class="component-header">
+                                <div class="component-icon">💬</div>
+                                <h3>Dialogue Engine</h3>
+                            </div>
+                            <p>Facilitates Socratic discussions that promote critical thinking and knowledge discovery.</p>
+                            <ul class="component-features">
+                                <li>LLM-powered conversation models</li>
+                                <li>Socratic method templates</li>
+                                <li>Dialogue flow management</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="component-grid">
+                        <div class="component-card">
+                            <div class="component-header">
+                                <div class="component-icon">📚</div>
+                                <h3>Content Engine</h3>
+                            </div>
+                            <p>Generates and adapts educational content for various learning styles and knowledge levels.</p>
+                            <ul class="component-features">
+                                <li>Template-based content generation</li>
+                                <li>Multi-modal content adaptation</li>
+                                <li>RAG processes for accurate information</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="component-card">
+                            <div class="component-header">
+                                <div class="component-icon">👤</div>
+                                <h3>Mentor Service</h3>
+                            </div>
+                            <p>Provides personalized guidance and learning path recommendations.</p>
+                            <ul class="component-features">
+                                <li>Reinforcement learning for optimization</li>
+                                <li>Personalized mentorship models</li>
+                                <li>Progress tracking and analytics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h2>Technologies</h2>
+                    <p>Lyceum leverages state-of-the-art technologies for its core services:</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <h3>AI & Machine Learning</h3>
+                            <ul>
+                                <li>Large Language Models for dialogue and content</li>
+                                <li>Graph Neural Networks for knowledge representation</li>
+                                <li>Reinforcement Learning for learning path optimization</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <h3>Databases</h3>
+                            <ul>
+                                <li>Neo4j for graph-based knowledge representation</li>
+                                <li>MongoDB for content and user data</li>
+                                <li>Qdrant for vector embeddings and semantic search</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <h3>Infrastructure</h3>
+                            <ul>
+                                <li>Containerized microservices with Docker</li>
+                                <li>Kubernetes for orchestration</li>
+                                <li>Event-driven architecture for scalability</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <h3>System Principles</h3>
+                    <ul class="principles-list">
+                        <li><strong>Modularity</strong> — Components can scale independently</li>
+                        <li><strong>Resilience</strong> — Graceful degradation under failure</li>
+                        <li><strong>Extensibility</strong> — Easy integration with existing systems</li>
+                        <li><strong>Privacy</strong> — Data protection by design</li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Documentation</h3>
+                    <ul class="docs-list">
+                        <li><a href="/architecture">System Architecture</a></li>
+                        <li><a href="/api">API Documentation</a></li>
+                        <li><a href="/implementation">Implementation Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("Technical page initialized");
+    
+    // Initialize diagrams with mermaid.js if available
+    if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'neutral',
+            flowchart: { 
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis' 
+            }
+        });
+        
+        // Add architecture diagram
+        const diagram = document.getElementById('technical-diagram');
+        if (diagram) {
+            diagram.innerHTML = `
+                <div class="mermaid">
+                graph TB
+                    User[User] --> UI[Web UI / App]
+                    UI -->|API Requests| API[API Gateway]
+                    API --> KG[Knowledge Graph Service]
+                    API --> DE[Dialogue Engine]
+                    API --> CE[Content Engine]
+                    API --> MS[Mentor Service]
+                    
+                    KG -->|Knowledge Access| DE
+                    KG -->|Concept Structure| CE
+                    KG -->|Learning Paths| MS
+                    
+                    DE -->|Content Requirements| CE
+                    DE -->|Progress Data| MS
+                    
+                    subgraph Data Stores
+                        Neo4j[(Neo4j)]
+                        MongoDB[(MongoDB)]
+                        Qdrant[(Qdrant)]
+                    end
+                    
+                    KG --> Neo4j
+                    KG --> Qdrant
+                    CE --> MongoDB
+                    MS --> MongoDB
+                </div>
+            `;
+            
+            mermaid.init(undefined, diagram.querySelectorAll('.mermaid'));
+        }
+    }
+});
+</script>
+{% endblock %}

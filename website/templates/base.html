@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Lyceum - Transformative Educational Experience{% endblock %}</title>
+    <!-- CSS - Only using main.css now -->
+    <link rel="stylesheet" href="/static/css/main.css">
+    <!-- External libraries -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    {% block extra_head %}{% endblock %}
+
+    <!-- Hot reload script -->
+    <script>
+        // Check for changes every 2 seconds
+        const AUTO_REFRESH_INTERVAL = 2000;
+        let lastModified = new Date().getTime();
+        
+        // Create indicator element
+        document.addEventListener('DOMContentLoaded', function() {
+            const indicator = document.createElement('div');
+            indicator.className = 'hot-reload-indicator';
+            indicator.textContent = 'Page Updated';
+            document.body.appendChild(indicator);
+            
+            // Store the original favicon
+            const originalFavicon = document.querySelector('link[rel="icon"]')?.href || '';
+            
+            // Check for server changes
+            function checkForChanges() {
+                fetch(window.location.href, { method: 'HEAD' })
+                    .then(response => {
+                        const serverLastModified = response.headers.get('Last-Modified');
+                        if (serverLastModified) {
+                            const serverTime = new Date(serverLastModified).getTime();
+                            
+                            // If the server has a newer version, reload
+                            if (serverTime > lastModified) {
+                                console.log('Changes detected, reloading page...');
+                                lastModified = serverTime;
+                                
+                                // Show the indicator
+                                indicator.classList.add('visible');
+                                
+                                // Hide indicator after 3 seconds
+                                setTimeout(() => {
+                                    indicator.classList.remove('visible');
+                                }, 3000);
+                                
+                                // Reload page
+                                window.location.reload();
+                            }
+                        }
+                    })
+                    .catch(error => console.error('Error checking for changes:', error));
+            }
+            
+            // Start checking for changes
+            setInterval(checkForChanges, AUTO_REFRESH_INTERVAL);
+        });
+    </script>
+    
+
+    <!-- Multimedia content styles -->
+    <style>
+        .multimedia-content {
+            margin: 20px 0;
+            max-height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .page-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            transition: transform 0.3s ease;
+            object-fit: cover;
+            height: 100%;
+        }
+        
+        .page-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .image-caption {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            margin-top: 8px;
+        }
+        
+        .content-section {
+            margin: 30px 0;
+        }
+        
+        .content-section h2 {
+            color: #1a237e;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            background-color: rgba(26, 35, 126, 0.05);
+            border-left: 4px solid #1a237e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        blockquote {
+            background-color: rgba(218, 165, 32, 0.1);
+            border-left: 4px solid #daa520;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .two-column {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .two-column > div {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        /* Notification for hot reload */
+        .hot-reload-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(26, 35, 126, 0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.5s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .hot-reload-indicator.visible {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .two-column > div {
+                flex: 100%;
+            }
+        }
+    </style>
+    
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="/">
+                    <img src="/static/images/lyceum_logo_20250305214107_0.png" alt="Lyceum">
+                    <span class="logo-text">Lyceum</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/vision" class="nav-link">Vision</a></li>
+                    <li><a href="/team" class="nav-link">Team</a></li>
+                    <li><a href="/contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="/static/images/lyceum_logo_20250305214107_0.png" alt="Lyceum">
+                        <span class="footer-logo-text">Lyceum</span>
+                    </div>
+                    <p>Blending ancient wisdom with modern intelligence to create personalized learning journeys.</p>
+                    <div class="footer-social">
+                        <a href="https://twitter.com/lyceumlearning" class="social-icon" title="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/company/lyceum-edu" class="social-icon" title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/lyceum-edu" class="social-icon" title="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.841-2.337 4.687-4.565 4.935.359.309.678.92.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/>
+                            </svg>
+                        </a>
+                        <a href="https://youtube.com/lyceumchannel" class="social-icon" title="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="/vision">Vision</a></li>
+                            <li><a href="/architecture">Architecture</a></li>
+                            <li><a href="/technical">Technical</a></li>
+                            <li><a href="/agile">Agile</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/team">Our Team</a></li>
+                            <li><a href="/careers">Careers</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/multimedia">Multimedia</a></li>
+                            <li><a href="/business">Business</a></li>
+                            <li><a href="/knowledge">Knowledge Base</a></li>
+                            <li><a href="/documentation">Documentation</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="/terms">Terms of Service</a></li>
+                            <li><a href="/privacy">Privacy Policy</a></li>
+                            <li><a href="/cookies">Cookie Policy</a></li>
+                            <li><a href="/security">Security</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lyceum Educational Systems, Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Combined JS -->
+    <script src="/static/js/visualizer.js"></script>
+    <script src="/static/js/main.js"></script>
+    {% block extra_scripts %}{% endblock %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Mobile menu toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('.nav');
+            
+            if (navToggle && nav) {
+                navToggle.addEventListener('click', function() {
+                    navToggle.classList.toggle('active');
+                    nav.classList.toggle('open');
+                });
+            }
+            
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 10) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+            
+            // Add scroll to top button
+            const scrollTopBtn = document.createElement('button');
+            scrollTopBtn.classList.add('scroll-top');
+            scrollTopBtn.innerHTML = '&uarr;';
+            scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
+            document.body.appendChild(scrollTopBtn);
+            
+            // Show/hide scroll to top button
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+            
+            // Scroll to top on button click
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
