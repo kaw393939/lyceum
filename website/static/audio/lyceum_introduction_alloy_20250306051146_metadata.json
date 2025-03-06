@@ -1,8 +1,0 @@
-{
-  "timestamp": "20250306051146",
-  "section": "introduction",
-  "voice": "alloy",
-  "model": "tts-1-hd",
-  "script": "Welcome to Lyceum, a revolutionary approach to education that combines ancient philosophical wisdom with cutting-edge AI technology to create transformative learning experiences. Unlike conventional educational platforms, Lyceum employs a sophisticated multi-agent architecture powered by Graph Neural Networks (GNN), enabling personalized dialogue-based learning, historical character interactions, and financial incentives for educational achievement. Through our knowledge graph navigation, Socratic dialogue with historical figures, adaptive learning system, and Learn & Earn incentives, we create personalized educational journeys that adapt to your unique needs and abilities. Experience education reimagined\u2014where dialogue with historical figures, immersive simulations, and intelligent learning paths transform how we learn, understand, and grow.",
-  "file_path": "/home/kwilliams/projects/plato/lyceum/static/audio/lyceum_introduction_alloy_20250306051146.mp3"
-}

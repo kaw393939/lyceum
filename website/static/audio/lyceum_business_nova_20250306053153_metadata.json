@@ -1,8 +1,0 @@
-{
-  "timestamp": "20250306053153",
-  "section": "business",
-  "voice": "nova",
-  "model": "tts-1-hd",
-  "script": "Lyceum's architecture directly supports its business objectives through several key models: Our scalable pricing model leverages containerized microservices architecture for cost-effective deployment across different customer sizes, from individual users to educational institutions to enterprise learning environments. Our content marketplace is supported by modular storage architecture and content generation capabilities, enabling third-party content integration, creator tools, and revenue sharing models. Our API platform, powered by service mesh and gateway architecture, enables secure API access for developer integration, white-label solutions, and partner ecosystem expansion. And our Learn & Earn ecosystem, managed by the Hermes rewards agent, supports incentive-based business models including parental funding of educational achievements, enterprise learning rewards programs, and educational institution scholarship models. These business models are strengthened by our technical innovations including continuous learning that improves with usage, specialized agents with unified intelligence, intelligent resource allocation, extensible architecture, and a compounding data advantage through our knowledge graph structure.",
-  "file_path": "/home/kwilliams/projects/plato/lyceum/static/audio/lyceum_business_nova_20250306053153.mp3"
-}

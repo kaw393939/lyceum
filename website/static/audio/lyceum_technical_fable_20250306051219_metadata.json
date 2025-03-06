@@ -1,8 +1,0 @@
-{
-  "timestamp": "20250306051219",
-  "section": "technical",
-  "voice": "fable",
-  "model": "tts-1-hd",
-  "script": "Lyceum's transformative educational experiences are powered by a sophisticated technical architecture that combines modern AI techniques with robust distributed systems. At the core is our multi-agent system with specialized AI agents: Socrates manages conversations, Ptolemy maintains concept relationships, Gutenberg generates personalized materials, Galileo analyzes learning patterns, Alexandria interfaces with language models, Aristotle evaluates learning, Hypatia embodies historical figures, and Hermes manages incentive systems. Our intelligent core combines Galileo's Graph Neural Network with Kafka event streaming to create a distributed intelligence that learns from system interactions. For storage, we use specialized systems: Neo4j for knowledge relationships, Qdrant for semantic search, MinIO for educational content, and PostgreSQL for structured data. The entire infrastructure is defined as code and managed through Terraform, Kubernetes, Linkerd, and Airflow, with comprehensive monitoring through Prometheus, Grafana, Jaeger, and the ELK Stack. This architecture enables continuous learning, event-sourced interaction tracking, and knowledge graph-based exploration that gets smarter with every student interaction.",
-  "file_path": "/home/kwilliams/projects/plato/lyceum/static/audio/lyceum_technical_fable_20250306051219.mp3"
-}

@@ -1,13 +1,13 @@
 services:
   # Lyceum Design and Visualization System
-  lyceum:
+  theo:
     build:
-      context: ./lyceum
+      context: ./theo
       dockerfile: Dockerfile
     ports:
-      - "8080:8000"  # Map to a different port to avoid conflicts
+      - "8080:8081"  # Map to a different port to avoid conflicts
     volumes:
-      - ./lyceum:/app  # Mount whole directory for development
+      - ./theo:/app  # Mount whole directory for development
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY:-}
       - PYTHONUNBUFFERED=1

@@ -24,4 +24,4 @@ exec watchmedo auto-restart \
     --pattern="*.py;*.html;*.css;*.js" \
     --recursive \
     --kill-after=${WATCHDOG_TIMEOUT:-5} \
-    -- python serve.py --host=0.0.0.0 --port=8080
+    -- python serve.py --host=0.0.0.0 --port=8081

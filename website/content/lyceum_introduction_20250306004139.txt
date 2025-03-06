@@ -1,7 +1,0 @@
-Welcome to Lyceum, a revolutionary educational experience that combines the wisdom of ancient learning traditions with the possibilities of modern AI.
-    
-    Like Aristotle's original Lyceum, we foster learning through dialogue, questioning, and the discovery of interconnected knowledge. Our platform enhances these timeless approaches with advanced AI that adapts to your unique learning journey.
-    
-    Through our knowledge graph, dialogue system, content engine, and mentor service, we create personalized paths that guide you to deeper understanding and mastery. 
-    
-    Experience education reimagined—where ancient philosophy meets cutting-edge technology to transform how we learn.
